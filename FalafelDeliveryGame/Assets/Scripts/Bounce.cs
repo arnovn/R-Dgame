@@ -20,7 +20,7 @@ public class Bounce : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
         {
-            Debug.Log("Collision happended");
+            //Debug.Log("Collision happended");
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*600f);
         }
     }
