@@ -21,4 +21,9 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    public void StartSplitscreen()
+    {
+        SceneManager.LoadScene("SplitScene");
+    }
 }
