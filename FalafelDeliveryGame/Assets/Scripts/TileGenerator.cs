@@ -42,6 +42,12 @@ public class TileGenerator : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GenerateNewPlatform(collision);
+        
+    }
+
+    private void GenerateNewPlatform(Collider2D collision)
+    {
         //When we collide with normal platform:
         if (collision.gameObject.name.StartsWith("Platform"))
         {
@@ -53,7 +59,7 @@ public class TileGenerator : MonoBehaviour
             }
             else
             {
-                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra-0.5f, extra));
+                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra));
             }
         }
         //When we collide with bigjump platform
@@ -62,12 +68,12 @@ public class TileGenerator : MonoBehaviour
             //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
             if (Random.Range(1, 7) == 1)
             {
-                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra-0.5f, extra));
+                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra));
             }
             else
             {
                 Destroy(collision.gameObject);
-                Instantiate(platformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range  + Random.Range(extra-0.5f, extra)), Quaternion.identity);
+                Instantiate(platformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra)), Quaternion.identity);
             }
         }
     }
