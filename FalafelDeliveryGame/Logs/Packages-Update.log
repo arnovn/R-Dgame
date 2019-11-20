@@ -9,3 +9,14 @@ The following packages were added:
   com.unity.purchasing@2.0.3
   com.unity.ads@2.0.8
   com.unity.collab-proxy@1.2.15
+
+=== Tue Nov 19 15:55:25 2019
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.unity.cinemachine@2.2.9
+  com.unity.connect.share@1.0.5-preview
+  com.unity.learn.iet-framework@0.1.17-preview
+  com.unity.postprocessing@2.1.4
