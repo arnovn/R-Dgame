@@ -21,7 +21,6 @@ public class DdaParams : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //body = player.GetComponent<Rigidbody2D>();
         x_pos = player.transform.position.x;
         y_pos = player.transform.position.y;
     }
@@ -66,6 +65,7 @@ public class DdaParams : MonoBehaviour
         if (jumpstreak == 2)
         {
             amount_of_jumpstreaks++;
+            Debug.Log("Amount_of_jumpstreaks of jumpstreak increased: " + amount_of_jumpstreaks);
         }
     }
 }
