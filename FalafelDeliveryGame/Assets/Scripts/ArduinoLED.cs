@@ -7,7 +7,7 @@ using System;
 
 public class ArduinoLED : MonoBehaviour {
 
-    SerialPort arduino = new SerialPort("COM5", 19200);   //serial port refference and Baud rate
+    SerialPort arduino = new SerialPort("COM6", 9600);   //serial port refference and Baud rate
     public string message;
     public Text txt;
 
@@ -20,8 +20,12 @@ public class ArduinoLED : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        message = ReadArduino();       //Read information in the serial stream;
+        /*
+        if (Input.GetKey(KeyCode.A))
+        {
+            arduino.WriteLine("PING");
+        }*/
+        message = arduino.ReadLine();       //Read information in the serial stream;
         Debug.Log(message);
 
         if (message == "Hello Unity") {
@@ -30,7 +34,7 @@ public class ArduinoLED : MonoBehaviour {
         if (message == "Goodbye Unity"){
             txt.text = "neet";
         }
-
+        
         arduino.BaseStream.Flush();     //Clear the serial information so we assure we get new information.
     }
 
@@ -46,6 +50,9 @@ public class ArduinoLED : MonoBehaviour {
             return null;
         }
     }
-    
 
+    void OnApplicationQuit()
+    {
+        arduino.Close();
+    }
 }
