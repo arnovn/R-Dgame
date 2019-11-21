@@ -7,38 +7,36 @@ using System;
 
 public class ArduinoLED : MonoBehaviour {
 
-    SerialPort arduino = new SerialPort("COM6", 9600);   //serial port refference and Baud rate
+    public SerialPort arduino = new SerialPort("COM6", 9600);   //serial port refference and Baud rate
     public string message;
     public Text txt;
+    public string LedControl;
 
 
 	// Use this for initialization
 	void Start () {
         arduino.Open();     //Open serial stream 
         txt.text = "initial";
+        LedControl = "a";
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        /*
-        if (Input.GetKey(KeyCode.A))
-        {
-            arduino.WriteLine("PING");
-        }*/
-        message = arduino.ReadLine();       //Read information in the serial stream;
-        Debug.Log(message);
+            arduino.Write("1");
+            message = ReadArduino();        //Read information in the serial stream;
+            //Debug.Log(message);
 
-        if (message == "Hello Unity") {
-            txt.text = "yeet";
-        }
-        if (message == "Goodbye Unity"){
-            txt.text = "neet";
-        }
-        
-        arduino.BaseStream.Flush();     //Clear the serial information so we assure we get new information.
+        if (message == "on") {
+             txt.text = "Button on";
+         }
+         if (message == "off"){
+             txt.text = "Button off";
+         }
+
+         arduino.BaseStream.Flush();     //Clear the serial information so we assure we get new information.
     }
 
-    public string ReadArduino(int timeOut = 0)
+    public string ReadArduino(int timeOut = 1)
     {
         arduino.ReadTimeout = timeOut;
         try
