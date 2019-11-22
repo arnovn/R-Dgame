@@ -5,7 +5,7 @@ using System.IO.Ports;
 using UnityEngine.UI;
 using System;
 
-public class ArduinoLED : MonoBehaviour {
+public class ArduinoConnect : MonoBehaviour {
 
     public SerialPort arduino = new SerialPort("COM6", 9600);   //serial port refference and Baud rate
     public string message;
@@ -17,7 +17,6 @@ public class ArduinoLED : MonoBehaviour {
 	void Start () {
         arduino.Open();     //Open serial stream 
         txt.text = "initial";
-        LedControl = "a";
 	}
 	
 	// Update is called once per frame
@@ -25,13 +24,6 @@ public class ArduinoLED : MonoBehaviour {
             arduino.Write("1");
             message = ReadArduino();        //Read information in the serial stream;
             //Debug.Log(message);
-
-        if (message == "on") {
-             txt.text = "Button on";
-         }
-         if (message == "off"){
-             txt.text = "Button off";
-         }
 
          arduino.BaseStream.Flush();     //Clear the serial information so we assure we get new information.
     }
