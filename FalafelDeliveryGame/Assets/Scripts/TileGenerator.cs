@@ -15,18 +15,11 @@ public class TileGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (player.name == "User1")
+        generation_axis = player.transform.position.x;
+
+        if (player.name == "SingleUser")
         {
-            generation_axis = 0f;
-        }
-        else if (player.name == "User2")
-        {
-            generation_axis = 56f;
-        }
-        else if (player.name == "SingleUser")
-        {
-            generation_axis = 0f;
-            range = 3f;
+            range = 3.2f;
         }
     }
 
