@@ -21,9 +21,7 @@ public class JoystickController : MonoBehaviour
 
         sp.Open();
         sp.ReadTimeout = 1;
-        
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +30,7 @@ public class JoystickController : MonoBehaviour
             try
             {
                 MoveObject(sp.ReadByte());
-                
+
             }
             catch(System.Exception)
             {
@@ -64,6 +62,9 @@ public class JoystickController : MonoBehaviour
         else if (Direction == 0)
         {
             rb2d.velocity = new Vector2(0 * speed, rb2d.velocity.y);
+        }
+        else if (Direction == 0){
+            rb2d.velocity = new Vector2(0* speed, rb2d.velocity.y);
         }
     }
 
