@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 500539833}
   - component: {fileID: 500539834}
   - component: {fileID: 500539835}
+  - component: {fileID: 500539836}
   m_Layer: 0
   m_Name: DdaCollider
   m_TagString: Untagged
@@ -139,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 500539832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1.36, z: 0}
-  m_LocalScale: {x: 0.13590154, y: 0.23718749, z: 1}
+  m_LocalScale: {x: 0.07283473, y: 0.23718749, z: 1}
   m_Children: []
   m_Father: {fileID: 1464420204}
   m_RootOrder: 3
@@ -180,6 +181,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4331b20bf8817c4fa736bd9ef7682b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1464420199}
+--- !u!114 &500539836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500539832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8a38b574597ef48a2c8da81a59c58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1464420199}
@@ -748,7 +762,6 @@ GameObject:
   - component: {fileID: 1464420202}
   - component: {fileID: 1464420201}
   - component: {fileID: 1464420205}
-  - component: {fileID: 1464420206}
   - component: {fileID: 1464420200}
   m_Layer: 0
   m_Name: SingleUser
@@ -895,18 +908,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1648358979}
---- !u!114 &1464420206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464420199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a316fdb702f29d4698992e8ba65da09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1648358977
 GameObject:
   m_ObjectHideFlags: 0

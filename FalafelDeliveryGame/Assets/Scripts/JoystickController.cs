@@ -13,7 +13,7 @@ public class JoystickController : MonoBehaviour
     private float moveInput;
     private float speed = 10f;
 
-    SerialPort sp = new SerialPort("COM13", 9600);
+    SerialPort sp = new SerialPort("COM12", 9600);
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +59,11 @@ public class JoystickController : MonoBehaviour
         }
         else if (Direction == 2)
         {
-            rb2d.velocity = new Vector2(1* speed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(1 * speed, rb2d.velocity.y);
+        }
+        else if (Direction == 0)
+        {
+            rb2d.velocity = new Vector2(0 * speed, rb2d.velocity.y);
         }
     }
 
