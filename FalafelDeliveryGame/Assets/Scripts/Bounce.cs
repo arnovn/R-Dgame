@@ -15,7 +15,7 @@ public class Bounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+          //Debug.Log("Arduino value is " + gav.getValue());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,10 +28,17 @@ public class Bounce : MonoBehaviour
             }
         }
     }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
-      if(gav.getValue() == 3){
-        collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*600f);
+      Debug.Log("speed is " + collision.gameObject.GetComponent<Rigidbody2D>().velocity.y);
+      Debug.Log("Arduino value is " + gav.getValue());
+      if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0){
+        if(gav.getValue() == 3){
+          Debug.Log("FLY YOU FOOLS");
+          collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*600f);
+        }
       }
+
     }
 }
