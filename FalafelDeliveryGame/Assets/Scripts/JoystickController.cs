@@ -14,18 +14,18 @@ public class JoystickController : MonoBehaviour
     private float speed = 10f;
 
     SerialPort sp = new SerialPort("COM12", 9600);
-    ReadArduino ra;
+    GetArduinoValue gav;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        ra = GetComponent<ReadArduino>();
+        gav = GetComponent<GetArduinoValue>();
 
     }
     // Update is called once per frame
     void Update()
     {
-        MoveObject(ra.ValueArduino());
+        MoveObject(gav.getValue());
         if (Input.GetKeyDown(KeyCode.Space))
         {
             AddForce();
