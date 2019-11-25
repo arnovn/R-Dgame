@@ -1509,6 +1509,9 @@ GameObject:
   - component: {fileID: 1096483790}
   - component: {fileID: 1096483789}
   - component: {fileID: 1096483788}
+  - component: {fileID: 1096483796}
+  - component: {fileID: 1096483795}
+  - component: {fileID: 1096483794}
   m_Layer: 0
   m_Name: User1
   m_TagString: Untagged
@@ -1653,6 +1656,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096483794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096483787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e5f4c1ac59dc441a0e70c3af92543a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1096483795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096483787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888983f56a4dbfd48b3c6cc0e263263c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valArduino: 0
+--- !u!114 &1096483796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096483787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a886bf2e9acfc0d41ba541bed8af0d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1225405055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7007907528473610949, guid: 6f661071b3c8bbd42b2bbd25a122d5be,
