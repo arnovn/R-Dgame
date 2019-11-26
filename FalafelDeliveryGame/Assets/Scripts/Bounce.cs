@@ -25,7 +25,7 @@ public class Bounce : MonoBehaviour
 
           buttonValue = ra.ValuesArduino()[1];
 
-      
+
       if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0){
         if(buttonValue == 2){
           collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*600f);

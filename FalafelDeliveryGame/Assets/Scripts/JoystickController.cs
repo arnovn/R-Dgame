@@ -13,7 +13,6 @@ public class JoystickController : MonoBehaviour
     private float moveInput;
     private float speed = 10f;
 
-    SerialPort sp = new SerialPort("COM12", 9600);
     ReadArduino ra;
     // Start is called before the first frame update
     void Start()
