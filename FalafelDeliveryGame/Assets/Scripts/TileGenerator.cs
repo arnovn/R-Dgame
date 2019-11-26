@@ -7,6 +7,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject player;
     public GameObject platformPrefab;
     public GameObject bigBouncePlatformPrefab;
+    public GameObject IcePlatformPrefab;
     private GameObject myPlat;
     private float range = 9f;
     private float extra = 1f;
@@ -19,14 +20,14 @@ public class TileGenerator : MonoBehaviour
 
         if (player.name == "SingleUser")
         {
-            range = 3.2f;
+            range = 6f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     /* Function will check when platform hits platfrom destroyer box collider
@@ -36,7 +37,7 @@ public class TileGenerator : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GenerateNewPlatform(collision);
-        
+
     }
 
     private void GenerateNewPlatform(Collider2D collision)
@@ -45,12 +46,17 @@ public class TileGenerator : MonoBehaviour
         if (collision.gameObject.name.StartsWith("Platform"))
         {
             //1 in 7 we will generate 'bigjump' platform
-            if (Random.Range(1, 7) == 1)
+            int random = Random.Range(1,14);
+            if (random == 1)
             {
                 Destroy(collision.gameObject);
                 Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra)), Quaternion.identity);
             }
-            else
+            else if (random == 2){
+              Destroy(collision.gameObject);
+              Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra)), Quaternion.identity);
+
+            }
             {
                 collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra));
             }
