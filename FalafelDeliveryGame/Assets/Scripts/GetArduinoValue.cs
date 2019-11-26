@@ -21,6 +21,6 @@ public class GetArduinoValue : MonoBehaviour
     }
 
     public int getValue(){
-      return ra.ValueArduino();
+        return 1;
     }
 }
