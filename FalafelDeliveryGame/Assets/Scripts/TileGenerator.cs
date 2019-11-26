@@ -19,14 +19,14 @@ public class TileGenerator : MonoBehaviour
 
         if (player.name == "SingleUser")
         {
-            range = 3.2f;
+            range = 6f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     /* Function will check when platform hits platfrom destroyer box collider
@@ -36,7 +36,7 @@ public class TileGenerator : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GenerateNewPlatform(collision);
-        
+
     }
 
     private void GenerateNewPlatform(Collider2D collision)
