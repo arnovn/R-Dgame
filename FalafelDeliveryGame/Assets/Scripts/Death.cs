@@ -13,8 +13,13 @@ public class Death : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        y_pos = player.transform.position.y;
+
     }
+
+      public void lastPlatformPosition(float x_posi, float y_posi){
+        x_pos = x_posi;
+        y_pos = y_posi;
+      }
 
     // Update is called once per frame
     void Update()

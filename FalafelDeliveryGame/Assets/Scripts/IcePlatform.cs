@@ -7,6 +7,7 @@ public class IcePlatform : MonoBehaviour
       private Rigidbody2D rb2d;
       private float speed = 10f;
       private bool right;
+      float y_pos;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class IcePlatform : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        
         if (right){
           rb2d.AddForce(Vector2.left * 6000f);
         }

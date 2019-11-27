@@ -9,27 +9,32 @@ public class TileGenerator : MonoBehaviour
     public GameObject bigBouncePlatformPrefab;
     public GameObject IcePlatformPrefab;
     private GameObject myPlat;
+    private Bounce platform;
+    private BigBounce bigBounce;
     private float range = 9f;
     private float extra = 1f;
     private float generation_axis;
-    private float previousPlatformHeight;
-    private float currentPlatformHeight;
+    private float previousPlatformGenerationHeight;
+    public float currentPlatformHeight;
 
     // Start is called before the first frame update
     void Start()
     {
         generation_axis = player.transform.position.x;
 
+
         if (player.name == "SingleUser")
         {
-            range = 10f;
+            range = 18f;
         }
     }
-
+    public void LastPlatformPosition(float y_pos){
+      currentPlatformHeight = y_pos;
+    }
     // Update is called once per frame
     void Update()
     {
-
+      Debug.Log(currentPlatformHeight);
     }
 
     /* Function will check when platform hits platfrom destroyer box collider
@@ -44,25 +49,32 @@ public class TileGenerator : MonoBehaviour
 
     private void GenerateNewPlatform(Collider2D collision)
     {
+        if(previousPlatformGenerationHeight == currentPlatformHeight){
+          currentPlatformHeight = currentPlatformHeight + 4f;
+        }
         //When we collide with normal platform:
         if (collision.gameObject.name.StartsWith("Platform"))
         {
+
             //1 in 7 we will generate 'bigjump' platform
             int random = Random.Range(1,14);
             if (random == 1)
             {
                 Destroy(collision.gameObject);
-                Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+
+                Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), currentPlatformHeight + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+
             }
             else if (random == 2){
               Destroy(collision.gameObject);
-              Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-              Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+              Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), currentPlatformHeight + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+              Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), currentPlatformHeight + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
 
-            }
+            }else
             {
-                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range/* + Random.Range(extra - 0.5f, extra)*/);
+                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f),currentPlatformHeight + range/* + Random.Range(extra - 0.5f, extra)*/);
             }
+
         }
         //When we collide with bigjump platform
         else if (collision.gameObject.name.StartsWith("BigJump"))
@@ -70,12 +82,12 @@ public class TileGenerator : MonoBehaviour
             //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
             if (Random.Range(1, 7) == 1)
             {
-                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/);
+                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), currentPlatformHeight + range /*+ Random.Range(extra - 0.5f, extra)*/);
             }
             else
             {
                 Destroy(collision.gameObject);
-                Instantiate(platformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+                Instantiate(platformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), currentPlatformHeight + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
             }
         }
         else if (collision.gameObject.name.StartsWith("Ice"))
@@ -83,7 +95,7 @@ public class TileGenerator : MonoBehaviour
             //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
             if (Random.Range(1, 7) == 1)
             {
-                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/);
+                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), currentPlatformHeight  + range /*+ Random.Range(extra - 0.5f, extra)*/);
             }
             else
             {
@@ -91,5 +103,6 @@ public class TileGenerator : MonoBehaviour
                 //Instantiate(platformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range/* + Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
             }
         }
+        previousPlatformGenerationHeight = currentPlatformHeight;
     }
 }

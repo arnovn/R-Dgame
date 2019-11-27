@@ -33,10 +33,10 @@ public class ReadArduino : MonoBehaviour
           try
           {
               if(sp.ReadByte() == 10){
-                Debug.Log("Start");
+                //Debug.Log("Start");
                 for(int i = 0; i<2; i++){
                     values[i] = sp.ReadByte();
-                    Debug.Log(values[i]);
+                    //Debug.Log(values[i]);
                 }
 
               }
@@ -45,7 +45,7 @@ public class ReadArduino : MonoBehaviour
           }
           catch (System.Exception)
           {
-              Debug.Log("Not open");
+              //Debug.Log("Not open");
               return lastFilledArray;
           }
       }
