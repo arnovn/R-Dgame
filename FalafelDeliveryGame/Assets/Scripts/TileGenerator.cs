@@ -11,25 +11,22 @@ public class TileGenerator : MonoBehaviour
     private GameObject myPlat;
     private Bounce platform;
     private BigBounce bigBounce;
-    private float range = 9f;
+    private float range = 22f;
     private float extra = 1f;
     private float generation_axis;
-    private float previousPlatformGenerationHeight;
+    private float previousPlatformGenerationHeight = 8.96f + 22f;
     public float currentPlatformHeight;
 
     // Start is called before the first frame update
     void Start()
     {
         generation_axis = player.transform.position.x;
-
-
-        if (player.name == "SingleUser")
-        {
-            range = 18f;
-        }
     }
     public void LastPlatformPosition(float y_pos){
-      currentPlatformHeight = y_pos;
+      if(y_pos>currentPlatformHeight){
+        currentPlatformHeight = y_pos;
+
+      }
     }
     // Update is called once per frame
     void Update()
@@ -49,8 +46,9 @@ public class TileGenerator : MonoBehaviour
 
     private void GenerateNewPlatform(Collider2D collision)
     {
+
         if(previousPlatformGenerationHeight == currentPlatformHeight){
-          currentPlatformHeight = currentPlatformHeight + 4f;
+          currentPlatformHeight = currentPlatformHeight + 5f;
         }
         //When we collide with normal platform:
         if (collision.gameObject.name.StartsWith("Platform"))

@@ -26,12 +26,7 @@ public class Death : MonoBehaviour
     {
         CheckDeath();
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        y_pos = player.transform.position.y;
-        x_pos = player.transform.position.x;
-    }
+    
     private void CheckDeath()
     {
         float actual_pos = player.transform.position.y;
