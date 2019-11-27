@@ -12,6 +12,8 @@ public class TileGenerator : MonoBehaviour
     private float range = 9f;
     private float extra = 1f;
     private float generation_axis;
+    private float previousPlatformHeight;
+    private float currentPlatformHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class TileGenerator : MonoBehaviour
 
         if (player.name == "SingleUser")
         {
-            range = 6f;
+            range = 10f;
         }
     }
 
@@ -50,15 +52,16 @@ public class TileGenerator : MonoBehaviour
             if (random == 1)
             {
                 Destroy(collision.gameObject);
-                Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra)), Quaternion.identity);
+                Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
             }
             else if (random == 2){
               Destroy(collision.gameObject);
-              Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra)), Quaternion.identity);
+              Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+              Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
 
             }
             {
-                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra));
+                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range/* + Random.Range(extra - 0.5f, extra)*/);
             }
         }
         //When we collide with bigjump platform
@@ -67,12 +70,25 @@ public class TileGenerator : MonoBehaviour
             //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
             if (Random.Range(1, 7) == 1)
             {
-                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra));
+                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/);
             }
             else
             {
                 Destroy(collision.gameObject);
-                Instantiate(platformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range + Random.Range(extra - 0.5f, extra)), Quaternion.identity);
+                Instantiate(platformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+            }
+        }
+        else if (collision.gameObject.name.StartsWith("Ice"))
+        {
+            //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
+            if (Random.Range(1, 7) == 1)
+            {
+                collision.gameObject.transform.position = new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range /*+ Random.Range(extra - 0.5f, extra)*/);
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+                //Instantiate(platformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), player.transform.position.y + range/* + Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
             }
         }
     }

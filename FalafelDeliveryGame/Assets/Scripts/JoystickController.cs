@@ -49,7 +49,7 @@ public class JoystickController : MonoBehaviour
         }
         else if (Direction == 3)
         {
-            rb2d.velocity = new Vector2(0 * speed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(0* speed, rb2d.velocity.y);
           }
 
     }

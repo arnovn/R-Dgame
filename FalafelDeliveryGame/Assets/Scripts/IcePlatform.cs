@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class IcePlatform : MonoBehaviour
 {
-      public GameObject player;
-      public GameObject IcePlatformPrefab;
+      private Rigidbody2D rb2d;
+      private float speed = 10f;
+      private bool right;
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = GameObject.Find("SingleUser").GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -17,13 +18,22 @@ public class IcePlatform : MonoBehaviour
     {
 
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
-        {
-            Debug.Log("Collision happended");
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000f);
+    private void OnCollisionEnter2D(Collision2D collision){
+        if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.x <= 0){
+          right = false;
+        }else{
+          right = true;
         }
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (right){
+          rb2d.AddForce(Vector2.left * 6000f);
+        }
+        else{
+          rb2d.AddForce(Vector2.right * 6000f);
+        }
+    }
+
 }
