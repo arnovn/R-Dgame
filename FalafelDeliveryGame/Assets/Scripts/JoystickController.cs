@@ -15,7 +15,6 @@ public class JoystickController : MonoBehaviour
     private float speed = 10f;
     ReadArduino ra;
 
-    ReadArduino ra;
     // Start is called before the first frame update
     void Start()
     {
