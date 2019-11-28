@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO.Ports;
 
 
+
 //TODO : move mechanics need to be adapted so it feels natural.
 
 public class JoystickController : MonoBehaviour
@@ -39,15 +40,17 @@ public class JoystickController : MonoBehaviour
     }
 
     void MoveObject(int Direction) {
-        if (Direction == 1)
+      Debug.Log(Direction);
+
+        if (Direction >= 131)
         {
-            rb2d.velocity = new Vector2(-1 * speed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(-1 * speed*Direction/250, rb2d.velocity.y);
         }
-        else if (Direction == 2)
+        else if (Direction <= 125 )
         {
-            rb2d.velocity = new Vector2(1 * speed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(1 * speed*(255-Direction*2)/250, rb2d.velocity.y);
         }
-        else if (Direction == 3)
+        else if (Direction > 125 && Direction < 135)
         {
             rb2d.velocity = new Vector2(0* speed, rb2d.velocity.y);
           }

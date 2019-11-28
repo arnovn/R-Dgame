@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BigBounce : MonoBehaviour
 {
-    TileGenerator tg;
+    //TileGenerator tg;
     Death death;
 
     float y_pos;
@@ -13,7 +13,7 @@ public class BigBounce : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
+        //tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
         death = GameObject.Find("DdaCollider").GetComponent<Death>();
 
     }
@@ -34,8 +34,8 @@ public class BigBounce : MonoBehaviour
         {
             y_pos = collision.transform.position.y;
             x_pos = platform.transform.position.x;
-            death.lastPlatformPosition(x_pos,y_pos);
-            tg.LastPlatformPosition(y_pos);
+            //death.lastPlatformPosition(x_pos,y_pos);
+            //tg.LastPlatformPosition(y_pos);
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000f);
         }
     }
