@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+
+    TileGenerator tg;
+
+    private float[] coords = new float[2];
     private float y_pos;
     private float x_pos;
     private Rigidbody2D body;
@@ -13,20 +17,23 @@ public class Death : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        y_pos = player.transform.position.y;
+        tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
     }
+
+      public void lastPlatformPosition(){
+        coords = tg.getLowestTile();
+        x_pos = coords[0];
+        y_pos = coords[1];
+      }
 
     // Update is called once per frame
     void Update()
     {
+        lastPlatformPosition();
         CheckDeath();
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        y_pos = player.transform.position.y;
-        x_pos = player.transform.position.x;
-    }
     private void CheckDeath()
     {
         float actual_pos = player.transform.position.y;

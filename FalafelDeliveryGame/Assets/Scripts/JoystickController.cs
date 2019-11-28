@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO.Ports;
 
 
+
 //TODO : move mechanics need to be adapted so it feels natural.
 
 public class JoystickController : MonoBehaviour
@@ -14,22 +15,23 @@ public class JoystickController : MonoBehaviour
     private float speed = 10f;
     ReadArduino ra;
 
+    ReadArduino ra;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-
     }
     // Update is called once per frame
     void Update()
     {
-        MoveObject(ra.getJoystick1());
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddForce();
+
+          MoveObject(ra.ValuesArduino()[0]);
+
+
         }
-    }
+
+
 
     public void AddForce()
     {
@@ -39,20 +41,20 @@ public class JoystickController : MonoBehaviour
     }
 
     void MoveObject(int Direction) {
-        if (Direction == 1)
+      Debug.Log(Direction);
+
+        if (Direction >= 131)
         {
-            rb2d.velocity = new Vector2(-1 * speed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(-1 * speed*Direction/250, rb2d.velocity.y);
         }
-        else if (Direction == 2)
+        else if (Direction <= 125 )
         {
-            rb2d.velocity = new Vector2(1 * speed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(1 * speed*(255-Direction*2)/250, rb2d.velocity.y);
         }
-        else if (Direction == 3)
+        else if (Direction > 125 && Direction < 135)
         {
-            rb2d.velocity = new Vector2(0 * speed, rb2d.velocity.y);
-        }
-        else if (Direction == 3){
             rb2d.velocity = new Vector2(0* speed, rb2d.velocity.y);
-        }
+          }
+
     }
 }

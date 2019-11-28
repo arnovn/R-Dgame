@@ -33,7 +33,7 @@ public class DdaParams : MonoBehaviour
 
     private void checkStationary(Collider2D collision)
     {
-        
+
         if (collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Bigjump"))
         {
             if (body.velocity.y < 0)
@@ -43,16 +43,16 @@ public class DdaParams : MonoBehaviour
                 {
                     stationary_hops++;
                     jumpstreak = 0;
-                    Debug.Log("Stationary hops: " + stationary_hops);
-                    Debug.Log("Jumpstreak: " + jumpstreak);
+                    //Debug.Log("Stationary hops: " + stationary_hops);
+                    //Debug.Log("Jumpstreak: " + jumpstreak);
                 }
                 else
                 {
                     stationary_hops = 0;
                     jumpstreak++;
                     platform = collision.gameObject;
-                    Debug.Log("Stationary hops: " + stationary_hops);
-                    Debug.Log("Jumpstreak: " + jumpstreak);
+                    //Debug.Log("Stationary hops: " + stationary_hops);
+                    //Debug.Log("Jumpstreak: " + jumpstreak);
                 }
             }
         }
