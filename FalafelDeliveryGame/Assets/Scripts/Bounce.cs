@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bounce : MonoBehaviour
 {
   ReadArduino ra;
-  //TileGenerator tg;
+  TileGenerator tg;
   Death death;
   private int buttonValue;
   private float y_pos;
@@ -15,7 +15,7 @@ public class Bounce : MonoBehaviour
     void Start()
     {
       ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-      //tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
+      tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
       death = GameObject.Find("DdaCollider").GetComponent<Death>();
 
     }
@@ -37,8 +37,8 @@ public class Bounce : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
 
-          buttonValue = ra.ValuesArduino()[1];
-          //Debug.Log(buttonValue);
+          buttonValue = ra.ValuesArduino()[2];
+
 
       if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0){
         y_pos = collision.transform.position.y;

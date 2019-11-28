@@ -9,9 +9,9 @@ public class ReadArduino : MonoBehaviour
 
     SerialPort sp = new SerialPort("COM3", 9600);
 
-    private int[] values = new int[2];
-    private int[] currentArray = new int[2];
-    private int[] lastFilledArray = new int[2];
+    private int[] values = new int[5];
+    private int[] currentArray = new int[5];
+    private int[] lastFilledArray = new int[5];
     private
     // Start is called before the first frame update
     void Start()
@@ -37,7 +37,7 @@ public class ReadArduino : MonoBehaviour
           {
               if(sp.ReadByte() == 10){
                 //Debug.Log("Start");
-                for(int i = 0; i<2; i++){
+                for(int i = 0; i<4; i++){
                     values[i] = sp.ReadByte();
                     //Debug.Log(values[i]);
                 }

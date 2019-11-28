@@ -131,9 +131,11 @@ public class TileGenerator : MonoBehaviour
 
 
         }
+        if(!collision.gameObject.name.StartsWith("Ice")){
+          updateTileArray(x_pos,y_pos);
+          death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
+        }
 
-        updateTileArray(x_pos,y_pos);
-        death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
 
     }
 }
