@@ -23,6 +23,9 @@ public class ReadArduino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //writeArduino();
+        //currentArray = ReadArduino();
         currentArray = ValuesArduino();
     }
 

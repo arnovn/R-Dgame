@@ -40,7 +40,7 @@ public class JoystickController : MonoBehaviour
     }
 
     void MoveObject(int Direction) {
-      Debug.Log(Direction);
+      //Debug.Log(Direction);
 
         if (Direction >= 131)
         {
