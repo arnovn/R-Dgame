@@ -12,7 +12,7 @@ public class ReadArduino : MonoBehaviour
     private int[] values = new int[5];
     private int[] currentArray = new int[5];
     private int[] lastFilledArray = new int[5];
-    private
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +24,13 @@ public class ReadArduino : MonoBehaviour
     void Update()
     {
 
-        //writeArduino();
-        //currentArray = ReadArduino();
         currentArray = ValuesArduino();
+    }
+
+    public void WriteArduino(int intje){
+      string intjeString = intje.ToString();
+      sp.Write(intjeString);
+      Debug.Log((int)sp.ReadByte());
     }
 
     public int[] ValuesArduino(){
@@ -35,15 +39,20 @@ public class ReadArduino : MonoBehaviour
       {
           try
           {
+            //Debug.Log((int)sp.ReadByte());
+            /*
               if(sp.ReadByte() == 10){
                 //Debug.Log("Start");
                 for(int i = 0; i<4; i++){
                     values[i] = sp.ReadByte();
-                    //Debug.Log(values[i]);
+
                 }
 
               }
+
               lastFilledArray = values;
+              return values;
+              */
               return values;
           }
           catch (System.Exception)

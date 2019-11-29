@@ -6,6 +6,7 @@ public class Death : MonoBehaviour
 {
 
     TileGenerator tg;
+    ReadArduino ra;
 
     private float[] coords = new float[2];
     private float y_pos;
@@ -18,6 +19,7 @@ public class Death : MonoBehaviour
     void Start()
     {
         tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
+        ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
     }
 
       public void lastPlatformPosition(float x_posi, float y_posi){
@@ -40,6 +42,7 @@ public class Death : MonoBehaviour
         float actual_pos = player.transform.position.y;
         if (y_pos - actual_pos >= death_interval)
         {
+            ra.WriteArduino(1);
             player.transform.position = new Vector2(x_pos, y_pos);
         }
     }
