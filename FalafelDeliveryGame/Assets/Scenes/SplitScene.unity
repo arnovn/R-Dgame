@@ -337,6 +337,7 @@ MonoBehaviour:
     type: 3}
   bigBouncePlatformPrefab: {fileID: 6411836754833798139, guid: ca683672239b77a4abd229976d48a967,
     type: 3}
+  IcePlatformPrefab: {fileID: 0}
 --- !u!61 &165137464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1171,6 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9097b5cad3a9a7a429cfae71633a5238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 0}
 --- !u!61 &865093999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1507,8 +1509,8 @@ GameObject:
   - component: {fileID: 1096483792}
   - component: {fileID: 1096483791}
   - component: {fileID: 1096483790}
-  - component: {fileID: 1096483789}
   - component: {fileID: 1096483788}
+  - component: {fileID: 1096483789}
   - component: {fileID: 1096483796}
   - component: {fileID: 1096483795}
   - component: {fileID: 1096483794}
@@ -1541,7 +1543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1096483787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a316fdb702f29d4698992e8ba65da09, type: 3}
+  m_Script: {fileID: 11500000, guid: 76fba9e8e84c6824b9a805630066cb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &1096483790
@@ -1680,7 +1682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888983f56a4dbfd48b3c6cc0e263263c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valArduino: 0
 --- !u!114 &1096483796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1971,6 +1972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9097b5cad3a9a7a429cfae71633a5238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platform: {fileID: 0}
 --- !u!61 &1331308776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2743,7 +2745,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838033608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9026015bfaee0904eb9f194bf06cc73a, type: 3}
+  m_Script: {fileID: 11500000, guid: 762ccc38746a46c4086187d9c709d6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &1838033611
@@ -2909,6 +2911,7 @@ MonoBehaviour:
     type: 3}
   bigBouncePlatformPrefab: {fileID: 6411836754833798139, guid: ca683672239b77a4abd229976d48a967,
     type: 3}
+  IcePlatformPrefab: {fileID: 0}
 --- !u!61 &1879798968
 BoxCollider2D:
   m_ObjectHideFlags: 0
