@@ -9,9 +9,9 @@ public class ReadArduino : MonoBehaviour
 
     SerialPort sp = new SerialPort("COM3", 9600);
 
-    private int[] values = new int[5];
-    private int[] currentArray = new int[5];
-    private int[] lastFilledArray = new int[5];
+    private int[] values = new int[7];
+    private int[] currentArray = new int[7];
+    private int[] lastFilledArray = new int[7];
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +52,7 @@ public class ReadArduino : MonoBehaviour
 
               lastFilledArray = values;
               return values;
-              
+
               return values;
           }
           catch (System.Exception)
