@@ -13,8 +13,8 @@ public class JoystickController : MonoBehaviour
     private Rigidbody2D rb2d;
     private float moveInput;
     private float speed = 10f;
-
     ReadArduino ra;
+
     // Start is called before the first frame update
     void Start()
     {
