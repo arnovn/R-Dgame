@@ -40,7 +40,7 @@ public class ReadArduino : MonoBehaviour
           try
           {
             //Debug.Log((int)sp.ReadByte());
-            /*
+
               if(sp.ReadByte() == 10){
                 //Debug.Log("Start");
                 for(int i = 0; i<4; i++){
@@ -52,7 +52,7 @@ public class ReadArduino : MonoBehaviour
 
               lastFilledArray = values;
               return values;
-              */
+              
               return values;
           }
           catch (System.Exception)
