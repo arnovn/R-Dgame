@@ -30,10 +30,13 @@ public class AddLife : MonoBehaviour
       if(ra.ValuesArduino()[4] == 1){
         if(!adding){
           lifes = death.getLifes();
-          death.AddLife();
-          Debug.Log(lifes);
-          SUI.AddOneLife(lifes);
+          if(lifes <5){
+            death.AddLife();
+            Debug.Log(lifes);
+            SUI.AddOneLife(lifes);
+          }
           adding = true;
+
         }
       }else{
         adding = false;
