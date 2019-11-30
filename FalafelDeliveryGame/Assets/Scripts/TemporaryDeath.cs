@@ -1,4 +1,4 @@
-﻿using System.Collections;
+/*﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +27,7 @@ public class TemporaryDeath : MonoBehaviour
         lifecounter = 1;
     }
 
-   
+
 
     public void lastPlatformPosition()
     {
@@ -71,6 +71,7 @@ public class TemporaryDeath : MonoBehaviour
         {
             lifecounter--;
         }
-            
+
     }
 }
+*/
