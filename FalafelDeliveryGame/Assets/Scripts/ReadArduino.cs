@@ -25,12 +25,14 @@ public class ReadArduino : MonoBehaviour
     {
 
         currentArray = ValuesArduino();
+        //Debug.Log(currentArray[4]);
+
     }
 
     public void WriteArduino(int intje){
       string intjeString = intje.ToString();
       sp.Write(intjeString);
-      Debug.Log((int)sp.ReadByte());
+      //Debug.Log((int)sp.ReadByte());
     }
 
     public int[] ValuesArduino(){
@@ -43,7 +45,7 @@ public class ReadArduino : MonoBehaviour
 
               if(sp.ReadByte() == 10){
                 //Debug.Log("Start");
-                for(int i = 0; i<4; i++){
+                for(int i = 0; i<6; i++){
                     values[i] = sp.ReadByte();
 
                 }
@@ -51,8 +53,6 @@ public class ReadArduino : MonoBehaviour
               }
 
               lastFilledArray = values;
-              return values;
-
               return values;
           }
           catch (System.Exception)

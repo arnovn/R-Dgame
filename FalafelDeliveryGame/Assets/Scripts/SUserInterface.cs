@@ -6,26 +6,21 @@ public class SUserInterface : MonoBehaviour
 {
 
     //The lives:
-    private GameObject life1;
-    private GameObject life2;
-    private GameObject life3;
-    private GameObject life4;
-    private GameObject life5;
+    public GameObject life1;
+    public GameObject life2;
+    public GameObject life3;
+    public GameObject life4;
+    public GameObject life5;
+    private int id;
+    private int lifes;
 
     // Start is called before the first frame update
     void Start()
     {
+      lifes = 5;
     }
 
-    public void ConnectLives()
-    {
-        life1 = GameObject.Find("Life1");
-        life2 = GameObject.Find("Life2");
-        life3 = GameObject.Find("Life3");
-        life4 = GameObject.Find("Life4");
-        life5 = GameObject.Find("Life5");
-        Debug.Log(life1.name);
-    }
+
 
 // Update is called once per frame
 void Update()
@@ -33,9 +28,10 @@ void Update()
 
     }
 
-
-public void DeleteOneLife(int id)
+public void DeleteOneLife(int idLifes)
     {
+        id = idLifes;
+        id = 5-id;
         if (id == 6)
         {
             life5.active = true;
@@ -59,10 +55,13 @@ public void DeleteOneLife(int id)
                 break;
 
         }
+        id = 0;
     }
 
- public void AddOneLife(int id)
+ public void AddOneLife(int idLifes)
  {
+   id = idLifes;
+   id = 6-id;
     if (id == 6)
     {
     life5.active = true;
@@ -84,6 +83,6 @@ public void DeleteOneLife(int id)
         case 6:
             life5.active = true;
             break;
-                     }
-}
+          }
+     }
 }

@@ -42,7 +42,7 @@ public class JoystickController : MonoBehaviour
     void MoveObject(int Direction) {
       //Debug.Log(Direction);
 
-        if (Direction >= 131)
+        if (Direction >= 133)
         {
             rb2d.velocity = new Vector2(-1 * speed*Direction/250, rb2d.velocity.y);
         }

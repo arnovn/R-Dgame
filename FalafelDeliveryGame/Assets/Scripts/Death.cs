@@ -5,21 +5,24 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
 
-    TileGenerator tg;
-    ReadArduino ra;
-
+    private TileGenerator tg;
+    private ReadArduino ra;
+    private SUserInterface SUI;
+    private Rigidbody2D body;
     private float[] coords = new float[2];
     private float y_pos;
     private float x_pos;
-    private Rigidbody2D body;
-    public GameObject player;
     private float death_interval = 50f;
+    private int lifes = 5;
+    public GameObject player;
+
 
     // Start is called before the first frame update
     void Start()
     {
         tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
+        SUI = GameObject.Find("DdaCollider").GetComponent<SUserInterface>();
     }
 
       public void lastPlatformPosition(float x_posi, float y_posi){
@@ -37,11 +40,22 @@ public class Death : MonoBehaviour
 
     }
 
+    public int getLifes(){
+      return lifes;
+    }
+
+    public void AddLife(){
+      lifes++;
+    }
+
     private void CheckDeath()
     {
         float actual_pos = player.transform.position.y;
         if (y_pos - actual_pos >= death_interval)
         {
+            lifes --;
+            Debug.Log(lifes);
+            SUI.DeleteOneLife(lifes);
             ra.WriteArduino(1);
             player.transform.position = new Vector2(x_pos, y_pos);
         }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TileGenerator : MonoBehaviour
 {
-    Death death;
     public GameObject player;
     public GameObject platformPrefab;
     public GameObject bigBouncePlatformPrefab;
     public GameObject IcePlatformPrefab;
     private GameObject myPlat;
+    private Death death;
     private Bounce platform;
     private BigBounce bigBounce;
     private float range = 22f;
