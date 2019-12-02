@@ -11,6 +11,7 @@ public class Bounce : MonoBehaviour
   private float y_pos;
   private float x_pos;
   public GameObject platform;
+  public GameObject startPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class Bounce : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-
+          Debug.Log("stay");
           buttonValue = ra.ValuesArduino()[2];
 
 
