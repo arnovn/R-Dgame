@@ -1621,7 +1621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9097b5cad3a9a7a429cfae71633a5238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 0}
+  platform: {fileID: 7007907528473610951, guid: 6f661071b3c8bbd42b2bbd25a122d5be,
+    type: 3}
+  startPoint: {fileID: 1449346492}
 --- !u!251 &1449346496
 PlatformEffector2D:
   m_ObjectHideFlags: 0
