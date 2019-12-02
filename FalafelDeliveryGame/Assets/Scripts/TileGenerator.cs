@@ -131,7 +131,7 @@ public class TileGenerator : MonoBehaviour
 
 
         }
-        if(!collision.gameObject.name.StartsWith("Ice")){
+        if(collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Big")){
           updateTileArray(x_pos,y_pos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }

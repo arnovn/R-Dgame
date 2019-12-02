@@ -6,13 +6,13 @@ public class StartPointDestroyer : MonoBehaviour
 {
     public GameObject player;
     public GameObject startPointObject;
-    
-    
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,7 +34,8 @@ public class StartPointDestroyer : MonoBehaviour
     private void DestroyStartPoint(Collider2D collision)
     {
         //When we collide with normal platform:
-        if (collision.gameObject.name.StartsWith("Startpoint"))
+        Debug.Log("startpoint weg");
+        if (collision.gameObject.name.StartsWith("startpoint"))
         {
             Destroy(collision.gameObject);
         }
