@@ -16,6 +16,7 @@ public class TileGenerator : MonoBehaviour
     private float extra = 1f;
     private float generation_axis;
     private int index;
+    private bool generating;
     private float[] coords = new float[2];
     private float[] tilesXPositions = new float[] {-4f,3.7f,-3f,3.2f,-2.4f,2.93f,-2.19f,4.26f,-4.71f,0.05f};
     private float[] tilesYPositions = new float[] {41f,36.8f,30.6f,23.9f,16.6f,10.81f,5.84f,0.67f,-3.02f,-8.07f};
@@ -26,6 +27,7 @@ public class TileGenerator : MonoBehaviour
     {
         generation_axis = player.transform.position.x;
         death = GameObject.Find("DdaCollider").GetComponent<Death>();
+        generating = true;
     }
     // Update is called once per frame
     void Update()
@@ -39,8 +41,9 @@ public class TileGenerator : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GenerateNewPlatform(collision);
-
+        if(generating){
+          GenerateNewPlatform(collision);
+        }
     }
 
     private void updateTileArray(float x_pos, float y_pos){
@@ -68,6 +71,10 @@ public class TileGenerator : MonoBehaviour
       }
       Debug.Log("STOP");
       return lowestIndex;
+    }
+
+    public void StopGenerating(){
+      generating = false;
     }
 
 

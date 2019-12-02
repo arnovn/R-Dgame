@@ -6,16 +6,17 @@ public class Finish : MonoBehaviour
 {
     public GameObject user1;
     public float yPos1;
-    public TileGenerator tileG;
+    public TileGenerator tg;
     public GameObject[] tiles;
     public GameObject finishLinePrefab;
     public GameObject test;
     public Timer timerText;
-    
+
         // Start is called before the first frame update
     void Start()
     {
-        tileG = user1.GetComponentInChildren<TileGenerator>();
+        tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
+
 
         UpdatePosition();
     }
@@ -23,24 +24,24 @@ public class Finish : MonoBehaviour
     private void UpdatePosition()
     {
         yPos1 = user1.transform.position.y;
-      
+
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdatePosition();
-        if (yPos1 >= 150) {
-            if (tileG != null)
-            { Destroy(tileG); }
+        if (yPos1 >= 200) {
+
             if (test == null)
             {
-                test = Instantiate(finishLinePrefab, new Vector3(0.15f, 165, 0), Quaternion.identity);
+                tg.StopGenerating();
+                test = Instantiate(finishLinePrefab, new Vector3(0.15f, 276, 0), Quaternion.identity);
                 Destroy(timerText);
-                
+
             }
-            
-           
+
+
 
         }
 
@@ -48,4 +49,3 @@ public class Finish : MonoBehaviour
 
     }
 }
-
