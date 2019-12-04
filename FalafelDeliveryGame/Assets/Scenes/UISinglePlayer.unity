@@ -280,7 +280,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139854075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c8a38b574597ef48a2c8da81a59c58a, type: 3}
   m_Name: 
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139854075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4331b20bf8817c4fa736bd9ef7682b1, type: 3}
   m_Name: 
@@ -1580,8 +1580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdd061e232402b47807f6f3af7c6dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2132148155}
-  lives: {fileID: 973543679}
 --- !u!114 &1843311831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,6 +1631,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ceebb842d98e44186940b1c8e683fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life1: {fileID: 0}
+  life2: {fileID: 0}
+  life3: {fileID: 0}
+  life4: {fileID: 0}
+  life5: {fileID: 0}
 --- !u!1 &1873585033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,6 +1864,7 @@ GameObject:
   - component: {fileID: 2132148160}
   - component: {fileID: 2132148158}
   - component: {fileID: 2132148157}
+  - component: {fileID: 2132148159}
   m_Layer: 0
   m_Name: SingleUser
   m_TagString: Untagged
@@ -1910,6 +1914,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888983f56a4dbfd48b3c6cc0e263263c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2132148159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132148155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ca9df0a7038b64d803d9ce220767b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 0}
+  spawnedEnemey: {fileID: 0}
+  thisCanvas: {fileID: 409329488}
+  user: {fileID: 2132148155}
 --- !u!114 &2132148160
 MonoBehaviour:
   m_ObjectHideFlags: 0
