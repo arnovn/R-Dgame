@@ -912,6 +912,8 @@ MonoBehaviour:
     type: 3}
   FirePlatform: {fileID: 3586730889396692112, guid: e78db2d9837001c4a91c61e278d4256a,
     type: 3}
+  MovingTile: {fileID: 5200929715369481979, guid: 3b85a37a903181344ae3b0cb5258e6f2,
+    type: 3}
 --- !u!114 &663890928
 MonoBehaviour:
   m_ObjectHideFlags: 0
