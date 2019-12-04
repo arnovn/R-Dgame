@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TemporaryPlatform : MonoBehaviour
+public class FirePlatform : MonoBehaviour
 {
     ReadArduino ra;
     TileGenerator tg;
@@ -11,16 +11,13 @@ public class TemporaryPlatform : MonoBehaviour
     private float y_pos;
     private float x_pos;
     public GameObject platform;
-    public GameObject startPoint;
-    public float timeStart = 2;
-    public float timeLeft = 2;
+    public float timeStart;
+    public float timeLeft;
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-        tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
         rb2d = GameObject.Find("SingleUser").GetComponent<Rigidbody2D>();
 
     }
@@ -31,8 +28,9 @@ public class TemporaryPlatform : MonoBehaviour
         if(timeLeft < 2)
         {
             timeLeft -= Time.deltaTime;
+            Debug.Log(timeLeft);
         }
-        
+
         //Debug.Log("Arduino value is " + gav.getValue());
     }
 
@@ -51,18 +49,16 @@ public class TemporaryPlatform : MonoBehaviour
         buttonValue = ra.ValuesArduino()[2];
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
         {
-            y_pos = collision.transform.position.y;
-            x_pos = platform.transform.position.x;
-            //death.lastPlatformPosition( x_pos,  y_pos);
-            //tg.LastPlatformPosition(y_pos);
+
             if (buttonValue == 2 && death.getLifes() > 0)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 600f);
 
             }
-            if (timeLeft == 0)
+            if (timeLeft <= 0)
             {
-                int random = Random.Range(1, 2);
+                timeLeft = 1;
+                int random = Random.Range(1, 3);
                 if (random == 1)
                 {
                     rb2d.AddForce(Vector2.right * 6000f);
@@ -77,6 +73,6 @@ public class TemporaryPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        timeLeft = 2;
+        timeLeft = 1;
     }
 }

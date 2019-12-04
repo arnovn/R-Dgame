@@ -8,7 +8,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject platformPrefab;
     public GameObject bigBouncePlatformPrefab;
     public GameObject IcePlatformPrefab;
-    public GameObject TemporaryPlatformPrefab;
+    public GameObject FirePlatform;
     private GameObject myPlat;
     private Death death;
     private Bounce platform;
@@ -87,14 +87,14 @@ public class TileGenerator : MonoBehaviour
           //Debug.Log(tilesXPositions[0]);
           //Debug.Log(tilesYPositions[0]);
 
-        float y_pos = tilesYPositions[0] + 8.82f;
+        float y_pos = tilesYPositions[0] + 8.72f;
         float x_pos = Random.Range(-5.5f,5.5f);
         //When we collide with normal platform:
         if (collision.gameObject.name.StartsWith("Platform"))
         {
 
             //1 in 7 we will generate 'bigjump' platform
-            int random = Random.Range(1,4);
+            int random = Random.Range(1,14);
             if (random == 1)
 
             {
@@ -117,7 +117,7 @@ public class TileGenerator : MonoBehaviour
               Destroy(collision.gameObject);
               tilesXPositions[index] = 0f;
               tilesYPositions[index] = 0f;
-              Instantiate(TemporaryPlatformPrefab, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+              Instantiate(FirePlatform, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
            } else
             {
                 collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos/* + Random.Range(extra - 0.5f, extra)*/);
@@ -146,7 +146,7 @@ public class TileGenerator : MonoBehaviour
 
 
         }
-        if(collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Big")){
+        if(collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Big")|| collision.gameObject.name.StartsWith("Fire")){
           updateTileArray(x_pos,y_pos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }

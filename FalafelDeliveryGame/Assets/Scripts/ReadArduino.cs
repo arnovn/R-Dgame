@@ -7,7 +7,7 @@ using System.IO.Ports;
 public class ReadArduino : MonoBehaviour
 {
 
-    SerialPort sp = new SerialPort("COM8", 9600);
+    SerialPort sp = new SerialPort("COM3", 9600);
 
     private int[] values = new int[7];
     private int[] currentArray = new int[7];
@@ -47,7 +47,6 @@ public class ReadArduino : MonoBehaviour
                 //Debug.Log("Start");
                 for(int i = 0; i<6; i++){
                     values[i] = sp.ReadByte();
-                        Debug.Log(values[1]);
 
                 }
 
