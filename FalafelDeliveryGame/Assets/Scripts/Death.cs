@@ -54,7 +54,7 @@ public class Death : MonoBehaviour
         if (y_pos - actual_pos >= death_interval)
         {
             lifes --;
-            Debug.Log(lifes);
+            //Debug.Log(lifes);
             SUI.DeleteOneLife(lifes);
             ra.WriteArduino(1);
             player.transform.position = new Vector2(x_pos, y_pos);
