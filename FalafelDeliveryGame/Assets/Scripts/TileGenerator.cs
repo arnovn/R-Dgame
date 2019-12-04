@@ -8,6 +8,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject platformPrefab;
     public GameObject bigBouncePlatformPrefab;
     public GameObject IcePlatformPrefab;
+    public GameObject TemporaryPlatformPrefab;
     private GameObject myPlat;
     private Death death;
     private Bounce platform;
@@ -93,7 +94,7 @@ public class TileGenerator : MonoBehaviour
         {
 
             //1 in 7 we will generate 'bigjump' platform
-            int random = Random.Range(1,14);
+            int random = Random.Range(1,4);
             if (random == 1)
 
             {
@@ -108,9 +109,16 @@ public class TileGenerator : MonoBehaviour
               tilesXPositions[index] =0f;
               tilesYPositions[index] =0f;
               Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + x_pos,  y_pos/*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-              Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f),  y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+              //Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f),  y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
 
-            }else
+          }
+          else if (random == 3)
+          {
+              Destroy(collision.gameObject);
+              tilesXPositions[index] = 0f;
+              tilesYPositions[index] = 0f;
+              Instantiate(TemporaryPlatformPrefab, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+           } else
             {
                 collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos/* + Random.Range(extra - 0.5f, extra)*/);
                 tilesXPositions[index] =0f;

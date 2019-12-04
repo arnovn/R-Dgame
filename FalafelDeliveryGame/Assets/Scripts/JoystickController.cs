@@ -27,7 +27,7 @@ public class JoystickController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveObject(ra.ValuesArduino()[1]);
+        MoveObject(ra.ValuesArduino()[0]);
     }
 
     public void AddForce()
