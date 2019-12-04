@@ -22,6 +22,6 @@ public class MainMenu : MonoBehaviour {
         anim1.Play("StartUserAnimation");
         anim2.Play("StartUserAnimation2");
         yield return new WaitForSeconds(0.25F);
-        SceneManager.LoadScene("SplitScene");
+        SceneManager.LoadScene("GameScene");
     }
 }
