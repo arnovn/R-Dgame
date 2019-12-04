@@ -3413,7 +3413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
-  rend: {fileID: 0}
+  rend: {fileID: 1970944687}
 --- !u!23 &1970944687
 MeshRenderer:
   m_ObjectHideFlags: 0
