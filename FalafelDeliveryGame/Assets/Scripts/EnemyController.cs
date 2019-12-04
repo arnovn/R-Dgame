@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
 
         if (spawnedEnemey == null) {
             freqOfEnemy = Random.Range(1, 10000);
-            Debug.Log("Freq : " + freqOfEnemy);
+           // Debug.Log("Freq : " + freqOfEnemy);
             if (freqOfEnemy <= difficulty)
             {
                 GenerateEnemy();

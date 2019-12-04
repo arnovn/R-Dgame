@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitBySeagull : MonoBehaviour
+public class BulletHit : MonoBehaviour
 {
-   
-    private Death death;
-    private int lifes;
+    private GameObject user;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
+        user = gameObject;
+        Debug.Log("tis is: "+gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+       
+
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name.Contains("enemy seagull"))
         {
-            death.LoseLife();
-            lifes = death.getLifes();
-            Debug.Log("You lost one life, lifes left: " + lifes);
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+
         }
     }
-
 }
