@@ -19,6 +19,7 @@ public class FirePlatform : MonoBehaviour
     {
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
         rb2d = GameObject.Find("SingleUser").GetComponent<Rigidbody2D>();
+        death = GameObject.Find("DdaCollider").GetComponent<Death>();
 
     }
 

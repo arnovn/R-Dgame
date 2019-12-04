@@ -155,7 +155,7 @@ public class TileGenerator : MonoBehaviour
 
 
         }
-        if(collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Big")|| collision.gameObject.name.StartsWith("Fire")){
+        if(collision.gameObject.name.StartsWith("Platform")){
           updateTileArray(x_pos,y_pos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }
