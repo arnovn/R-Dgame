@@ -9,6 +9,8 @@ public class DdaParams : MonoBehaviour
     private Rigidbody2D body;
     private float x_pos;
     private float y_pos;
+    enum playerSkill {UnskilledBoth, UnskilledJump, UnskilledShoot, Skilled, VerySkilled};
+    playerSkill currentSkill;
 
     //Platform object for comparison
     private GameObject platform;
@@ -23,12 +25,20 @@ public class DdaParams : MonoBehaviour
     {
         x_pos = player.transform.position.x;
         y_pos = player.transform.position.y;
+
+        //Standard we start off easy: unskilledboth
+        currentSkill = playerSkill.UnskilledBoth;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void CheckSkill()
+    {
+        //TO DO: set skill based on params
     }
 
     private void checkStationary(Collider2D collision)
@@ -43,16 +53,16 @@ public class DdaParams : MonoBehaviour
                 {
                     stationary_hops++;
                     jumpstreak = 0;
-                    //Debug.Log("Stationary hops: " + stationary_hops);
-                    //Debug.Log("Jumpstreak: " + jumpstreak);
+                    Debug.Log("Stationary hops: " + stationary_hops);
+                    Debug.Log("Jumpstreak: " + jumpstreak);
                 }
                 else
                 {
                     stationary_hops = 0;
                     jumpstreak++;
                     platform = collision.gameObject;
-                    //Debug.Log("Stationary hops: " + stationary_hops);
-                    //Debug.Log("Jumpstreak: " + jumpstreak);
+                    Debug.Log("Stationary hops: " + stationary_hops);
+                    Debug.Log("Jumpstreak: " + jumpstreak);
                 }
             }
         }
@@ -67,5 +77,6 @@ public class DdaParams : MonoBehaviour
             amount_of_jumpstreaks++;
             Debug.Log("Amount_of_jumpstreaks of jumpstreak increased: " + amount_of_jumpstreaks);
         }
+        CheckSkill();
     }
 }

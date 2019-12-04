@@ -21,6 +21,12 @@ public class TileGenerator : MonoBehaviour
     private float[] tilesXPositions = new float[] {-4f,3.7f,-3f,3.2f,-2.4f,2.93f,-2.19f,4.26f,-4.71f,0.05f};
     private float[] tilesYPositions = new float[] {41f,36.8f,30.6f,23.9f,16.6f,10.81f,5.84f,0.67f,-3.02f,-8.07f};
 
+    struct Coord2D
+    {
+        public float xpos;
+        public float ypos;
+    }
+
     //MAX AFSTAND TUSSEN TILES IS 8.82F!!!!!!!!!
     // Start is called before the first frame update
     void Start()
@@ -77,69 +83,94 @@ public class TileGenerator : MonoBehaviour
       generating = false;
     }
 
+    private Coord2D SetNewPlatformPosition()
+    {
+        float y_pos = tilesYPositions[0] + 8.82f;//8.82f;
+        float x_pos = Random.Range(-5.5f, 5.5f);
+        Coord2D position;
+        position.xpos = x_pos;
+        position.ypos = y_pos;
+        return position;
+    }
+
+    //Generates new platform when collided with normal platform
+    private void GenerateCollidedPlatform(Collider2D collision, Coord2D position)
+    {
+        float x_pos = position.xpos;
+        float y_pos = position.ypos;
+        //1 in 7 we will generate 'bigjump' platform
+        int random = Random.Range(1, 14);
+        if (random == 1)
+
+        {
+            Destroy(collision.gameObject);
+            tilesXPositions[index] = 0f;
+            tilesYPositions[index] = 0f;
+            Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+
+        }
+        else if (random == 2)
+        {
+            Destroy(collision.gameObject);
+            tilesXPositions[index] = 0f;
+            tilesYPositions[index] = 0f;
+            Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + x_pos, y_pos/*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+            Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+
+        }
+        else
+        {
+            collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos/* + Random.Range(extra - 0.5f, extra)*/);
+            tilesXPositions[index] = 0f;
+            tilesYPositions[index] = 0f;
+        }
+
+    }
+
+    private void GenerateCollidedBigjump(Collider2D collision, Coord2D position)
+    {
+        float x_pos = position.xpos;
+        float y_pos = position.ypos;
+        //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
+        if (Random.Range(1, 7) == 1)
+        {
+            tilesXPositions[index] = 0f;
+            tilesYPositions[index] = 0f;
+            collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
+        }
+        else
+        {
+            Destroy(collision.gameObject);
+            tilesXPositions[index] = 0f;
+            tilesYPositions[index] = 0f;
+            Instantiate(platformPrefab, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+        }
+
+    }
 
     private void GenerateNewPlatform(Collider2D collision)
     {
 
         index = getLowestTile();
         Debug.Log("index : " + index);
-          //Debug.Log(tilesXPositions[0]);
-          //Debug.Log(tilesYPositions[0]);
+        //Debug.Log(tilesXPositions[0]);
+        //Debug.Log(tilesYPositions[0]);
 
-        float y_pos = tilesYPositions[0] + 8.82f;
-        float x_pos = Random.Range(-5.5f,5.5f);
+        Coord2D position = SetNewPlatformPosition();
+
         //When we collide with normal platform:
         if (collision.gameObject.name.StartsWith("Platform"))
         {
-
-            //1 in 7 we will generate 'bigjump' platform
-            int random = Random.Range(1,14);
-            if (random == 1)
-
-            {
-                Destroy(collision.gameObject);
-                tilesXPositions[index] =0f;
-                tilesYPositions[index] =0f;
-                Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-
-            }
-            else if (random == 2){
-              Destroy(collision.gameObject);
-              tilesXPositions[index] =0f;
-              tilesYPositions[index] =0f;
-              Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + x_pos,  y_pos/*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-              Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f),  y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-
-            }else
-            {
-                collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos/* + Random.Range(extra - 0.5f, extra)*/);
-                tilesXPositions[index] =0f;
-                tilesYPositions[index] =0f;
-            }
-
+            GenerateCollidedPlatform(collision, position);
         }
         //When we collide with bigjump platform
         else if (collision.gameObject.name.StartsWith("BigJump"))
         {
-            //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
-            if (Random.Range(1, 7) == 1)
-            {
-              tilesXPositions[index] =0f;
-              tilesYPositions[index] =0f;
-                collision.gameObject.transform.position = new Vector2(generation_axis + x_pos,  y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
-            }
-            else
-            {
-                Destroy(collision.gameObject);
-                tilesXPositions[index] =0f;
-                tilesYPositions[index] =0f;
-                Instantiate(platformPrefab, new Vector2(generation_axis + x_pos,  y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-            }
 
-
+            GenerateCollidedBigjump(collision, position);
         }
         if(collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Big")){
-          updateTileArray(x_pos,y_pos);
+          updateTileArray(position.xpos,position.ypos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }
 
