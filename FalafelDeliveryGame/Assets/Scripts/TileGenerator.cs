@@ -9,6 +9,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject bigBouncePlatformPrefab;
     public GameObject IcePlatformPrefab;
     public GameObject FirePlatform;
+    public GameObject MovingTile;
     private GameObject myPlat;
     private Death death;
     private Bounce platform;
@@ -118,7 +119,15 @@ public class TileGenerator : MonoBehaviour
               tilesXPositions[index] = 0f;
               tilesYPositions[index] = 0f;
               Instantiate(FirePlatform, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-           } else
+           }
+            else if (random == 4)
+           {
+                Destroy(collision.gameObject);
+                tilesXPositions[index] = 0f;
+                tilesYPositions[index] = 0f;
+                Instantiate(MovingTile, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+           }
+            else
             {
                 collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos/* + Random.Range(extra - 0.5f, extra)*/);
                 tilesXPositions[index] =0f;
