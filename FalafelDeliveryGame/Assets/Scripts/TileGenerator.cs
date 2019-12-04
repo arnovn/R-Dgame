@@ -8,6 +8,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject platformPrefab;
     public GameObject bigBouncePlatformPrefab;
     public GameObject IcePlatformPrefab;
+    public GameObject FirePlatform;
     private GameObject myPlat;
     private Death death;
     private Bounce platform;
@@ -86,7 +87,7 @@ public class TileGenerator : MonoBehaviour
           //Debug.Log(tilesXPositions[0]);
           //Debug.Log(tilesYPositions[0]);
 
-        float y_pos = tilesYPositions[0] + 8.82f;
+        float y_pos = tilesYPositions[0] + 8.72f;
         float x_pos = Random.Range(-5.5f,5.5f);
         //When we collide with normal platform:
         if (collision.gameObject.name.StartsWith("Platform"))
@@ -108,9 +109,16 @@ public class TileGenerator : MonoBehaviour
               tilesXPositions[index] =0f;
               tilesYPositions[index] =0f;
               Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + x_pos,  y_pos/*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-              Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f),  y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+              //Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f),  y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
 
-            }else
+          }
+          else if (random == 3)
+          {
+              Destroy(collision.gameObject);
+              tilesXPositions[index] = 0f;
+              tilesYPositions[index] = 0f;
+              Instantiate(FirePlatform, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+           } else
             {
                 collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos/* + Random.Range(extra - 0.5f, extra)*/);
                 tilesXPositions[index] =0f;
@@ -138,7 +146,7 @@ public class TileGenerator : MonoBehaviour
 
 
         }
-        if(collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Big")){
+        if(collision.gameObject.name.StartsWith("Platform")){
           updateTileArray(x_pos,y_pos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }
