@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Timers;
 
 public class shootController : MonoBehaviour
 {
@@ -16,11 +17,17 @@ public class shootController : MonoBehaviour
     private float yPos;
     private float bulletSpeed = 10;
     private List<GameObject> bullets;
+    private ReadArduino ra;
+    private int buttonValue;
+    private static bool shootTimer;
+    private static System.Timers.Timer aTimer;
 
     void Start()
     {
         userrgb = user.GetComponent<Rigidbody2D>();
         bullets = new List<GameObject>();
+        ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
+        SetTimer();
     }
 
     // Update is called once per frame
@@ -28,16 +35,18 @@ public class shootController : MonoBehaviour
     {
 
         checkPosition();
+        buttonValue = ra.ValuesArduino()[2];
 
+        Debug.Log(buttonValue + " waarde van buttons");
 
-
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S)||buttonValue == 4 || buttonValue == 2)
         {
+            if (shootTimer)
+            {
+                Shoot();
+                shootTimer = false;
 
-            Shoot();
-
-
-
+            }
         }
 
         for (int i = bullets.Count - 1; i >= 0; i--)
@@ -58,6 +67,23 @@ public class shootController : MonoBehaviour
 
       
     }
+
+    private static void SetTimer()
+    {
+        aTimer = new System.Timers.Timer(250);
+       
+        aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+        aTimer.Enabled = true;
+
+    }
+
+    static void OnTimedEvent(object source, ElapsedEventArgs e) { 
+    shootTimer = true;
+      
+    }
+
+    
+
 
     private void Shoot()
     {
