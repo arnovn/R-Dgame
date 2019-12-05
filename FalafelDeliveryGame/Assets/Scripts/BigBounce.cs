@@ -41,7 +41,7 @@ public class BigBounce : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("speed is " + collision.gameObject.GetComponent<Rigidbody2D>().velocity.y);
+     //   Debug.Log("speed is " + collision.gameObject.GetComponent<Rigidbody2D>().velocity.y);
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
         {
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000f);

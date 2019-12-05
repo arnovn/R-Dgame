@@ -34,7 +34,7 @@ public class StartPointDestroyer : MonoBehaviour
     private void DestroyStartPoint(Collider2D collision)
     {
         //When we collide with normal platform:
-        Debug.Log("startpoint weg");
+        //Debug.Log("startpoint weg");
         if (collision.gameObject.name.StartsWith("startpoint"))
         {
             Destroy(collision.gameObject);

@@ -31,7 +31,7 @@ public class Finish : MonoBehaviour
     void Update()
     {
         UpdatePosition();
-        if (yPos1 >= 200) {
+        if (yPos1 >= 1000) { //Normally 200 instead of 500
 
             if (test == null)
             {

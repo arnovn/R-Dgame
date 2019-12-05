@@ -12,6 +12,8 @@ public class TileGenerator : MonoBehaviour
     private Death death;
     private Bounce platform;
     private BigBounce bigBounce;
+    private DdaParams ddaparamaters;
+    private GenerationValues generationValues;
     private float range = 22f;
     private float extra = 1f;
     private float generation_axis;
@@ -20,6 +22,10 @@ public class TileGenerator : MonoBehaviour
     private float[] coords = new float[2];
     private float[] tilesXPositions = new float[] {-4f,3.7f,-3f,3.2f,-2.4f,2.93f,-2.19f,4.26f,-4.71f,0.05f};
     private float[] tilesYPositions = new float[] {41f,36.8f,30.6f,23.9f,16.6f,10.81f,5.84f,0.67f,-3.02f,-8.07f};
+
+    //Params for DDA: distance between tiles & random range for spawning special tiles
+    int skillevel;
+    private float tileDistance;
 
     struct Coord2D
     {
@@ -33,7 +39,14 @@ public class TileGenerator : MonoBehaviour
     {
         generation_axis = player.transform.position.x;
         death = GameObject.Find("DdaCollider").GetComponent<Death>();
+        ddaparamaters = GameObject.Find("DdaCollider").GetComponent<DdaParams>();
+        generationValues = GameObject.Find("DdaCollider").GetComponent<GenerationValues>();
+        skillevel = ddaparamaters.getSkillLevel();
+        generationValues.SetSkillLevel(skillevel);
         generating = true;
+
+        //Setting DDA params:
+        tileDistance = 7f; //Max 8,72f
     }
     // Update is called once per frame
     void Update()
@@ -48,7 +61,9 @@ public class TileGenerator : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(generating){
-          GenerateNewPlatform(collision);
+            skillevel = ddaparamaters.getSkillLevel();
+            generationValues.SetSkillLevel(skillevel);
+            GenerateNewPlatform(collision);
         }
     }
 
@@ -68,14 +83,14 @@ public class TileGenerator : MonoBehaviour
       for(int i = 1; i<10; i++){
 
         float lowest = tilesYPositions[0];
-          Debug.Log(tilesYPositions[i]);
+        //  Debug.Log(tilesYPositions[i]);
         if(tilesYPositions[i]< lowest && tilesYPositions[i] != 0f){
-          Debug.Log("YES");
+        //  Debug.Log("YES");
           lowest = tilesYPositions[i];
           lowestIndex = i;
         }
       }
-      Debug.Log("STOP");
+    //  Debug.Log("STOP");
       return lowestIndex;
     }
 
@@ -85,8 +100,8 @@ public class TileGenerator : MonoBehaviour
 
     private Coord2D SetNewPlatformPosition()
     {
-        float y_pos = tilesYPositions[0] + 8.82f;//8.82f;
-        float x_pos = Random.Range(-5.5f, 5.5f);
+        float y_pos = tilesYPositions[0] + generationValues.RandomRangeYvalue();//8.82f;
+        float x_pos = generationValues.RandomRangeXvalue();
         Coord2D position;
         position.xpos = x_pos;
         position.ypos = y_pos;
@@ -99,7 +114,7 @@ public class TileGenerator : MonoBehaviour
         float x_pos = position.xpos;
         float y_pos = position.ypos;
         //1 in 7 we will generate 'bigjump' platform
-        int random = Random.Range(1, 14);
+        int random = generationValues.RandomRangeSpecialPlatform();
         if (random == 1)
 
         {

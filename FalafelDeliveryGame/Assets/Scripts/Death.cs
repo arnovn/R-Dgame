@@ -9,6 +9,7 @@ public class Death : MonoBehaviour
     private ReadArduino ra;
     private SUserInterface SUI;
     private Rigidbody2D body;
+    private DdaParams ddaparams;
     private float[] coords = new float[2];
     private float y_pos;
     private float x_pos;
@@ -23,6 +24,7 @@ public class Death : MonoBehaviour
         tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
         SUI = GameObject.Find("DdaCollider").GetComponent<SUserInterface>();
+        ddaparams = GameObject.Find("DdaCollider").GetComponent<DdaParams>();
     }
 
       public void lastPlatformPosition(float x_posi, float y_posi){
@@ -54,10 +56,12 @@ public class Death : MonoBehaviour
         if (y_pos - actual_pos >= death_interval)
         {
             lifes --;
-            Debug.Log(lifes);
+            //Debug.Log(lifes);
             SUI.DeleteOneLife(lifes);
             ra.WriteArduino(1);
-            player.transform.position = new Vector2(x_pos, y_pos);
+            player.transform.position = new Vector2(x_pos, y_pos + 3f);
+            ddaparams.Died();
+            ddaparams.ReduceSkill();
         }
     }
 }
