@@ -16,10 +16,10 @@ public class Bounce : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-      tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
-      death = GameObject.Find("DdaCollider").GetComponent<Death>();
-      rigid = GameObject.Find("SingleUser").GetComponent<Rigidbody2D>();
+      ra = GameObject.Find("User1").GetComponent<ReadArduino>();
+      tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
+      death = GameObject.Find("DdaCollider1").GetComponent<Death>();
+      rigid = GameObject.Find("User1").GetComponent<Rigidbody2D>();
 
 
     }
@@ -28,11 +28,6 @@ public class Bounce : MonoBehaviour
     void Update()
     {
         //Debug.Log("Arduino value is " + gav.getValue());
-        if (Input.GetKeyDown("space"))
-        {
-            rigid.AddForce(Vector2.up * 60f);
-        }
-
     }
 
     float PositionPlatform(){
@@ -47,11 +42,6 @@ public class Bounce : MonoBehaviour
     {
 
         buttonValue = ra.ValuesArduino()[2];
-        /*
-        if (Input.GetKeyDown("space"))
-        {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 600f);
-        }*/
 
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0){
         y_pos = collision.transform.position.y;
