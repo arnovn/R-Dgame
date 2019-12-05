@@ -7,7 +7,7 @@ public class Bounce : MonoBehaviour
   ReadArduino ra;
   TileGenerator tg;
   Death death;
-  Rigidbody2D rigid;
+  public Rigidbody2D user;
   private int buttonValue;
   private float y_pos;
   private float x_pos;
@@ -19,7 +19,7 @@ public class Bounce : MonoBehaviour
       ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
       tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
       death = GameObject.Find("DdaCollider1").GetComponent<Death>();
-      rigid = GameObject.Find("User1").GetComponent<Rigidbody2D>();
+      //user = GameObject.Find("User1").GetComponent<Rigidbody2D>();
 
 
     }
