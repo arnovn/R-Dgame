@@ -16,7 +16,7 @@ public class Bounce : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      ra = GameObject.Find("User1").GetComponent<ReadArduino>();
+      ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
       tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
       death = GameObject.Find("DdaCollider1").GetComponent<Death>();
       rigid = GameObject.Find("User1").GetComponent<Rigidbody2D>();
