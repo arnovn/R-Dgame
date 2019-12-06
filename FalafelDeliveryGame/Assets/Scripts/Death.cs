@@ -63,7 +63,7 @@ public class Death : MonoBehaviour
             //Debug.Log(lifes);
             SUI.DeleteOneLife(lifes);
             ra.WriteArduino(1);
-            player.transform.position = new Vector2(x_pos, y_pos + 3f);
+            player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
             ddaparams.Died();
             ddaparams.ReduceSkill();
         }

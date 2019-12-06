@@ -23,7 +23,21 @@ public class GenerationValues : MonoBehaviour
     //Gives X range between chich new values are transformed
     public float RandomRangeXvalue()
     {
-        return Random.Range(-5.5f, 5.5f);
+       
+        switch (skillLevel)
+        {
+            case 0: 
+                return Random.Range(-3f, 3f);
+            case 1:     //UnskilledJump -> but skilled enemies, TO DO: change something with enemies
+                return Random.Range(-3f, 3f);
+            case 2:     //Skilled both enemy and jumping a bit harder
+                return Random.Range(-5.5f, 5.5f);
+            case 3:     //Very skilled both enemy gen & jumping most difficult
+                SetRandomRangeSpecialPlatform(10);
+                return Random.Range(-7f, 7f);
+            default:
+                return Random.Range(-5.5f, 5.5f);
+        }
     }
 
     public float RandomRangeYvalue()
@@ -31,16 +45,16 @@ public class GenerationValues : MonoBehaviour
         switch(skillLevel)
         {
             case 0:    //Unskilled both: both enemies and jump easiest
-                SetRandomRangeSpecialPlatform(50);
+                SetRandomRangeSpecialPlatform(15);
                 return Random.Range(2f, 5f);
             case 1:     //UnskilledJump -> but skilled enemies, TO DO: change something with enemies
-                SetRandomRangeSpecialPlatform(30);
+                SetRandomRangeSpecialPlatform(12);
                 return Random.Range(2f, 5f);
             case 2:     //Skilled both enemy and jumping a bit harder
                 SetRandomRangeSpecialPlatform(14);
                 return Random.Range(4f, 6f);
             case 3:     //Very skilled both enemy gen & jumping most difficult
-                SetRandomRangeSpecialPlatform(4);
+                SetRandomRangeSpecialPlatform(10);
                 return Random.Range(6f, 7.5f);
             default:
                 return Random.Range(2f, 7.5f);

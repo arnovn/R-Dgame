@@ -101,6 +101,16 @@ public class TileGenerator : MonoBehaviour
       generating = false;
     }
 
+    public float returnLowestXPosition()
+    {
+        return tilesXPositions[index];
+    }
+
+    public float returnLowestYPosition()
+    {
+        return tilesYPositions[index];
+    }
+
     private Coord2D SetNewPlatformPosition()
     {
         float y_pos = tilesYPositions[0] + generationValues.RandomRangeYvalue();//8.82f;
@@ -109,6 +119,74 @@ public class TileGenerator : MonoBehaviour
         position.xpos = x_pos;
         position.ypos = y_pos;
         return position;
+    }
+
+    private void generateEasyTile(Collider2D collision, Coord2D position)
+    {
+        
+        int random = generationValues.RandomRangeSpecialPlatform();
+
+        if (random < 5) //Special easy tile generated
+        {
+            if (checkPlatformType(collision) == 2)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, bigBouncePlatformPrefab);
+            }
+        }
+        else
+        {
+            if (checkPlatformType(collision) == 1)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, platformPrefab);
+            }
+        }
+    }
+
+    private void generateDifficultTile(Collider2D collision, Coord2D position)
+    {
+        int random = generationValues.RandomRangeSpecialPlatform();
+
+        if (random < 6) //Moving
+        {
+            if (checkPlatformType(collision) == 4)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, MovingTile);
+            }
+        }
+        else if (random == 7 || random == 8) // Fire tile
+        {
+            if (checkPlatformType(collision) == 3)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, FirePlatform);
+            }
+        }
+        else
+        {
+            if (checkPlatformType(collision) == 1)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, platformPrefab);
+            }
+        }
     }
 
     //Generates new platform when collided with normal platform
@@ -152,23 +230,42 @@ public class TileGenerator : MonoBehaviour
 
     }
 
+    private int checkPlatformType(Collider2D collision)
+    {
+        if (collision.gameObject.name.StartsWith("PlatformNormal"))
+        {
+            return 1;
+        }
+        else if (collision.gameObject.name.StartsWith("PlatformBig"))
+        {
+            return 2;
+        }
+        else if (collision.gameObject.name.StartsWith("PlatformFire"))
+        {
+            return 3;
+        }
+        else if (collision.gameObject.name.StartsWith("PlatformMovingTile"))
+        {
+            return 4;
+        }
+        return 0;
+    }
+
     private void GenerateNewPlatform(Collider2D collision)
     {
 
         index = getLowestTile();
         Coord2D position = SetNewPlatformPosition();
 
-        //When we collide with normal platform:
-        if (collision.gameObject.name.StartsWith("PlatformNormal"))
+        if (skillevel == 0 || skillevel == 1)
         {
-            GenerateCollidedPlatform(collision, position);
+            generateEasyTile(collision, position);
         }
-        //When we collide with bigjump platform
-        else if (collision.gameObject.name.StartsWith("PlatformBig"))
+        else if (skillevel > 1)
         {
+            generateDifficultTile(collision, position);
+        }
 
-            GenerateCollidedBigjump(collision, position);
-        }
         if(collision.gameObject.name.StartsWith("Platform")){
           updateTileArray(position.xpos,position.ypos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
