@@ -19,9 +19,9 @@ public class MainMenu : MonoBehaviour {
 
     IEnumerator PlayGameWaiter()
     {
-        anim1.Play("StartUserAnimation");
-        anim2.Play("StartUserAnimation2");
-        yield return new WaitForSeconds(0.25F);
-        SceneManager.LoadScene("SplitScene");
+        anim1.Play("user1");
+        anim2.Play("user2");
+        yield return new WaitForSeconds(0.50F);
+        SceneManager.LoadScene("GameScene");
     }
 }

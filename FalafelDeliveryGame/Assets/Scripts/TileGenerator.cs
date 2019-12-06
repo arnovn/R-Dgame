@@ -8,6 +8,8 @@ public class TileGenerator : MonoBehaviour
     public GameObject platformPrefab;
     public GameObject bigBouncePlatformPrefab;
     public GameObject IcePlatformPrefab;
+    public GameObject FirePlatform;
+    public GameObject MovingTile;
     private GameObject myPlat;
     private Death death;
     private Bounce platform;

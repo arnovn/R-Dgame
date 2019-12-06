@@ -50,6 +50,10 @@ public class Death : MonoBehaviour
       lifes++;
     }
 
+    public void LoseLife() {
+        lifes--;
+    }
+
     private void CheckDeath()
     {
         float actual_pos = player.transform.position.y;

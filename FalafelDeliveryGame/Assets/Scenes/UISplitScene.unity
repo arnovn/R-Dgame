@@ -630,7 +630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user1: {fileID: 1070744138}
   yPos1: 0
-  tileG: {fileID: 0}
+  tg: {fileID: 0}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
@@ -668,6 +668,7 @@ MonoBehaviour:
   bigBouncePlatformPrefab: {fileID: 6411836754833798139, guid: ca683672239b77a4abd229976d48a967,
     type: 3}
   IcePlatformPrefab: {fileID: 0}
+  FirePlatform: {fileID: 0}
 --- !u!61 &446576413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1844,6 +1845,7 @@ GameObject:
   - component: {fileID: 977805045}
   - component: {fileID: 977805044}
   - component: {fileID: 977805043}
+  - component: {fileID: 977805046}
   m_Layer: 0
   m_Name: U1_EventSystem
   m_TagString: Untagged
@@ -1899,6 +1901,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &977805046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977805042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ca9df0a7038b64d803d9ce220767b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 7371025059905442959, guid: 6c1192104fb8f77478216d4aa5049bdd,
+    type: 3}
+  spawnedEnemey: {fileID: 0}
+  thisCanvas: {fileID: 733100722}
+  user: {fileID: 1070744138}
 --- !u!1 &988198721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user1: {fileID: 124974599}
   yPos1: 0
-  tileG: {fileID: 0}
+  tg: {fileID: 0}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
@@ -1985,6 +2004,7 @@ MonoBehaviour:
   bigBouncePlatformPrefab: {fileID: 6411836754833798139, guid: ca683672239b77a4abd229976d48a967,
     type: 3}
   IcePlatformPrefab: {fileID: 0}
+  FirePlatform: {fileID: 0}
 --- !u!61 &988198726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2144,6 +2164,8 @@ GameObject:
   - component: {fileID: 1070744141}
   - component: {fileID: 1070744140}
   - component: {fileID: 1070744139}
+  - component: {fileID: 1070744149}
+  - component: {fileID: 1070744148}
   m_Layer: 0
   m_Name: User1
   m_TagString: Untagged
@@ -2160,9 +2182,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1070744138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8e5f4c1ac59dc441a0e70c3af92543a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  user1: {fileID: 1070744138}
+  yPos1: 0
+  tg: {fileID: 446576412}
+  tiles: []
+  finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
+    type: 3}
+  test: {fileID: 0}
+  timerText: {fileID: 1070744142}
 --- !u!114 &1070744140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2324,6 +2354,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070744148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070744138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01bf1cedc3dc03448827de40f3cb9889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: {fileID: 1070744138}
+  bulletPrefab: {fileID: 6582376051583909599, guid: c1a69a7412a7eb24b9e10cd5d8436980,
+    type: 3}
+--- !u!114 &1070744149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070744138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1087905541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3165,6 +3222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 0}
+  startPoint: {fileID: 0}
 --- !u!61 &1525436420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3976,6 +4034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 0}
+  startPoint: {fileID: 0}
 --- !u!61 &1849695071
 BoxCollider2D:
   m_ObjectHideFlags: 0

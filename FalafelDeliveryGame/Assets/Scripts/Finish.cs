@@ -31,12 +31,12 @@ public class Finish : MonoBehaviour
     void Update()
     {
         UpdatePosition();
-        if (yPos1 >= 1000) { //Normally 200 instead of 500
+        if (yPos1 >= 2000) {
 
             if (test == null)
             {
                 tg.StopGenerating();
-                test = Instantiate(finishLinePrefab, new Vector3(0.15f, 276, 0), Quaternion.identity);
+                test = Instantiate(finishLinePrefab, new Vector3(0.15f, 2076, 0), Quaternion.identity);
                 Destroy(timerText);
 
             }
