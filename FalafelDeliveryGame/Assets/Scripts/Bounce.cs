@@ -60,7 +60,7 @@ public class Bounce : MonoBehaviour
         //tg.LastPlatformPosition(y_pos);
         if((buttonValue == 3 ||buttonValue == 4) && death.getLifes()> 0){
           collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*600f);
-
+          FindObjectOfType<AudioManager>().Play("NormalJump");
         }
         }
       }

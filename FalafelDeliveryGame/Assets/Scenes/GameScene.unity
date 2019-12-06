@@ -1044,6 +1044,60 @@ MonoBehaviour:
     type: 3}
   test: {fileID: 0}
   timerText: {fileID: 0}
+--- !u!1 &747209270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747209272}
+  - component: {fileID: 747209271}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &747209271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747209270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f96ac67ee51fd64381c0a44318fabb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: NormalJump
+    clip: {fileID: 8300000, guid: e873e20deb8cad542b503c52844bd45b, type: 3}
+    volume: 1
+    pitch: 0.95
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 8dc27432835c869499ccc3e069ad03a4, type: 3}
+    volume: 0.65
+    pitch: 1
+    source: {fileID: 0}
+--- !u!4 &747209272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747209270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.162891, y: 5.7964306, z: 15.248534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &843973173
 PrefabInstance:
   m_ObjectHideFlags: 0
