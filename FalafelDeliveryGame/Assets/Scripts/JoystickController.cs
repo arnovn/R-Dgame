@@ -35,9 +35,8 @@ public class JoystickController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //MoveUser1(ra.ValuesArduino()[0]);
-        //MoveUser2(ra.ValueArduino()[?];
-
+        MoveUser1(ra.ValuesArduino()[0]);
+        MoveUser2(ra.ValuesArduino()[1]);
     }
 
     public void AddForce()
@@ -49,12 +48,13 @@ public class JoystickController : MonoBehaviour
 
     //Horizontal movement for player 1 (with the analog values from the joystick)
     void MoveUser1(int Direction) {
+
       if(death1.getLifes()>0){
         if (Direction >= 134)
         {
             user1.velocity = new Vector2(-1 * speed*Direction/250, user1.velocity.y);
         }
-        else if (Direction <= 125 )
+        else if (Direction <= 123 )
         {
             user1.velocity = new Vector2(1 * speed*(255-Direction*2)/250, user1.velocity.y);
         }
@@ -65,23 +65,22 @@ public class JoystickController : MonoBehaviour
       }
     }
 
-    //Horizontal movement for player 1 (with the analog values from the joystick)
-
+    //Horizontal movement for player 2 (with the analog values from the joystick)
     void MoveUser2(int Direction)
     {
         if (death1.getLifes() > 0)
         {
             if (Direction >= 134)
             {
-                user1.velocity = new Vector2(-1 * speed * Direction / 250, user1.velocity.y);
+                user2.velocity = new Vector2(-1 * speed * Direction / 250, user2.velocity.y);
             }
-            else if (Direction <= 125)
+            else if (Direction <= 123)
             {
-                user1.velocity = new Vector2(1 * speed * (255 - Direction * 2) / 250, user1.velocity.y);
+                user2.velocity = new Vector2(1 * speed * (255 - Direction * 2) / 250, user2.velocity.y);
             }
             else if (Direction > 125 && Direction < 135)
             {
-                user1.velocity = new Vector2(0 * speed, user1.velocity.y);
+                user2.velocity = new Vector2(0 * speed, user2.velocity.y);
             }
         }
     }

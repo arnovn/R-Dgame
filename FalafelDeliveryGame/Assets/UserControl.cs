@@ -11,14 +11,15 @@ public class UserControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.A))
         {
             user1.AddForce(Vector2.up * 600f);
-            Debug.Log("yep");
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
             user2.AddForce(Vector2.up * 600f);
         }
+        */
     }
 }

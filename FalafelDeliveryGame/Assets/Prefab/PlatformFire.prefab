@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 61840624360850360}
   - component: {fileID: 251821800610943838}
   - component: {fileID: 114658591526630410}
-  - component: {fileID: 4732876101088911879}
+  - component: {fileID: 114943590738378378}
   m_Layer: 0
-  m_Name: TemporaryPlatform
+  m_Name: PlatformFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   platform: {fileID: 3586730889396692112}
   timeStart: 0.25
   timeLeft: 0.25
---- !u!114 &4732876101088911879
+--- !u!114 &114943590738378378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3586730889396692112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9097b5cad3a9a7a429cfae71633a5238, type: 3}
+  m_Script: {fileID: 11500000, guid: 954010f43178f9d42b625dd2a7f040e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 3586730889396692112}
