@@ -11,13 +11,14 @@ public class TileGenerator : MonoBehaviour
     public GameObject FirePlatform;
     public GameObject MovingTile;
     private GameObject myPlat;
+
     private Death death;
     private Bounce platform;
     private BigBounce bigBounce;
     private DdaParams ddaparamaters;
     private GenerationValues generationValues;
+    
     private float range = 22f;
-    private float extra = 1f;
     private float generation_axis;
     private int index;
     private bool generating;
@@ -115,31 +116,22 @@ public class TileGenerator : MonoBehaviour
     {
         float x_pos = position.xpos;
         float y_pos = position.ypos;
-        //1 in 7 we will generate 'bigjump' platform
+
         int random = generationValues.RandomRangeSpecialPlatform();
         if (random == 1)
 
         {
-            Destroy(collision.gameObject);
-            tilesXPositions[index] = 0f;
-            tilesYPositions[index] = 0f;
-            Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+            generateNewTile(collision, position, bigBouncePlatformPrefab);
 
         }
         else if (random == 2)
         {
-            Destroy(collision.gameObject);
-            tilesXPositions[index] = 0f;
-            tilesYPositions[index] = 0f;
-            Instantiate(bigBouncePlatformPrefab, new Vector2(generation_axis + x_pos, y_pos/*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
-            Instantiate(IcePlatformPrefab, new Vector2(generation_axis + Random.Range(-5.5f, 5.5f), y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+            generateNewTile(collision, position, bigBouncePlatformPrefab);
 
         }
         else
         {
-            collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos/* + Random.Range(extra - 0.5f, extra)*/);
-            tilesXPositions[index] = 0f;
-            tilesYPositions[index] = 0f;
+            replaceTile(collision, position);
         }
 
     }
@@ -151,16 +143,11 @@ public class TileGenerator : MonoBehaviour
         //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
         if (Random.Range(1, 7) == 1)
         {
-            tilesXPositions[index] = 0f;
-            tilesYPositions[index] = 0f;
-            collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
+            replaceTile(collision, position);
         }
         else
         {
-            Destroy(collision.gameObject);
-            tilesXPositions[index] = 0f;
-            tilesYPositions[index] = 0f;
-            Instantiate(platformPrefab, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+            generateNewTile(collision, position, platformPrefab);
         }
 
     }
@@ -169,28 +156,41 @@ public class TileGenerator : MonoBehaviour
     {
 
         index = getLowestTile();
-        Debug.Log("index : " + index);
-        //Debug.Log(tilesXPositions[0]);
-        //Debug.Log(tilesYPositions[0]);
-
         Coord2D position = SetNewPlatformPosition();
 
         //When we collide with normal platform:
-        if (collision.gameObject.name.StartsWith("Platform"))
+        if (collision.gameObject.name.StartsWith("PlatformNormal"))
         {
             GenerateCollidedPlatform(collision, position);
         }
         //When we collide with bigjump platform
-        else if (collision.gameObject.name.StartsWith("BigJump"))
+        else if (collision.gameObject.name.StartsWith("PlatformBig"))
         {
 
             GenerateCollidedBigjump(collision, position);
         }
-        if(collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Big")){
+        if(collision.gameObject.name.StartsWith("Platform")){
           updateTileArray(position.xpos,position.ypos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }
+    }
 
+    private void replaceTile(Collider2D collision, Coord2D position)
+    {
+        float x_pos = position.xpos;
+        float y_pos = position.ypos;
+        tilesXPositions[index] = 0f;
+        tilesYPositions[index] = 0f;
+        collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
+    }
 
+    private void generateNewTile(Collider2D collision, Coord2D position, GameObject newPlatform)
+    {
+        float x_pos = position.xpos;
+        float y_pos = position.ypos;
+        Destroy(collision.gameObject);
+        tilesXPositions[index] = 0f;
+        tilesYPositions[index] = 0f;
+        Instantiate(newPlatform, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
     }
 }

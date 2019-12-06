@@ -58,8 +58,8 @@ public class Bounce : MonoBehaviour
         x_pos = platform.transform.position.x;
         //death.lastPlatformPosition( x_pos,  y_pos);
         //tg.LastPlatformPosition(y_pos);
-        if((buttonValue == 1 ||buttonValue == 2) && death.getLifes()> 0){
-          //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*600f);
+        if((buttonValue == 3 ||buttonValue == 4) && death.getLifes()> 0){
+          collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*600f);
 
         }
         }

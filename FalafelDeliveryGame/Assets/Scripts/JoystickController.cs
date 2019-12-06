@@ -50,7 +50,7 @@ public class JoystickController : MonoBehaviour
         else if (Direction > 125 && Direction < 135)
         {
             rb2d.velocity = new Vector2(0* speed, rb2d.velocity.y);
-          }
+        }
       }
     }
 }
