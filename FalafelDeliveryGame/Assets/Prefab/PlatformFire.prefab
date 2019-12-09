@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 114658591526630410}
   - component: {fileID: 4732876101088911879}
   m_Layer: 0
-  m_Name: TemporaryPlatform
+  m_Name: PlatformFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,6 +143,8 @@ MonoBehaviour:
   platform: {fileID: 3586730889396692112}
   timeStart: 0.25
   timeLeft: 0.25
+  StartColor: {r: 0.9811321, g: 0.17123532, b: 0.17123532, a: 0}
+  EndColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &4732876101088911879
 MonoBehaviour:
   m_ObjectHideFlags: 0

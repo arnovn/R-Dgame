@@ -22,6 +22,8 @@ public class shootController : MonoBehaviour
     private static bool shootTimer;
     private static System.Timers.Timer aTimer;
 
+    int direction = -1; //To right
+
     void Start()
     {
         userrgb = user.GetComponent<Rigidbody2D>();
@@ -68,6 +70,11 @@ public class shootController : MonoBehaviour
       
     }
 
+    public void setDirection(int newDirection)
+    {
+        direction = newDirection;
+    }
+
     private static void SetTimer()
     {
         aTimer = new System.Timers.Timer(250);
@@ -87,22 +94,19 @@ public class shootController : MonoBehaviour
 
     private void Shoot()
     {
-
-        bulletSpeed = 10;
         checkPosition();
         Debug.Log(userrgb.velocity.x);
-        if (userrgb.velocity.x == 0)
+        if (direction == -1)
         {
-            xSpeed = xSpeed;
+            bulletSpeed = -10;
+        }
+        else if (direction == 1)
+        {
+            bulletSpeed = 10;
         }
         else
         {
-            xSpeed = userrgb.velocity.x;
-        }
-        if (xSpeed < 0)
-        {
-            bulletSpeed = -bulletSpeed;
-
+            bulletSpeed = 10;
         }
 
         bullet = Instantiate(bulletPrefab, new Vector2(xPos, yPos), Quaternion.identity);

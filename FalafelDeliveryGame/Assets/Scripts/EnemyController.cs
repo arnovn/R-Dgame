@@ -81,14 +81,49 @@ public class EnemyController : MonoBehaviour
                 break;
         }
 
-       if (spawnedEnemey.transform.position.y < user.transform.position.y)
-        {
-            followUser = true;
-        }
-        if (followUser)
+        //if (spawnedEnemey.transform.position.y < user.transform.position.y)
+        // {
+        //   followUser = true;
+        // }
+        // if (followUser)
+        // {
+
+        //     spawnedEnemey.transform.position = new Vector2(newX, user.transform.position.y);
+        // }
+
+        if (user.transform.position.y - spawnedEnemey.transform.position.y == 0)
         {
             spawnedEnemey.transform.position = new Vector2(newX, user.transform.position.y);
         }
+        else
+        {
+            if (Vector2.Distance(user.transform.position, spawnedEnemey.transform.position) > 2)
+            {
+
+
+
+                if (spawnedEnemey.transform.position.x - user.transform.position.x > 0)
+                {
+                    spawnedEnemey.transform.position = Vector2.MoveTowards(spawnedEnemey.transform.position, new Vector2(user.transform.position.x + 4, user.transform.position.y), speedEnemy);
+
+                }
+                else
+                {
+                    spawnedEnemey.transform.position = Vector2.MoveTowards(spawnedEnemey.transform.position, new Vector2(user.transform.position.x - 4, user.transform.position.y), speedEnemy);
+
+                }
+
+
+
+
+
+            }
+            else if (Vector2.Distance(user.transform.position, spawnedEnemey.transform.position) <= 2)
+            { //spawnedEnemey.transform.position = new Vector2(newX, user.transform.position.y);
+                spawnedEnemey.transform.position = Vector2.MoveTowards(spawnedEnemey.transform.position, new Vector2(spawnedEnemey.transform.position.x, user.transform.position.y), speedEnemy);
+            }
+        }
+
     }
 
     private void GenerateEnemy()

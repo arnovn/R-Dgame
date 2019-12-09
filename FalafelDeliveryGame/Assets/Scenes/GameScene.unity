@@ -1010,6 +1010,7 @@ MonoBehaviour:
     type: 3}
   MovingTile: {fileID: 5200929715369481979, guid: 3b85a37a903181344ae3b0cb5258e6f2,
     type: 3}
+  Seagul: {fileID: 0}
 --- !u!114 &663890928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,6 +1810,9 @@ GameObject:
   - component: {fileID: 1464420200}
   - component: {fileID: 1464420206}
   - component: {fileID: 1464420208}
+  - component: {fileID: 1464420210}
+  - component: {fileID: 1464420209}
+  - component: {fileID: 1464420207}
   m_Layer: 0
   m_Name: SingleUser
   m_TagString: Untagged
@@ -1828,6 +1832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fba9e8e84c6824b9a805630066cb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  user: {fileID: 1464420199}
 --- !u!50 &1464420201
 Rigidbody2D:
   serializedVersion: 4
@@ -1965,6 +1970,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888983f56a4dbfd48b3c6cc0e263263c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1464420207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464420199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ddaCollider: {fileID: 500539832}
 --- !u!114 &1464420208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,6 +1995,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed176cead6ce3b4483dde6632c7583a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1464420209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464420199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ca9df0a7038b64d803d9ce220767b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 7371025059905442959, guid: 6c1192104fb8f77478216d4aa5049bdd,
+    type: 3}
+  spawnedEnemey: {fileID: 0}
+  thisCanvas: {fileID: 962582531}
+  user: {fileID: 1464420199}
+--- !u!114 &1464420210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464420199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01bf1cedc3dc03448827de40f3cb9889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: {fileID: 1464420199}
+  bulletPrefab: {fileID: 6582376051583909599, guid: c1a69a7412a7eb24b9e10cd5d8436980,
+    type: 3}
 --- !u!1 &1594371316
 GameObject:
   m_ObjectHideFlags: 0

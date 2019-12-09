@@ -10,6 +10,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject IcePlatformPrefab;
     public GameObject FirePlatform;
     public GameObject MovingTile;
+    public GameObject Seagul;
     private GameObject myPlat;
 
     private Death death;
@@ -63,7 +64,11 @@ public class TileGenerator : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(generating){
+        if (collision.gameObject.name.StartsWith("enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
+        else if(generating){
             skillevel = ddaparamaters.getSkillLevel();
             generationValues.SetSkillLevel(skillevel);
             GenerateNewPlatform(collision);
@@ -103,12 +108,12 @@ public class TileGenerator : MonoBehaviour
 
     public float returnLowestXPosition()
     {
-        return tilesXPositions[index];
+        return tilesXPositions[9];
     }
 
     public float returnLowestYPosition()
     {
-        return tilesYPositions[index];
+        return tilesYPositions[9];
     }
 
     private Coord2D SetNewPlatformPosition()

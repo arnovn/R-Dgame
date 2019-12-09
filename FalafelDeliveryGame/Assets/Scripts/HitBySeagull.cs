@@ -7,10 +7,13 @@ public class HitBySeagull : MonoBehaviour
    
     private Death death;
     private int lifes;
+    public GameObject ddaCollider;
+    private SUserInterface SUI;
     // Start is called before the first frame update
     void Start()
     {
         death = GameObject.Find("DdaCollider").GetComponent<Death>();
+        SUI = ddaCollider.GetComponent<SUserInterface>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class HitBySeagull : MonoBehaviour
         {
             death.LoseLife();
             lifes = death.getLifes();
+            SUI.DeleteOneLife(lifes);
             Debug.Log("You lost one life, lifes left: " + lifes);
         }
     }

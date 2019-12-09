@@ -14,6 +14,8 @@ public class JoystickController : MonoBehaviour
     private float speed = 10f;
     private ReadArduino ra;
     private Death death;
+    public GameObject user;
+    private shootController shootcon;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class JoystickController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
         death = GameObject.Find("DdaCollider").GetComponent<Death>();
+        shootcon = user.GetComponent<shootController>();
 
 
     }
@@ -42,10 +45,12 @@ public class JoystickController : MonoBehaviour
         if (Direction >= 134)
         {
             rb2d.velocity = new Vector2(-1 * speed*Direction/250, rb2d.velocity.y);
-        }
+                shootcon.setDirection(-1);
+            }
         else if (Direction <= 125 )
         {
             rb2d.velocity = new Vector2(1 * speed*(255-Direction*2)/250, rb2d.velocity.y);
+                shootcon.setDirection(1);
         }
         else if (Direction > 125 && Direction < 135)
         {
