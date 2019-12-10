@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO.Ports;
 
 
@@ -23,10 +24,11 @@ public class JoystickController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
         death = GameObject.Find("DdaCollider").GetComponent<Death>();
         shootcon = user.GetComponent<shootController>();
+
+        Debug.Log(SceneManager.GetActiveScene().name);
         //The 2 player objects
         user1 = GameObject.Find("User1").GetComponent<Rigidbody2D>();
         user2 = GameObject.Find("User2").GetComponent<Rigidbody2D>();
@@ -35,10 +37,8 @@ public class JoystickController : MonoBehaviour
         //Death collider for the players
         death1 = GameObject.Find("DdaCollider1").GetComponent<Death>();
         death2 = GameObject.Find("DdaCollider2").GetComponent<Death>();
-
-
-
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -54,25 +54,29 @@ public class JoystickController : MonoBehaviour
     }
 
     //Horizontal movement for player 1 (with the analog values from the joystick)
-    void MoveUser1(int Direction) {
+    void MoveUser1(int Direction)
+    {
 
-      if(death1.getLifes()>0){
-        if (Direction >= 134)
+        if (death1.getLifes() > 0)
         {
-            user1.velocity = new Vector2(-1 * speed*Direction/250, user1.velocity.y);
-            shootcon.setDirection(-1);
+            if (Direction >= 134)
+            {
+                user1.velocity = new Vector2(-1 * speed * Direction / 250, user1.velocity.y);
+                shootcon.setDirection(-1);
+            }
+            else if (Direction <= 123)
+            {
+                user1.velocity = new Vector2(1 * speed * (255 - Direction * 2) / 250, user1.velocity.y);
+                shootcon.setDirection(-1);
+            }
+            else if (Direction > 125 && Direction < 135)
+            {
+                user1.velocity = new Vector2(0 * speed, user1.velocity.y);
+            }
+
         }
-        else if (Direction <= 123 )
-        {
-            user1.velocity = new Vector2(1 * speed*(255-Direction*2)/250, user1.velocity.y);
-            shootcon.setDirection(1);
-        }
-        else if (Direction > 125 && Direction < 135)
-        {
-            user1.velocity = new Vector2(0* speed, user1.velocity.y);
-          }
-      }
     }
+    
 
     //Horizontal movement for player 2 (with the analog values from the joystick)
     void MoveUser2(int Direction)
