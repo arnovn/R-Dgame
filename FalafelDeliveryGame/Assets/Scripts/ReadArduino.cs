@@ -7,17 +7,27 @@ using System.IO.Ports;
 public class ReadArduino : MonoBehaviour
 {
 
-    SerialPort sp = new SerialPort("COM14", 9600);
-
+    SerialPort sp;
+    private string activePort;
     private int[] values = new int[7];
     private int[] currentArray = new int[7];
     private int[] lastFilledArray = new int[7];
+    private string[] ports;
 
     // Start is called before the first frame update
     void Start()
     {
+        ports = SerialPort.GetPortNames();
+        foreach(string p in ports) {
+            sp = new SerialPort(p, 9600);
+            sp.ReadTimeout = 1;
+            sp.Open();
+            if (sp.IsOpen) { activePort = p; }
+            sp.Close();
+        }
       sp.Open();
       sp.ReadTimeout = 1;
+        Debug.Log(sp.PortName+ sp.IsOpen);
     }
 
     // Update is called once per frame
