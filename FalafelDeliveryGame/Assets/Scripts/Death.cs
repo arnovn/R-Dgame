@@ -52,7 +52,9 @@ public class Death : MonoBehaviour
     }
 
     public void LoseLife() {
+      if(lifes>0){
         lifes--;
+      }
     }
 
     private void CheckDeath()

@@ -296,8 +296,6 @@ public class TileGenerator : MonoBehaviour
     {
         float x_pos = position.xpos;
         float y_pos = position.ypos;
-        tilesXPositions[index] = 0f;
-        tilesYPositions[index] = 0f;
         collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
     }
 
@@ -308,8 +306,6 @@ public class TileGenerator : MonoBehaviour
         if(collision.gameObject.name.StartsWith("Platform")){
           Destroy(collision.gameObject);
         }
-        tilesXPositions[index] = 0f;
-        tilesYPositions[index] = 0f;
         Instantiate(newPlatform, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
     }
 }
