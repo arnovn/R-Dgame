@@ -15,14 +15,11 @@ public class DdaParams : MonoBehaviour
 {
     //Connection & variables of player
     public GameObject player;
-    private int player_lives;
+    public GameObject DdaCollider;
+
     private Rigidbody2D body;
-    private float x_pos;
-    private float y_pos;
-    private enum playerSkill {UnskilledBoth, UnskilledJump, UnskilledShoot, Skilled, VerySkilled};
-    playerSkill currentSkill;
-    private Death death1;
-    private Death death2;
+    private playerSkill currentSkill;
+    private Death death;
 
     //Platform object for comparison
     private GameObject currentplatform;
@@ -31,6 +28,10 @@ public class DdaParams : MonoBehaviour
     private int stationary_hops = 0;        //Amount of hops on same tile
     private int jumpstreak = 0;             //Amount of hops to different tile without stationary in between
     private int amount_of_jumpstreaks = 0;  //amount of "big" jumpstreaks (>7), indication of very skilled player
+    private int player_lives;
+    private float x_pos;
+    private float y_pos;
+    private enum playerSkill {UnskilledBoth, UnskilledJump, UnskilledShoot, Skilled, VerySkilled};
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +39,12 @@ public class DdaParams : MonoBehaviour
         x_pos = player.transform.position.x;
         y_pos = player.transform.position.y;
 
-        death1 = GameObject.Find("DdaCollider1").GetComponent<Death>();
-        death2 = GameObject.Find("DdaCollider2").GetComponent<Death>();
+        death = DdaCollider.GetComponent<Death>();
+
         //Standard we start off easy: unskilledboth
         currentSkill = playerSkill.UnskilledBoth;
 
-        player_lives = death1.getLifes();
+        player_lives = death.getLifes();
     }
 
     // Update is called once per frame
@@ -100,29 +101,29 @@ public class DdaParams : MonoBehaviour
         if (jumpstreak <= 10 && stationary_hops >= 3)
         {
             currentSkill = playerSkill.UnskilledJump;
-            Debug.Log("Skill level set: unskilled both");
+            //Debug.Log("Skill level set: unskilled both");
         }
         else if (jumpstreak > 10 && jumpstreak <= 20 && stationary_hops >= 3)
         {
             currentSkill = playerSkill.UnskilledShoot;
-            Debug.Log("Skill level set: unskilled enemy");
+            //Debug.Log("Skill level set: unskilled enemy");
         }
         else if (jumpstreak > 10 && jumpstreak <= 20 && stationary_hops < 3)
         {
             currentSkill = playerSkill.Skilled;
-            Debug.Log("Skill level set: skilled");
+            //Debug.Log("Skill level set: skilled");
         }
         else if (jumpstreak > 20 && stationary_hops < 3 && amount_of_jumpstreaks >= 1)
         {
             currentSkill = playerSkill.VerySkilled;
-            Debug.Log("Skill level set: very skilled");
+            //Debug.Log("Skill level set: very skilled");
         }
     }
 
     private void checkStationary(Collider2D collision)
     {
 
-        if (collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("Big"))
+        if (collision.gameObject.name.StartsWith("Platform"))
         {
             body = player.GetComponent<Rigidbody2D>();
             if (body.velocity.y <= 0)
@@ -131,16 +132,16 @@ public class DdaParams : MonoBehaviour
                 {
                     stationary_hops++;
                     jumpstreak = 0;
-                    Debug.Log("Stationary hops: " + stationary_hops);
-                    Debug.Log("Jumpstreak: " + jumpstreak);
+                    //Debug.Log("Stationary hops: " + stationary_hops);
+                    //Debug.Log("Jumpstreak: " + jumpstreak);
                 }
                 else
                 {
                     stationary_hops = 0;
                     jumpstreak++;
                     currentplatform = collision.gameObject;
-                    Debug.Log("Stationary hops: " + stationary_hops);
-                    Debug.Log("Jumpstreak: " + jumpstreak);
+                    //Debug.Log("Stationary hops: " + stationary_hops);
+                    //Debug.Log("Jumpstreak: " + jumpstreak);
                 }
             }
         }
@@ -155,15 +156,15 @@ public class DdaParams : MonoBehaviour
 
     private bool CheckLives()
     {
-        if (player_lives < death1.getLifes())
+        if (player_lives < death.getLifes())
         {
             ResetParams();
-            player_lives = death1.getLifes();
+            player_lives = death.getLifes();
             return true;
         }
-        else if (player_lives > death1.getLifes())
+        else if (player_lives > death.getLifes())
         {
-            player_lives = death1.getLifes();
+            player_lives = death.getLifes();
             return false;
         }
         return false;
@@ -176,12 +177,12 @@ public class DdaParams : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Test");
+        //Debug.Log("Test");
         checkStationary(collision);
         if (jumpstreak == 7)
         {
             amount_of_jumpstreaks++;
-            Debug.Log("Amount_of_jumpstreaks of jumpstreak increased: " + amount_of_jumpstreaks);
+            //Debug.Log("Amount_of_jumpstreaks of jumpstreak increased: " + amount_of_jumpstreaks);
         }
         CheckSkill();
 

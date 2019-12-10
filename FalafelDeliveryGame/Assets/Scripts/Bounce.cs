@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-  ReadArduino ra;
-  TileGenerator tg;
-  Death death;
+  private ReadArduino ra;
+  private TileGenerator tg;
+  private Death death;
+
   public Rigidbody2D user;
+  public GameObject Arduino;
+  public GameObject PfDestroyer;
+  public GameObject DdaCollider;
+
   private int buttonValue;
   private int prevButtonValue = 0;
   private float y_pos;
   private float x_pos;
-  public GameObject platform;
-  public GameObject startPoint;
+  private bool ZeroGone = true;
 
-    private bool ZeroGone = true;
+
     // Start is called before the first frame update
     void Start()
     {
 
-      ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
-      tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
-      death = GameObject.Find("DdaCollider1").GetComponent<Death>();
+      ra = Arduino.GetComponent<ReadArduino>();
+      tg = PfDestroyer.GetComponent<TileGenerator>();
+      death = DdaCollider.GetComponent<Death>();
 
     }
 
@@ -34,17 +38,10 @@ public class Bounce : MonoBehaviour
             if (ra.ValuesArduino()[2] != 0)
             {
                 ZeroGone = true;
-                Debug.Log("Zero is gone");
             }
       }
-        //Debug.Log("Arduino value is " + gav.getValue());
-    }
 
-    /*
-    float PositionPlatform(){
-      return y_pos;
     }
-    */
 
     private void OnCollisionEnter2D(Collision2D collision){
 
@@ -52,7 +49,6 @@ public class Bounce : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-
 
 
             if (user.gameObject.name == "User1")

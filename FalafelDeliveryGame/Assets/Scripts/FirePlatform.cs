@@ -4,32 +4,29 @@ using UnityEngine;
 
 public class FirePlatform : MonoBehaviour
 {
-    ReadArduino ra;
-    TileGenerator tg;
-    Death death;
+    public GameObject Arduino;
+    public GameObject DdaCollider;
+    public GameObject User;
     private int buttonValue;
-    private float y_pos;
-    private float x_pos;
-    public GameObject platform;
-    private GameObject User;
     public float timeStart;
     public float timeLeft;
-    private Rigidbody2D rb2d;
-    private SUserInterface SUI;
     bool lostLife = false;
     float testTime = 0f;
 
+    private SUserInterface SUI;
+    private ReadArduino ra;
+    private Death death;
+
     public Color StartColor;
     public Color EndColor;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        User = GameObject.Find("SingleUser");
-        ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-        rb2d = GameObject.Find("SingleUser").GetComponent<Rigidbody2D>();
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
-        SUI = GameObject.Find("DdaCollider").GetComponent<SUserInterface>();
+
+        ra = Arduino.GetComponent<ReadArduino>();
+        death = DdaCollider.GetComponent<Death>();
+        SUI =DdaCollider.GetComponent<SUserInterface>();
 
     }
 
@@ -40,18 +37,13 @@ public class FirePlatform : MonoBehaviour
         //Debug.Log("Arduino value is " + gav.getValue());
     }
 
-    float PositionPlatform()
-    {
-        return y_pos;
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
+
         buttonValue = ra.ValuesArduino()[2];
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
         {

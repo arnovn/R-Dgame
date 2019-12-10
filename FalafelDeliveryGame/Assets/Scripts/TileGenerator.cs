@@ -134,7 +134,7 @@ public class TileGenerator : MonoBehaviour
     private Coord2D SetNewPlatformPosition()
     {
         float y_pos = tilesYPositions[0] + generationValues.RandomRangeYvalue();//8.82f;
-        float x_pos = generationValues.RandomRangeXvalue();
+        float x_pos = generation_axis + generationValues.RandomRangeXvalue();
         Coord2D position;
         position.xpos = x_pos;
         position.ypos = y_pos;
@@ -287,6 +287,8 @@ public class TileGenerator : MonoBehaviour
         }
 
         if(collision.gameObject.name.StartsWith("Platform")){
+          Debug.Log("X-pos is " + position.xpos);
+          Debug.Log("Y-pos is " + position.ypos);
           updateTileArray(position.xpos,position.ypos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }
@@ -296,7 +298,7 @@ public class TileGenerator : MonoBehaviour
     {
         float x_pos = position.xpos;
         float y_pos = position.ypos;
-        collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
+        collision.gameObject.transform.position = new Vector2(x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
     }
 
     private void generateNewTile(Collider2D collision, Coord2D position, GameObject newPlatform)
@@ -306,6 +308,6 @@ public class TileGenerator : MonoBehaviour
         if(collision.gameObject.name.StartsWith("Platform")){
           Destroy(collision.gameObject);
         }
-        Instantiate(newPlatform, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+        Instantiate(newPlatform, new Vector2(x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
     }
 }

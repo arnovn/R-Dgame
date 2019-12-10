@@ -39,7 +39,7 @@ public class shootController : MonoBehaviour
         checkPosition();
         buttonValue = ra.ValuesArduino()[2];
 
-        Debug.Log(buttonValue + " waarde van buttons");
+        //Debug.Log(buttonValue + " waarde van buttons");
 
         if (Input.GetKeyDown(KeyCode.S)||buttonValue == 4 || buttonValue == 2)
         {
@@ -65,9 +65,9 @@ public class shootController : MonoBehaviour
                 }
             }
         }
-        
 
-      
+
+
     }
 
     public void setDirection(int newDirection)
@@ -78,18 +78,18 @@ public class shootController : MonoBehaviour
     private static void SetTimer()
     {
         aTimer = new System.Timers.Timer(250);
-       
+
         aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
         aTimer.Enabled = true;
 
     }
 
-    static void OnTimedEvent(object source, ElapsedEventArgs e) { 
+    static void OnTimedEvent(object source, ElapsedEventArgs e) {
     shootTimer = true;
-      
+
     }
 
-    
+
 
 
     private void Shoot()
