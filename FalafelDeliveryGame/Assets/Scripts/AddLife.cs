@@ -6,17 +6,21 @@ public class AddLife : MonoBehaviour
 {
 
     private SUserInterface SUI;
-    public ReadArduino ra;
+    private ReadArduino ra;
     private Death death;
+
+    public GameObject DdaCollider;
+    public GameObject Arduino;
+
     private int lifes;
     private bool adding;
     // Start is called before the first frame update
     void Start()
     {
         lifes = 5;
-        SUI = GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
-        ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
-        death = GameObject.Find("DdaCollider1").GetComponent<Death>();
+        SUI = DdaCollider.GetComponent<SUserInterface>();
+        ra = Arduino.GetComponent<ReadArduino>();
+        death = DdaCollider.GetComponent<Death>();
 
     }
 

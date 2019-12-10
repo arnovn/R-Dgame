@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class FirePlatform : MonoBehaviour
 {
-    public GameObject Arduino;
-    public GameObject DdaCollider;
-    public GameObject User;
+    private SUserInterface SUI;
+    private Death death;
+    private ReadArduino ra;
+    private GameObject User;
     private int buttonValue;
     public float timeStart;
     public float timeLeft;
     bool lostLife = false;
     float testTime = 0f;
-
-    private SUserInterface SUI;
-    private ReadArduino ra;
-    private Death death;
 
     public Color StartColor;
     public Color EndColor;
@@ -23,10 +20,10 @@ public class FirePlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        ra = Arduino.GetComponent<ReadArduino>();
-        death = DdaCollider.GetComponent<Death>();
-        SUI =DdaCollider.GetComponent<SUserInterface>();
+        
+        ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
+        death = GameObject.Find("DdaCollider1").GetComponent<Death>();
+        SUI =GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
 
     }
 
@@ -39,6 +36,7 @@ public class FirePlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        User = GameObject.Find(collision.gameObject.name);
     }
 
     private void OnCollisionStay2D(Collision2D collision)

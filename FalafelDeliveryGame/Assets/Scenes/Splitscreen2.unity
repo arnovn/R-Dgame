@@ -653,7 +653,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248340880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1.625, y: 3.9109712, z: 1}
   m_Children:
   - {fileID: 1833386197}
@@ -1398,6 +1398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1464420199}
+  DdaCollider: {fileID: 500539832}
 --- !u!114 &500539836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1412,6 +1413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1464420199}
   PfDestroyer: {fileID: 663890924}
+  DdaCollider: {fileID: 500539832}
+  Arduino: {fileID: 2105013006}
 --- !u!114 &500539837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3118,7 +3121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed176cead6ce3b4483dde6632c7583a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ra: {fileID: 0}
+  DdaCollider: {fileID: 1794956042}
+  Arduino: {fileID: 2105013006}
 --- !u!114 &1418749015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3132,8 +3136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1418749018}
-  platform: {fileID: 0}
-  startPoint: {fileID: 0}
+  Arduino: {fileID: 2105013006}
+  PfDestroyer: {fileID: 1660120829}
+  DdaCollider: {fileID: 1794956042}
 --- !u!114 &1418749016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3436,8 +3441,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1464420201}
-  platform: {fileID: 0}
-  startPoint: {fileID: 0}
+  Arduino: {fileID: 2105013006}
+  PfDestroyer: {fileID: 663890924}
+  DdaCollider: {fileID: 500539832}
 --- !u!50 &1464420201
 Rigidbody2D:
   serializedVersion: 4
@@ -3605,7 +3611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed176cead6ce3b4483dde6632c7583a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ra: {fileID: 0}
+  DdaCollider: {fileID: 500539832}
+  Arduino: {fileID: 2105013006}
 --- !u!114 &1464420209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4765,6 +4772,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1418749013}
   PfDestroyer: {fileID: 1660120829}
+  DdaCollider: {fileID: 1794956042}
+  Arduino: {fileID: 2105013006}
 --- !u!114 &1794956046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4778,6 +4787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1418749013}
+  DdaCollider: {fileID: 1794956042}
 --- !u!61 &1794956047
 BoxCollider2D:
   m_ObjectHideFlags: 0

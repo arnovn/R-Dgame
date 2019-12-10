@@ -10,21 +10,25 @@ public class Death : MonoBehaviour
     private SUserInterface SUI;
     private Rigidbody2D body;
     private DdaParams ddaparams;
+
     private float[] coords = new float[2];
     private float y_pos;
     private float x_pos;
     private float death_interval = 50f;
     private int lifes = 5;
+
     public GameObject player;
     public GameObject PfDestroyer;
+    public GameObject DdaCollider;
+    public GameObject Arduino;
 
     // Start is called before the first frame update
     void Start()
     {
 
         tg = PfDestroyer.GetComponent<TileGenerator>();
-        ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
-        SUI = GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
+        ra = Arduino.GetComponent<ReadArduino>();
+        SUI = DdaCollider.GetComponent<SUserInterface>();
         ddaparams = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();
     }
 
