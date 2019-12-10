@@ -51,7 +51,10 @@ public class Death : MonoBehaviour
     }
 
     public void LoseLife() {
-        lifes--;
+        if (lifes >= 0)
+        {
+            lifes--;
+        }
     }
 
     private void CheckDeath()
@@ -60,10 +63,11 @@ public class Death : MonoBehaviour
         if (y_pos - actual_pos >= death_interval)
         {
             lifes --;
-            //Debug.Log(lifes);
+            
             SUI.DeleteOneLife(lifes);
             ra.WriteArduino(1);
             player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
+            Debug.Log("Respanw point: "+tg.returnLowestXPosition()+ ", "+ tg.returnLowestYPosition());
             ddaparams.Died();
             ddaparams.ReduceSkill();
         }

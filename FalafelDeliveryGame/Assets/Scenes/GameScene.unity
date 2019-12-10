@@ -2012,6 +2012,7 @@ MonoBehaviour:
   spawnedEnemey: {fileID: 0}
   thisCanvas: {fileID: 962582531}
   user: {fileID: 1464420199}
+  ddaCollider: {fileID: 500539832}
 --- !u!114 &1464420210
 MonoBehaviour:
   m_ObjectHideFlags: 0

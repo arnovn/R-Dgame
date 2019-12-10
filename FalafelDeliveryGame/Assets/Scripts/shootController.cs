@@ -35,11 +35,8 @@ public class shootController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         checkPosition();
         buttonValue = ra.ValuesArduino()[2];
-
-        Debug.Log(buttonValue + " waarde van buttons");
 
         if (Input.GetKeyDown(KeyCode.S)||buttonValue == 4 || buttonValue == 2)
         {
@@ -59,9 +56,7 @@ public class shootController : MonoBehaviour
                 if (b.transform.position.x > xPos + 20 || b.transform.position.x < xPos - 20)
                 {
                     bullets.Remove(b);
-                    Debug.Log("Na remove: " + bullets.Count);
                     Destroy(b);
-                    Debug.Log("Bullet destroyed");
                 }
             }
         }
@@ -113,12 +108,6 @@ public class shootController : MonoBehaviour
         bulletrgb = bullet.GetComponent<Rigidbody2D>();
         bulletrgb.velocity = new Vector2(bulletSpeed, 0);
         bullets.Add(bullet);
-        Debug.Log("Lengte " + bullets.Count);
-
-
-
-
-
     }
 
     private void checkPosition()

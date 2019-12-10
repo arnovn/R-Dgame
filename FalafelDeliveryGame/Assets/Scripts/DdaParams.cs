@@ -22,6 +22,8 @@ public class DdaParams : MonoBehaviour
     private enum playerSkill {UnskilledBoth, UnskilledJump, UnskilledShoot, Skilled, VerySkilled};
     playerSkill currentSkill;
     private Death death;
+    bool didEnemyHit = false;
+    int shots = 0;
 
     //Platform object for comparison
     private GameObject currentplatform;
@@ -48,7 +50,6 @@ public class DdaParams : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public int getSkillLevel()
@@ -96,26 +97,47 @@ public class DdaParams : MonoBehaviour
     private void CheckSkill()
     {
         //TO DO: include enemy params into skull checking
-        if (jumpstreak <= 10 && stationary_hops >= 3)
+        if (jumpstreak <= 10 && stationary_hops >= 2)
         {
-            currentSkill = playerSkill.UnskilledJump;
-            Debug.Log("Skill level set: unskilled both");
+            if (didEnemyHit == true || shots > 2)
+            {
+                currentSkill = playerSkill.UnskilledBoth;
+                Debug.Log("Skill level set: unskilled both");
+            }
+            else
+            {
+                currentSkill = playerSkill.UnskilledJump;
+                Debug.Log("Skill level set: unskilled jump");
+            }
         }
-        else if (jumpstreak > 10 && jumpstreak <= 20 && stationary_hops >= 3)
+        else if (jumpstreak > 10 && jumpstreak <= 20 && stationary_hops >= 2)
         {
-            currentSkill = playerSkill.UnskilledShoot;
-            Debug.Log("Skill level set: unskilled enemy");
+            if (didEnemyHit == true || shots > 0)
+            {
+                currentSkill = playerSkill.UnskilledShoot;
+                Debug.Log("Skill level set: unskilled enemy");
+            }
         }
-        else if (jumpstreak > 10 && jumpstreak <= 20 && stationary_hops < 3)
+        else if (jumpstreak > 10 && jumpstreak <= 20 && stationary_hops < 2 && didEnemyHit == false)
         {
             currentSkill = playerSkill.Skilled;
             Debug.Log("Skill level set: skilled");
         }
-        else if (jumpstreak > 20 && stationary_hops < 3 && amount_of_jumpstreaks >= 1)
+        else if (jumpstreak > 20 && stationary_hops < 3 && amount_of_jumpstreaks >= 1 && didEnemyHit == false && shots < 3)
         {
             currentSkill = playerSkill.VerySkilled;
             Debug.Log("Skill level set: very skilled");
         }
+    }
+
+    public void enemyHitUser()
+    {
+        didEnemyHit = true;
+    }
+
+    public void playerShot()
+    {
+        shots++;
     }
 
     private void checkStationary(Collider2D collision)
@@ -130,16 +152,12 @@ public class DdaParams : MonoBehaviour
                 {
                     stationary_hops++;
                     jumpstreak = 0;
-                    Debug.Log("Stationary hops: " + stationary_hops);
-                    Debug.Log("Jumpstreak: " + jumpstreak);
                 }
                 else
                 {
                     stationary_hops = 0;
                     jumpstreak++;
                     currentplatform = collision.gameObject;
-                    Debug.Log("Stationary hops: " + stationary_hops);
-                    Debug.Log("Jumpstreak: " + jumpstreak);
                 }
             }
         }
@@ -175,7 +193,7 @@ public class DdaParams : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Test");
+        Debug.Log("amount of shots: " + shots);
         checkStationary(collision);
         if (jumpstreak == 7)
         {
@@ -184,5 +202,11 @@ public class DdaParams : MonoBehaviour
         }
         CheckSkill();
 
+    }
+
+    public void newEnemy()
+    {
+        didEnemyHit = false;
+        shots = 0;
     }
 }

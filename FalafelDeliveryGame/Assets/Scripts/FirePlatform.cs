@@ -63,10 +63,10 @@ public class FirePlatform : MonoBehaviour
             }
             if (lostLife == false)
             {
-                User.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.grey, Color.red, testTime / 3f);
+                User.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.grey, Color.red, testTime / 0.7f);
             }
 
-            if (testTime >=3f && lostLife== false)
+            if (testTime >=0.7f && lostLife== false)
             {
                 User.GetComponent<SpriteRenderer>().color = Color.black;
                 death.LoseLife();
