@@ -20,7 +20,7 @@ public class FirePlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
         death = GameObject.Find("DdaCollider1").GetComponent<Death>();
         SUI =GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
@@ -48,7 +48,7 @@ public class FirePlatform : MonoBehaviour
             testTime += Time.deltaTime;
             if (buttonValue == 2 && death.getLifes() > 0)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 600f);
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200f);
 
             }
             if (lostLife == false)
