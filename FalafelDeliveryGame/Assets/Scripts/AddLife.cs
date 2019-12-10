@@ -14,9 +14,9 @@ public class AddLife : MonoBehaviour
     void Start()
     {
         lifes = 5;
-        SUI = GameObject.Find("DdaCollider").GetComponent<SUserInterface>();
-        //ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
+        SUI = GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
+        ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
+        death = GameObject.Find("DdaCollider1").GetComponent<Death>();
 
     }
 

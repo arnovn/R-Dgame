@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*  TO DO: 
+/*  TO DO:
  *      - enemy parameters implementeren
  *          - accuracy (amount of shots needed to kill enemy)
  *          - time between enemy spawned & enemy killed
@@ -21,7 +21,8 @@ public class DdaParams : MonoBehaviour
     private float y_pos;
     private enum playerSkill {UnskilledBoth, UnskilledJump, UnskilledShoot, Skilled, VerySkilled};
     playerSkill currentSkill;
-    private Death death;
+    private Death death1;
+    private Death death2;
 
     //Platform object for comparison
     private GameObject currentplatform;
@@ -37,18 +38,18 @@ public class DdaParams : MonoBehaviour
         x_pos = player.transform.position.x;
         y_pos = player.transform.position.y;
 
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
-
+        death1 = GameObject.Find("DdaCollider1").GetComponent<Death>();
+        death2 = GameObject.Find("DdaCollider2").GetComponent<Death>();
         //Standard we start off easy: unskilledboth
         currentSkill = playerSkill.UnskilledBoth;
 
-        player_lives = death.getLifes();
+        player_lives = death1.getLifes();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public int getSkillLevel()
@@ -154,15 +155,15 @@ public class DdaParams : MonoBehaviour
 
     private bool CheckLives()
     {
-        if (player_lives < death.getLifes())
+        if (player_lives < death1.getLifes())
         {
             ResetParams();
-            player_lives = death.getLifes();
+            player_lives = death1.getLifes();
             return true;
         }
-        else if (player_lives > death.getLifes())
+        else if (player_lives > death1.getLifes())
         {
-            player_lives = death.getLifes();
+            player_lives = death1.getLifes();
             return false;
         }
         return false;

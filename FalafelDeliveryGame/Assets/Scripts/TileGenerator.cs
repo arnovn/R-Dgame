@@ -18,7 +18,7 @@ public class TileGenerator : MonoBehaviour
     private BigBounce bigBounce;
     private DdaParams ddaparamaters;
     private GenerationValues generationValues;
-    
+
     private float range = 22f;
     private float generation_axis;
     private int index;
@@ -42,9 +42,9 @@ public class TileGenerator : MonoBehaviour
     void Start()
     {
         generation_axis = player.transform.position.x;
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
-        ddaparamaters = GameObject.Find("DdaCollider").GetComponent<DdaParams>();
-        generationValues = GameObject.Find("DdaCollider").GetComponent<GenerationValues>();
+        death = GameObject.Find("DdaCollider1").GetComponent<Death>();
+        ddaparamaters = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();
+        generationValues = GameObject.Find("DdaCollider1").GetComponent<GenerationValues>();
         skillevel = ddaparamaters.getSkillLevel();
         generationValues.SetSkillLevel(skillevel);
         generating = true;
@@ -128,7 +128,7 @@ public class TileGenerator : MonoBehaviour
 
     private void generateEasyTile(Collider2D collision, Coord2D position)
     {
-        
+
         int random = generationValues.RandomRangeSpecialPlatform();
 
         if (random < 5) //Special easy tile generated

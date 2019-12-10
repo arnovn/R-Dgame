@@ -21,10 +21,10 @@ public class Death : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
-        ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-        SUI = GameObject.Find("DdaCollider").GetComponent<SUserInterface>();
-        ddaparams = GameObject.Find("DdaCollider").GetComponent<DdaParams>();
+        tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
+        ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
+        SUI = GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
+        ddaparams = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();
     }
 
       public void lastPlatformPosition(float x_posi, float y_posi){
