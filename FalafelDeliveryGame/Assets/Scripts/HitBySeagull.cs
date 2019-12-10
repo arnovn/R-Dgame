@@ -12,7 +12,7 @@ public class HitBySeagull : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
+        death = ddaCollider.GetComponent<Death>();
         SUI = ddaCollider.GetComponent<SUserInterface>();
     }
 

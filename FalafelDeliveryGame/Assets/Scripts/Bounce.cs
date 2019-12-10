@@ -14,7 +14,7 @@ public class Bounce : MonoBehaviour
   public GameObject platform;
   public GameObject startPoint;
 
-    private bool ZeroGone = false;
+    private bool ZeroGone = true;
     // Start is called before the first frame update
     void Start()
     {

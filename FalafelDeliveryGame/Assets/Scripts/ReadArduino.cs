@@ -35,7 +35,7 @@ public class ReadArduino : MonoBehaviour
     {
 
         currentArray = ValuesArduino();
-        //Debug.Log(currentArray[0]);
+        Debug.Log(currentArray[2]);
 
     }
 

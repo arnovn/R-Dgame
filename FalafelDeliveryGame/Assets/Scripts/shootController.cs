@@ -17,7 +17,7 @@ public class shootController : MonoBehaviour
     private float yPos;
     private float bulletSpeed = 10;
     private List<GameObject> bullets;
-    private ReadArduino ra;
+    public ReadArduino ra;
     private int buttonValue;
     private static bool shootTimer;
     private static System.Timers.Timer aTimer;
@@ -28,7 +28,7 @@ public class shootController : MonoBehaviour
     {
         userrgb = user.GetComponent<Rigidbody2D>();
         bullets = new List<GameObject>();
-        ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
+        //ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
         SetTimer();
     }
 

@@ -1334,7 +1334,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1644,7 +1644,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1231072526
 PrefabInstance:
@@ -1832,7 +1832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fba9e8e84c6824b9a805630066cb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 1464420199}
+  user1: {fileID: 1464420201}
+  user2: {fileID: 0}
 --- !u!50 &1464420201
 Rigidbody2D:
   serializedVersion: 4
@@ -1943,7 +1944,7 @@ Transform:
   - {fileID: 663890925}
   - {fileID: 500539833}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1464420205
 MonoBehaviour:
@@ -2437,6 +2438,7 @@ MonoBehaviour:
   - {fileID: 2042980190}
   - {fileID: 1401084173}
   smoothing: 1
+  cam: {fileID: 0}
 --- !u!4 &1830317112
 Transform:
   m_ObjectHideFlags: 0
