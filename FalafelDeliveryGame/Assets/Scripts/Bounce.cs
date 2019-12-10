@@ -18,7 +18,7 @@ public class Bounce : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+
       ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
       tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
       death = GameObject.Find("DdaCollider1").GetComponent<Death>();
@@ -63,7 +63,7 @@ public class Bounce : MonoBehaviour
             if (user.gameObject.name == "User2")
             {
                 buttonValue = ra.ValuesArduino()[3];
-                //Debug.Log(buttonValue);    
+                //Debug.Log(buttonValue);
             }
 
             if (collision.gameObject.name.StartsWith("Platform"))
@@ -74,7 +74,7 @@ public class Bounce : MonoBehaviour
                 //tg.LastPlatformPosition(y_pos);
                 if (buttonValue == 2 && death.getLifes() > 0)
                 {
-                    user.AddForce(Vector2.up * 150f);
+                    user.AddForce(Vector2.up * 300f);
                     Debug.Log(user.name);
                 }
             }

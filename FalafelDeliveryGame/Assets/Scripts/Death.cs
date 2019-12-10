@@ -16,12 +16,13 @@ public class Death : MonoBehaviour
     private float death_interval = 50f;
     private int lifes = 5;
     public GameObject player;
-
+    public GameObject PfDestroyer;
 
     // Start is called before the first frame update
     void Start()
     {
-        tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
+
+        tg = PfDestroyer.GetComponent<TileGenerator>();
         ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
         SUI = GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
         ddaparams = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();

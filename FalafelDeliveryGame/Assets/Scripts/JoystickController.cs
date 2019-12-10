@@ -83,7 +83,7 @@ public class JoystickController : MonoBehaviour
 
         }
     }
-    
+
 
     //Horizontal movement for player 2 (with the analog values from the joystick)
     void MoveUser2(int Direction)
