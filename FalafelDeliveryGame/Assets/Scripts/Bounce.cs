@@ -9,6 +9,7 @@ public class Bounce : MonoBehaviour
   Death death;
   public Rigidbody2D user;
   private int buttonValue;
+  private int prevButtonValue = 0;
   private float y_pos;
   private float x_pos;
   public GameObject platform;
@@ -28,6 +29,14 @@ public class Bounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        while (!ZeroGone)
+        {
+            if (ra.ValuesArduino()[2] != 0)
+            {
+                ZeroGone = true;
+                Debug.Log("Zero is gone");
+            }
+      }
         //Debug.Log("Arduino value is " + gav.getValue());
     }
 
@@ -44,17 +53,8 @@ public class Bounce : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
 
-        while (!ZeroGone)
-        {
-            if (ra.ValuesArduino()[2] != 0)
-            {
-                ZeroGone = true;
-                Debug.Log("Zero is gone");
-            }
-        }
 
-        if (ZeroGone)
-        {
+
             if (user.gameObject.name == "User1")
             {
                 buttonValue = ra.ValuesArduino()[2];
@@ -68,17 +68,13 @@ public class Bounce : MonoBehaviour
 
             if (collision.gameObject.name.StartsWith("Platform"))
             {
-                y_pos = user.transform.position.y;
-                x_pos = collision.transform.position.x;
-                //death.lastPlatformPosition( x_pos,  y_pos);
-                //tg.LastPlatformPosition(y_pos);
-                if (buttonValue == 2 && death.getLifes() > 0)
+                if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue)
                 {
-                    user.AddForce(Vector2.up * 300f);
+                    user.AddForce(Vector2.up * 600f);
                     Debug.Log(user.name);
                 }
             }
-        }
+            prevButtonValue = buttonValue;
     }
 
   }
