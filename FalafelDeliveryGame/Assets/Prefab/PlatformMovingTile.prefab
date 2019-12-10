@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 251709678005289738}
   - component: {fileID: 50927845617106658}
   - component: {fileID: 114730742763453962}
-  - component: {fileID: 114455818791593500}
   - component: {fileID: 256884815346502224}
+  - component: {fileID: 114022519111290320}
   m_Layer: 0
   m_Name: MovingTile
   m_TagString: Untagged
@@ -164,20 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 5200929715369481979}
---- !u!114 &114455818791593500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5200929715369481979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9097b5cad3a9a7a429cfae71633a5238, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platform: {fileID: 5200929715369481979}
-  startPoint: {fileID: 0}
 --- !u!256 &256884815346502224
 FrictionJoint2D:
   m_ObjectHideFlags: 0
@@ -196,3 +182,17 @@ FrictionJoint2D:
   m_ConnectedAnchor: {x: 0, y: 0}
   m_MaxForce: 1
   m_MaxTorque: 1
+--- !u!114 &114022519111290320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200929715369481979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954010f43178f9d42b625dd2a7f040e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 5200929715369481979}
+  startPoint: {fileID: 0}

@@ -25,7 +25,7 @@ public class ReadArduino : MonoBehaviour
     {
 
         currentArray = ValuesArduino();
-        //Debug.Log(currentArray[4]);
+        //Debug.Log(currentArray[0]);
 
     }
 
@@ -47,7 +47,6 @@ public class ReadArduino : MonoBehaviour
                 //Debug.Log("Start");
                 for(int i = 0; i<6; i++){
                     values[i] = sp.ReadByte();
-
                 }
 
               }

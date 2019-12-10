@@ -8,13 +8,13 @@ public class Parallaxing : MonoBehaviour
     private float[] parallaxScales;         //The proportion of the camera's movement to move the backgrounds by
     public float smoothing = 1f;            //Smoothness of parallax. Set above 0 to make the parallax effect work;
         
-    private Transform cam;                  //Refference to the main camera transform
+    public Transform cam;                  //Refference to the main camera transform
     private Vector3 previousCamPosition;    //Store previous position of the camera
 
     //Is called before Start()
     void Awake() {
         //Set up the camera reference
-        cam = Camera.main.transform;
+      
     }
 
     // Start is called before the first frame update

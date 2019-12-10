@@ -9,13 +9,16 @@ using System.IO.Ports;
 public class JoystickController : MonoBehaviour
 {
 
-    private Rigidbody2D rb2d;
+    private Rigidbody2D user1;
+    private Rigidbody2D user2;
     private float moveInput;
     private float speed = 10f;
     private ReadArduino ra;
     private Death death;
     public GameObject user;
     private shootController shootcon;
+    private Death death1;
+    private Death death2;
 
     // Start is called before the first frame update
     void Start()
@@ -24,38 +27,70 @@ public class JoystickController : MonoBehaviour
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
         death = GameObject.Find("DdaCollider").GetComponent<Death>();
         shootcon = user.GetComponent<shootController>();
+        //The 2 player objects
+        user1 = GameObject.Find("User1").GetComponent<Rigidbody2D>();
+        user2 = GameObject.Find("User2").GetComponent<Rigidbody2D>();
+        //The controller for both players
+        ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
+        //Death collider for the players
+        death1 = GameObject.Find("DdaCollider1").GetComponent<Death>();
+        death2 = GameObject.Find("DdaCollider2").GetComponent<Death>();
+
 
 
     }
     // Update is called once per frame
     void Update()
     {
-        MoveObject(ra.ValuesArduino()[0]);
+        MoveUser1(ra.ValuesArduino()[0]);
+        MoveUser2(ra.ValuesArduino()[1]);
     }
 
     public void AddForce()
     {
         //using the physics system
-        rb2d.AddForce(Vector2.up * 600f);
+        user1.AddForce(Vector2.up * 600f);
 
     }
 
-    void MoveObject(int Direction) {
-      if(death.getLifes()>0){
+    //Horizontal movement for player 1 (with the analog values from the joystick)
+    void MoveUser1(int Direction) {
+
+      if(death1.getLifes()>0){
         if (Direction >= 134)
         {
-            rb2d.velocity = new Vector2(-1 * speed*Direction/250, rb2d.velocity.y);
-                shootcon.setDirection(-1);
-            }
-        else if (Direction <= 125 )
+            user1.velocity = new Vector2(-1 * speed*Direction/250, user1.velocity.y);
+            shootcon.setDirection(-1);
+        }
+        else if (Direction <= 123 )
         {
-            rb2d.velocity = new Vector2(1 * speed*(255-Direction*2)/250, rb2d.velocity.y);
-                shootcon.setDirection(1);
+            user1.velocity = new Vector2(1 * speed*(255-Direction*2)/250, user1.velocity.y);
+            shootcon.setDirection(1);
         }
         else if (Direction > 125 && Direction < 135)
         {
-            rb2d.velocity = new Vector2(0* speed, rb2d.velocity.y);
-        }
+            user1.velocity = new Vector2(0* speed, user1.velocity.y);
+          }
       }
+    }
+
+    //Horizontal movement for player 2 (with the analog values from the joystick)
+    void MoveUser2(int Direction)
+    {
+        if (death1.getLifes() > 0)
+        {
+            if (Direction >= 134)
+            {
+                user2.velocity = new Vector2(-1 * speed * Direction / 250, user2.velocity.y);
+            }
+            else if (Direction <= 123)
+            {
+                user2.velocity = new Vector2(1 * speed * (255 - Direction * 2) / 250, user2.velocity.y);
+            }
+            else if (Direction > 125 && Direction < 135)
+            {
+                user2.velocity = new Vector2(0 * speed, user2.velocity.y);
+            }
+        }
     }
 }

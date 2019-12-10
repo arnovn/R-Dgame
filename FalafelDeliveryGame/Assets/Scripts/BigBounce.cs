@@ -13,8 +13,8 @@ public class BigBounce : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
+        //tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
+        death = GameObject.Find("DdaCollider1").GetComponent<Death>();
 
     }
 
