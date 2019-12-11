@@ -30,7 +30,7 @@ public class Death : MonoBehaviour
         tg = PfDestroyer.GetComponent<TileGenerator>();
         ra = Arduino.GetComponent<GetUserValues>();
         SUI = DdaCollider.GetComponent<SUserInterface>();
-        ddaparams = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();
+        ddaparams = DdaCollider.GetComponent<DdaParams>();
         rb2d = player.GetComponent<Rigidbody2D>();
         background = player.GetComponent<Background>();
 

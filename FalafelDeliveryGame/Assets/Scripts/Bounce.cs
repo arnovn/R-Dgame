@@ -58,6 +58,7 @@ public class Bounce : MonoBehaviour
             if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0f)
             {
                 user.velocity = new Vector2(user.velocity.x, 30f);
+                FindObjectOfType<AudioManager>().Play("NormalJump");
                 Debug.Log(user.name);
             }
         }
