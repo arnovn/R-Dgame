@@ -23,7 +23,7 @@ public class JoystickController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+       // rb2d = GetComponent<Rigidbody2D>();
         ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
         death = GameObject.Find("DdaCollider").GetComponent<Death>();
         shootcon = user.GetComponent<shootController>();

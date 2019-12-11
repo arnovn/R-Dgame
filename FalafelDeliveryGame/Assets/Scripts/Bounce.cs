@@ -66,16 +66,17 @@ public class Bounce : MonoBehaviour
                 //Debug.Log(buttonValue);    
             }
 
-            if (collision.gameObject.name.StartsWith("Platform"))
+            if (collision.gameObject.name.StartsWith("Platform")||collision.gameObject.name.StartsWith("startpoint"))
             {
                 y_pos = user.transform.position.y;
                 x_pos = collision.transform.position.x;
                 //death.lastPlatformPosition( x_pos,  y_pos);
                 //tg.LastPlatformPosition(y_pos);
-                if (buttonValue == 2 && death.getLifes() > 0)
+                if ((buttonValue == 3||buttonValue ==4) && death.getLifes() > 0)
                 {
                     user.AddForce(Vector2.up * 150f);
-                    Debug.Log(user.name);
+                    Debug.Log("jump");
+
                 }
             }
         }
