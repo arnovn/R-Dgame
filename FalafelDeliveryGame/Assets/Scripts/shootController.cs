@@ -7,17 +7,21 @@ public class shootController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject user;
-    private Rigidbody2D userrgb;
     public GameObject bulletPrefab;
+    public GameObject Arduino;
+
+    private ReadArduino ra;
+    private Rigidbody2D userrgb;
     private GameObject bullet;
     private Rigidbody2D bulletrgb;
     private GameObject enemy;
+
     private float xPos;
     private float xSpeed;
     private float yPos;
     private float bulletSpeed = 10;
     private List<GameObject> bullets;
-    public ReadArduino ra;
+
     private int buttonValue;
     private static bool shootTimer;
     private static System.Timers.Timer aTimer;
@@ -26,6 +30,7 @@ public class shootController : MonoBehaviour
 
     void Start()
     {
+        ra = Arduino.GetComponent<ReadArduino>();
         userrgb = user.GetComponent<Rigidbody2D>();
         bullets = new List<GameObject>();
         //ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();

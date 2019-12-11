@@ -36,7 +36,9 @@ public class AddLife : MonoBehaviour
         ldr = ra.ValuesArduino()[6];
       }
       CheckLDR();
+      //Debug.Log(ldr);
     }
+
 
     void CheckLDR(){
       if(ldr == 1){
