@@ -34,6 +34,11 @@ public class Death : MonoBehaviour
         rb2d = player.GetComponent<Rigidbody2D>();
         background = player.GetComponent<Background>();
 
+        for (int i = 0; i<5; i++)
+        {
+            SUI.AddOneLife(i);
+        }
+
     }
 
       public void lastPlatformPosition(float x_posi, float y_posi){
@@ -56,7 +61,7 @@ public class Death : MonoBehaviour
     }
 
     public void AddLife(){
-      lifes++;
+        lifes++;
     }
 
     public void LoseLife() {

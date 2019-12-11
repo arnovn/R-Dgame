@@ -38,11 +38,12 @@ public class AddLife : MonoBehaviour
 
     void CheckLDR(){
       if(ldr == 1){
+            Debug.Log("YEEEEEEEEEET");
         if(!adding){
           lifes = death.getLifes();
           if(lifes <5){
             death.AddLife();
-            Debug.Log(lifes);
+            Debug.Log("lifes : " + lifes);
             SUI.AddOneLife(lifes);
           }
           adding = true;
