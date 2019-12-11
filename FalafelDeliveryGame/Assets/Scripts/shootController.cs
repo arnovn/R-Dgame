@@ -10,7 +10,7 @@ public class shootController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject Arduino;
 
-    private ReadArduino ra;
+    private GetUserValues ra;
     private Rigidbody2D userrgb;
     private GameObject bullet;
     private Rigidbody2D bulletrgb;
@@ -30,7 +30,7 @@ public class shootController : MonoBehaviour
 
     void Start()
     {
-        ra = Arduino.GetComponent<ReadArduino>();
+        ra = Arduino.GetComponent<GetUserValues>();
         userrgb = user.GetComponent<Rigidbody2D>();
         bullets = new List<GameObject>();
         //ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
@@ -41,13 +41,7 @@ public class shootController : MonoBehaviour
     void Update()
     {
         checkPosition();
-        if (user.name.StartsWith("User2")){
-          buttonValue = ra.ValuesArduino()[5];
-
-        }
-        else{
-          buttonValue = ra.ValuesArduino()[4];
-        }
+        buttonValue = ra.Values()[2];
 
         //Debug.Log(buttonValue + " waarde van buttons");
 

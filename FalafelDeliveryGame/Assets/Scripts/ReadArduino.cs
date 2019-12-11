@@ -17,17 +17,23 @@ public class ReadArduino : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ports = SerialPort.GetPortNames();
+        sp = new SerialPort("COM5", 9600);
+        sp.Open();
+        sp.ReadTimeout = 1;
+        /*ports = SerialPort.GetPortNames();
         foreach(string p in ports) {
             sp = new SerialPort(p, 9600);
             sp.ReadTimeout = 1;
-            sp.Open();
-            if (sp.IsOpen) { activePort = p; }
-            sp.Close();
+            if (!sp.IsOpen)
+            {
+                sp.Open();
+                if (sp.IsOpen) { activePort = p; }
+                sp.Close();
+            }
         }
       sp.Open();
       sp.ReadTimeout = 1;
-        Debug.Log(sp.PortName+ sp.IsOpen);
+      Debug.Log(sp.PortName+ sp.IsOpen);*/
     }
 
     // Update is called once per frame
@@ -57,7 +63,7 @@ public class ReadArduino : MonoBehaviour
                 //Debug.Log("Start");
                 for(int i = 0; i<8; i++){
                     values[i] = sp.ReadByte();
-                    Debug.Log("Arduino index " + i + " is " + values[i]);
+                  //  Debug.Log("Arduino index " + i + " is " + values[i]);
                 }
 
               }

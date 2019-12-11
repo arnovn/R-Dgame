@@ -26,7 +26,7 @@ public class JoystickController2 : MonoBehaviour
     {
 
           MoveObject(ra.ValuesArduino()[1]);
-        }
+    }
 
 
 

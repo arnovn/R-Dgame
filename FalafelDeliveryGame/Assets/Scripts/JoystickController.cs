@@ -13,7 +13,7 @@ public class JoystickController : MonoBehaviour
     public GameObject DdaCollider;
     public GameObject Arduino;
 
-    private ReadArduino ra;
+    private GetUserValues ra;
     private Rigidbody2D rb2d;
     private shootController shootcon;
     private Death death;
@@ -28,7 +28,7 @@ public class JoystickController : MonoBehaviour
     {
 
             rb2d = user.GetComponent<Rigidbody2D>();
-            ra = Arduino.GetComponent<ReadArduino>();
+            ra = Arduino.GetComponent<GetUserValues>();
             death = DdaCollider.GetComponent<Death>();
             shootcon = user.GetComponent<shootController>();
 
@@ -40,18 +40,13 @@ public class JoystickController : MonoBehaviour
     {
       while (!ZeroGone)
       {
-          if (ra.ValuesArduino()[2] != 0)
+          if (ra.Values()[0] != 0)
           {
               ZeroGone = true;
-              Debug.Log("Zero is gone");
           }
       }
-        if (user.name.StartsWith("User2")){
-          MoveUser(ra.ValuesArduino()[1]);
-        }
-        else{
-          MoveUser(ra.ValuesArduino()[0]);
-        }
+
+        MoveUser(ra.Values()[0]);
 
     }
     //Horizontal movement for player 1 (with the analog values from the joystick)
