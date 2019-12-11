@@ -8,6 +8,8 @@ public class FirePlatform : MonoBehaviour
     private Death death;
     private ReadArduino ra;
     private GameObject User;
+    private Rigidbody2D rb2d;
+
     private int buttonValue;
     public float timeStart;
     public float timeLeft;
@@ -37,18 +39,21 @@ public class FirePlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         User = GameObject.Find(collision.gameObject.name);
+        rb2d = User.gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-
+        //User = GameObject.Find(collision.gameObject.name);
+        //rb2d = User.gameObject.GetComponent<Rigidbody2D>();
         buttonValue = ra.ValuesArduino()[2];
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
         {
             testTime += Time.deltaTime;
-            if (buttonValue == 2 && death.getLifes() > 0)
+            if (buttonValue == 2 && death.getLifes() > 0 && rb2d.velocity.y <= 0)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200f);
+
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 30f);
 
             }
             if (lostLife == false)

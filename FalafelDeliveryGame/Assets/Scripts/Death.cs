@@ -8,13 +8,13 @@ public class Death : MonoBehaviour
     private TileGenerator tg;
     private ReadArduino ra;
     private SUserInterface SUI;
-    private Rigidbody2D body;
+    private Rigidbody2D rb2d;
     private DdaParams ddaparams;
 
     private float[] coords = new float[2];
     private float y_pos;
     private float x_pos;
-    private float death_interval = 50f;
+    private float death_interval = 100f;
     private int lifes = 5;
 
     public GameObject player;
@@ -30,6 +30,7 @@ public class Death : MonoBehaviour
         ra = Arduino.GetComponent<ReadArduino>();
         SUI = DdaCollider.GetComponent<SUserInterface>();
         ddaparams = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();
+        rb2d = player.GetComponent<Rigidbody2D>();
     }
 
       public void lastPlatformPosition(float x_posi, float y_posi){
@@ -64,13 +65,14 @@ public class Death : MonoBehaviour
     private void CheckDeath()
     {
         float actual_pos = player.transform.position.y;
-        if (y_pos - actual_pos >= death_interval)
+        if (tg.returnLowestYPosition() - actual_pos >= death_interval)
         {
             lifes --;
             //Debug.Log(lifes);
             SUI.DeleteOneLife(lifes);
             ra.WriteArduino(1);
             player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
+            rb2d.velocity = new Vector2(0f,25f);
             ddaparams.Died();
             ddaparams.ReduceSkill();
         }

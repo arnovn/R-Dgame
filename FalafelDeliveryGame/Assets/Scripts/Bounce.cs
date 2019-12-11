@@ -64,9 +64,9 @@ public class Bounce : MonoBehaviour
 
             if (collision.gameObject.name.StartsWith("Platform"))
             {
-                if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue)
+                if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0f)
                 {
-                    user.AddForce(Vector2.up * 600f);
+                    user.velocity = new Vector2(user.velocity.x, 30f);
                     Debug.Log(user.name);
                 }
             }
