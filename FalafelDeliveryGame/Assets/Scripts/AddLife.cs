@@ -11,6 +11,7 @@ public class AddLife : MonoBehaviour
 
     public GameObject DdaCollider;
     public GameObject Arduino;
+    public GameObject User;
 
     private int lifes;
     private bool adding;
@@ -27,11 +28,17 @@ public class AddLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if(User.name.StartsWith("User2")){
+        ldr = ra.ValuesArduino()[7];
+      }
+      else{
+        ldr.ra.ValuesArduino()[6];
+      }
       CheckLDR();
     }
 
     void CheckLDR(){
-      if(ra.ValuesArduino()[4] == 1){
+      if(ldr == 1){
         if(!adding){
           lifes = death.getLifes();
           if(lifes <5){

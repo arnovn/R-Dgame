@@ -37,11 +37,17 @@ public class shootController : MonoBehaviour
     {
 
         checkPosition();
-        buttonValue = ra.ValuesArduino()[2];
+        if User.name.StartsWith("User2"){
+          buttonValue = ra.ValuesArduino()[5];
+
+        }
+        else{
+          buttonValue = ra.ValuesArduino()[4];
+        }
 
         //Debug.Log(buttonValue + " waarde van buttons");
 
-        if (Input.GetKeyDown(KeyCode.S)||buttonValue == 4 || buttonValue == 2)
+        if (buttonValue == 1)
         {
             if (shootTimer)
             {

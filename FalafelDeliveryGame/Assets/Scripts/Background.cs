@@ -33,6 +33,7 @@ public class Background : MonoBehaviour
     private float x_skyscraper4;
 
     private bool death;
+    private float previous_y_user;
 
     // Start is called before the first frame update
     void Start()
@@ -69,25 +70,29 @@ public class Background : MonoBehaviour
     {
         userrb2d = user.GetComponent<Rigidbody2D>();
         y_user = userrb2d.position.y;
-        Debug.Log(1);
+
         if(death){
-          backgroundrb2d.MovePosition(new Vector2(x_background, y_background + y_user)) ;
-          skyscraper1rb2d.MovePosition(new Vector2(x_skyscraper1, y_skyscraper1 + y_user)) ;
-          skyscraper2rb2d.MovePosition(new Vector2(x_skyscraper2, y_skyscraper2 + y_user)) ;
-          skyscraper3rb2d.MovePosition(new Vector2(x_skyscraper3, y_skyscraper3 + y_user)) ;
-          skyscraper4rb2d.MovePosition(new Vector2(x_skyscraper4, y_skyscraper4 + y_user)) ;
-          death = false;
+          if(y_user - previous_y_user > 10f){
+            backgroundrb2d.MovePosition(new Vector2(x_background, y_background + y_user)) ;
+            skyscraper1rb2d.MovePosition(new Vector2(x_skyscraper1, y_skyscraper1 + y_user)) ;
+            skyscraper2rb2d.MovePosition(new Vector2(x_skyscraper2, y_skyscraper2 + y_user)) ;
+            skyscraper3rb2d.MovePosition(new Vector2(x_skyscraper3, y_skyscraper3 + y_user)) ;
+            skyscraper4rb2d.MovePosition(new Vector2(x_skyscraper4, y_skyscraper4 + y_user)) ;
+            death = false;
+          }
         }
-
-
-        backgroundrb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.8f);
-        skyscraper1rb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.65f);
-        skyscraper2rb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.65f);
-        skyscraper3rb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.65f);
-        skyscraper4rb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.65f);
+        else{
+          backgroundrb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.8f);
+          skyscraper1rb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.65f);
+          skyscraper2rb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.65f);
+          skyscraper3rb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.65f);
+          skyscraper4rb2d.velocity = new Vector2(userrb2d.velocity.x, userrb2d.velocity.y*0.65f);
+        }
+        previous_y_user = y_user;
     }
 
     public void UserDied(){
       death = true;
+
     }
 }

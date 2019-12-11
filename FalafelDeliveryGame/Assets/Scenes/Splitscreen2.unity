@@ -3814,7 +3814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user: {fileID: 1418749013}
   Steady: {fileID: 21300000, guid: ef64f82fa82d93348a51c924f6679e02, type: 3}
-  JumpingStraight: {fileID: 0}
+  JumpingStraight: {fileID: 21300000, guid: 05084726f1f3281438357876b5f2dae3, type: 3}
   JumpingRight: {fileID: 21300000, guid: 7ff4c4de957f2b740b0ff6cb4594b310, type: 3}
   JumpingLeft: {fileID: 21300000, guid: 3f0312469ab9318449e4ab4c0ea19c1b, type: 3}
   SteadyLeft: {fileID: 21300000, guid: 2fdf8947b9507e240a1ac2712e218ab2, type: 3}
@@ -4174,7 +4174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user: {fileID: 1464420199}
   Steady: {fileID: 21300000, guid: ef64f82fa82d93348a51c924f6679e02, type: 3}
-  JumpingStraight: {fileID: 0}
+  JumpingStraight: {fileID: 21300000, guid: 05084726f1f3281438357876b5f2dae3, type: 3}
   JumpingRight: {fileID: 21300000, guid: 7ff4c4de957f2b740b0ff6cb4594b310, type: 3}
   JumpingLeft: {fileID: 21300000, guid: 3f0312469ab9318449e4ab4c0ea19c1b, type: 3}
   SteadyLeft: {fileID: 21300000, guid: 2fdf8947b9507e240a1ac2712e218ab2, type: 3}

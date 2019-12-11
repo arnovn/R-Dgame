@@ -75,6 +75,7 @@ public class Death : MonoBehaviour
             SUI.DeleteOneLife(lifes);
             ra.WriteArduino(1);
             player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
+            Debug.Log(rb2d.position.y);
             rb2d.velocity = new Vector2(0f,25f);
             background.UserDied();
             ddaparams.Died();
