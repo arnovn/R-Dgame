@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public GameObject spawnedEnemey;
     public GameObject thisCanvas;
     public GameObject user;
+    public GameObject ddaCollider;
     private int freqOfEnemy;
     private int difficulty = 50;
     private int leftOrRight;
@@ -17,10 +18,14 @@ public class EnemyController : MonoBehaviour
     private bool followUser = false;
     public enum direction {LEFT, RIGHT }
     private direction directionEnemy;
+    private DdaParams ddaparam;
+    private GenerationValues genval;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        ddaparam = ddaCollider.GetComponent<DdaParams>();
+        genval = ddaCollider.GetComponent<GenerationValues>();
 
     }
 
@@ -29,13 +34,13 @@ public class EnemyController : MonoBehaviour
     {
 
         if (spawnedEnemey == null) {
+            ddaparam.newEnemy();
+            speedEnemy = genval.getEnemySpeed();
             freqOfEnemy = Random.Range(1, 10000);
            // Debug.Log("Freq : " + freqOfEnemy);
             if (freqOfEnemy <= difficulty)
             {
                 GenerateEnemy();
-                //Debug.Log("Enemy spawned");
-                //Debug.Log("Position: " + spawnedEnemey.transform.position.x);
             }
         }
 

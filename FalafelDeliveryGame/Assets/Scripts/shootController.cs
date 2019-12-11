@@ -35,7 +35,6 @@ public class shootController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         checkPosition();
         if (user.name.StartsWith("User2")){
           buttonValue = ra.ValuesArduino()[5];
@@ -65,9 +64,7 @@ public class shootController : MonoBehaviour
                 if (b.transform.position.x > xPos + 20 || b.transform.position.x < xPos - 20)
                 {
                     bullets.Remove(b);
-                    //Debug.Log("Na remove: " + bullets.Count);
                     Destroy(b);
-                    //Debug.Log("Bullet destroyed");
                 }
             }
         }
@@ -119,12 +116,6 @@ public class shootController : MonoBehaviour
         bulletrgb = bullet.GetComponent<Rigidbody2D>();
         bulletrgb.velocity = new Vector2(bulletSpeed, 0);
         bullets.Add(bullet);
-        //Debug.Log("Lengte " + bullets.Count);
-
-
-
-
-
     }
 
     private void checkPosition()

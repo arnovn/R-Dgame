@@ -132,7 +132,7 @@ public class TileGenerator : MonoBehaviour
 
     public float returnLowestYPosition()
     {
-        return tilesYPositions[7];
+        return tilesYPositions[7]; //other version [9]
     }
 
     private Coord2D SetNewPlatformPosition()
@@ -151,6 +151,56 @@ public class TileGenerator : MonoBehaviour
         int random = generationValues.RandomRangeSpecialPlatform();
 
         if (random < 5) //Special easy tile generated
+        {
+            if (checkPlatformType(collision) == 2)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, bigBouncePlatformPrefab);
+            }
+        }
+        else
+        {
+            if (checkPlatformType(collision) == 1)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, platformPrefab);
+            }
+        }
+    }
+
+    private void generateAllTiles(Collider2D collision, Coord2D position)
+    {
+        int random = generationValues.RandomRangeSpecialPlatform();
+
+        if (random < 3) //Moving
+        {
+            if (checkPlatformType(collision) == 4)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, MovingTile);
+            }
+        }
+        else if (random == 4 || random == 5) // Fire tile
+        {
+            if (checkPlatformType(collision) == 3)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, FirePlatform);
+            }
+        }
+        else if (random == 6 || random == 7)
         {
             if (checkPlatformType(collision) == 2)
             {
@@ -238,22 +288,6 @@ public class TileGenerator : MonoBehaviour
 
     }
 
-    private void GenerateCollidedBigjump(Collider2D collision, Coord2D position)
-    {
-        float x_pos = position.xpos;
-        float y_pos = position.ypos;
-        //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
-        if (Random.Range(1, 7) == 1)
-        {
-            replaceTile(collision, position);
-        }
-        else
-        {
-            generateNewTile(collision, position, platformPrefab);
-        }
-
-    }
-
     private int checkPlatformType(Collider2D collision)
     {
         if (collision.gameObject.name.StartsWith("PlatformNormal"))
@@ -282,17 +316,23 @@ public class TileGenerator : MonoBehaviour
         Coord2D position = SetNewPlatformPosition();
 
         if (skillevel == 0 || skillevel == 1)
-        {
+        {//Easy jump
             generateEasyTile(collision, position);
         }
-        else if (skillevel > 1)
-        {
+        else if (skillevel == 2)
+        {//Skilled jump unskilled enemy
+            generateAllTiles(collision, position);
+        }
+        else if (skillevel ==3)
+        {//skilled jump, skilled enemy
+            generateAllTiles(collision, position);
+        }
+        else if (skillevel == 4)
+        {//Very skilled jump
             generateDifficultTile(collision, position);
         }
 
-        if(collision.gameObject.name.StartsWith("Platform")){
-          //Debug.Log("X-pos is " + position.xpos);
-          //Debug.Log("Y-pos is " + position.ypos);
+        if (collision.gameObject.name.StartsWith("Platform")){
           updateTileArray(position.xpos,position.ypos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }

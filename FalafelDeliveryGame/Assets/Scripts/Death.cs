@@ -71,7 +71,7 @@ public class Death : MonoBehaviour
         if (tg.returnLowestYPosition() - actual_pos >= death_interval)
         {
             lifes --;
-            //Debug.Log(lifes);
+
             SUI.DeleteOneLife(lifes);
             ra.WriteArduino(1);
             player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
