@@ -15,7 +15,7 @@ public class Finish : MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
-        tg = GameObject.Find("PfDestroyer").GetComponent<TileGenerator>();
+        tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
 
 
         UpdatePosition();
@@ -36,16 +36,11 @@ public class Finish : MonoBehaviour
             if (test == null)
             {
                 tg.StopGenerating();
-                test = Instantiate(finishLinePrefab, new Vector3(0.15f, 2076, 0), Quaternion.identity);
+                test = Instantiate(finishLinePrefab, new Vector3(0.15f, 2050, 0), Quaternion.identity);
                 Destroy(timerText);
 
             }
-
-
-
         }
-
-
 
     }
 }

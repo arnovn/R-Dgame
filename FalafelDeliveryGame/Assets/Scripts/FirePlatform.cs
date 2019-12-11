@@ -4,32 +4,28 @@ using UnityEngine;
 
 public class FirePlatform : MonoBehaviour
 {
-    ReadArduino ra;
-    TileGenerator tg;
-    Death death;
-    private int buttonValue;
-    private float y_pos;
-    private float x_pos;
-    public GameObject platform;
+    private SUserInterface SUI;
+    private Death death;
+    private ReadArduino ra;
     private GameObject User;
+    private Rigidbody2D rb2d;
+
+    private int buttonValue;
     public float timeStart;
     public float timeLeft;
-    private Rigidbody2D rb2d;
-    private SUserInterface SUI;
     bool lostLife = false;
     float testTime = 0f;
 
     public Color StartColor;
     public Color EndColor;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        User = GameObject.Find("SingleUser");
-        ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-        rb2d = GameObject.Find("SingleUser").GetComponent<Rigidbody2D>();
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
-        SUI = GameObject.Find("DdaCollider").GetComponent<SUserInterface>();
+
+        ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
+        death = GameObject.Find("DdaCollider1").GetComponent<Death>();
+        SUI =GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
 
     }
 
@@ -40,33 +36,32 @@ public class FirePlatform : MonoBehaviour
         //Debug.Log("Arduino value is " + gav.getValue());
     }
 
-    float PositionPlatform()
-    {
-        return y_pos;
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        User = GameObject.Find(collision.gameObject.name);
+        rb2d = User.gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
+        //User = GameObject.Find(collision.gameObject.name);
+        //rb2d = User.gameObject.GetComponent<Rigidbody2D>();
         buttonValue = ra.ValuesArduino()[2];
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
         {
             testTime += Time.deltaTime;
-            if (buttonValue == 2 && death.getLifes() > 0)
+            if (buttonValue == 2 && death.getLifes() > 0 && rb2d.velocity.y <= 0)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 600f);
+
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 30f);
 
             }
             if (lostLife == false)
             {
-                User.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.grey, Color.red, testTime / 3f);
+                User.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.grey, Color.red, testTime / 0.7f);
             }
 
-            if (testTime >=3f && lostLife== false)
+            if (testTime >=0.7f && lostLife== false)
             {
                 User.GetComponent<SpriteRenderer>().color = Color.black;
                 death.LoseLife();

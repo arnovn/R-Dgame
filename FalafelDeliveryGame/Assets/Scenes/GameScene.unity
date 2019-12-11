@@ -2163,7 +2163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fba9e8e84c6824b9a805630066cb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 1464420199}
+  user1: {fileID: 1464420201}
+  user2: {fileID: 0}
 --- !u!50 &1464420201
 Rigidbody2D:
   serializedVersion: 4
@@ -2343,6 +2344,7 @@ MonoBehaviour:
   spawnedEnemey: {fileID: 0}
   thisCanvas: {fileID: 962582531}
   user: {fileID: 1464420199}
+  ddaCollider: {fileID: 500539832}
 --- !u!114 &1464420210
 MonoBehaviour:
   m_ObjectHideFlags: 0

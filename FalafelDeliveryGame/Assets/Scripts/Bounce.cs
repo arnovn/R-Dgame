@@ -4,38 +4,44 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-  ReadArduino ra;
-  TileGenerator tg;
-  Death death;
+  private ReadArduino ra;
+  private TileGenerator tg;
+  private Death death;
+
   public Rigidbody2D user;
+  public GameObject Arduino;
+  public GameObject PfDestroyer;
+  public GameObject DdaCollider;
+
   private int buttonValue;
+  private int prevButtonValue = 0;
   private float y_pos;
   private float x_pos;
-  public GameObject platform;
-  public GameObject startPoint;
+  private bool ZeroGone = true;
 
-    private bool ZeroGone = false;
+
     // Start is called before the first frame update
     void Start()
     {
-     
-      ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
-      tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
-      death = GameObject.Find("DdaCollider1").GetComponent<Death>();
+
+      ra = Arduino.GetComponent<ReadArduino>();
+      tg = PfDestroyer.GetComponent<TileGenerator>();
+      death = DdaCollider.GetComponent<Death>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Arduino value is " + gav.getValue());
-    }
+        while (!ZeroGone)
+        {
+            if (ra.ValuesArduino()[2] != 0)
+            {
+                ZeroGone = true;
+            }
+      }
 
-    /*
-    float PositionPlatform(){
-      return y_pos;
     }
-    */
 
     private void OnCollisionEnter2D(Collision2D collision){
 
@@ -44,17 +50,7 @@ public class Bounce : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
 
-        while (!ZeroGone)
-        {
-            if (ra.ValuesArduino()[2] != 0)
-            {
-                ZeroGone = true;
-                Debug.Log("Zero is gone");
-            }
-        }
 
-        if (ZeroGone)
-        {
             if (user.gameObject.name == "User1")
             {
                 buttonValue = ra.ValuesArduino()[2];
@@ -63,23 +59,18 @@ public class Bounce : MonoBehaviour
             if (user.gameObject.name == "User2")
             {
                 buttonValue = ra.ValuesArduino()[3];
-                //Debug.Log(buttonValue);    
+                //Debug.Log(buttonValue);
             }
 
             if (collision.gameObject.name.StartsWith("Platform")||collision.gameObject.name.StartsWith("startpoint"))
             {
-                y_pos = user.transform.position.y;
-                x_pos = collision.transform.position.x;
-                //death.lastPlatformPosition( x_pos,  y_pos);
-                //tg.LastPlatformPosition(y_pos);
-                if ((buttonValue == 3||buttonValue ==4) && death.getLifes() > 0)
+                if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0f)
                 {
-                    user.AddForce(Vector2.up * 150f);
-                    Debug.Log("jump");
-
+                    user.velocity = new Vector2(user.velocity.x, 30f);
+                    Debug.Log(user.name);
                 }
             }
-        }
+            prevButtonValue = buttonValue;
     }
 
   }

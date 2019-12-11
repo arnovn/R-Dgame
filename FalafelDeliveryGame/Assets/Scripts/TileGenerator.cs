@@ -13,19 +13,20 @@ public class TileGenerator : MonoBehaviour
     public GameObject Seagul;
     private GameObject myPlat;
 
+    public GameObject DdaCollider;
     private Death death;
     private Bounce platform;
     private BigBounce bigBounce;
     private DdaParams ddaparamaters;
     private GenerationValues generationValues;
-    
+
     private float range = 22f;
     private float generation_axis;
     private int index;
     private bool generating;
     private float[] coords = new float[2];
-    private float[] tilesXPositions = new float[] {-4f,3.7f,-3f,3.2f,-2.4f,2.93f,-2.19f,4.26f,-4.71f,0.05f};
-    private float[] tilesYPositions = new float[] {41f,36.8f,30.6f,23.9f,16.6f,10.81f,5.84f,0.67f,-3.02f,-8.07f};
+    private float[] tilesXPositions;
+    private float[] tilesYPositions;
 
     //Params for DDA: distance between tiles & random range for spawning special tiles
     int skillevel;
@@ -41,10 +42,28 @@ public class TileGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(player.gameObject.name.StartsWith("SingleUser")){
+          tilesXPositions = new float[] {-4f,3.7f,-3f,3.2f,-2.4f,2.93f,-2.19f,4.26f,-4.71f,0.05f};
+          tilesYPositions = new float[] {41f,36.8f,30.6f,23.9f,16.6f,10.81f,5.84f,0.67f,-3.02f,-8.07f};
+          generation_axis = 0f;
+        }
+        else if(player.gameObject.name.StartsWith("User1")){
+          tilesXPositions = new float[] {-1.4f,1.1f,-3.8f,1.6f,-2.2f,1.9f,-2.9f,-0.1f};
+          tilesYPositions = new float[] {28.6f,24.4f,20.7f,16.2f,10.8f,7.4f,3.91f,-1.75f};
+          generation_axis = 0f;
+
+        }
+        else if(player.gameObject.name.StartsWith("User2")){
+          tilesXPositions = new float[] {500.5f,503f,498.1f,503.5f,499.7f,503.8f,499f,500f};
+          tilesYPositions = new float[] {28.6f,24.4f,20.7f,16.2f,10.8f,7.4f,3.91f,-1.75f};
+          generation_axis = 500f;
+        }
+
+
         generation_axis = player.transform.position.x;
-        death = GameObject.Find("DdaCollider").GetComponent<Death>();
-        ddaparamaters = GameObject.Find("DdaCollider").GetComponent<DdaParams>();
-        generationValues = GameObject.Find("DdaCollider").GetComponent<GenerationValues>();
+        death = DdaCollider.GetComponent<Death>();
+        ddaparamaters = DdaCollider.GetComponent<DdaParams>();
+        generationValues = DdaCollider.GetComponent<GenerationValues>();
         skillevel = ddaparamaters.getSkillLevel();
         generationValues.SetSkillLevel(skillevel);
         generating = true;
@@ -76,7 +95,7 @@ public class TileGenerator : MonoBehaviour
     }
 
     private void updateTileArray(float x_pos, float y_pos){
-        for(int i = 9; i>0; i--){
+        for(int i = 7; i>0; i--){
 
             tilesXPositions[i] = tilesXPositions[i-1];
             tilesYPositions[i] = tilesYPositions[i-1];
@@ -88,7 +107,7 @@ public class TileGenerator : MonoBehaviour
 
     public int getLowestTile(){
       int lowestIndex = 0;
-      for(int i = 1; i<10; i++){
+      for(int i = 1; i<8; i++){
 
         float lowest = tilesYPositions[0];
         //  Debug.Log(tilesYPositions[i]);
@@ -108,18 +127,18 @@ public class TileGenerator : MonoBehaviour
 
     public float returnLowestXPosition()
     {
-        return tilesXPositions[9];
+        return tilesXPositions[7];
     }
 
     public float returnLowestYPosition()
     {
-        return tilesYPositions[9];
+        return tilesYPositions[7]; //other version [9]
     }
 
     private Coord2D SetNewPlatformPosition()
     {
         float y_pos = tilesYPositions[0] + generationValues.RandomRangeYvalue();//8.82f;
-        float x_pos = generationValues.RandomRangeXvalue();
+        float x_pos = generation_axis + generationValues.RandomRangeXvalue();
         Coord2D position;
         position.xpos = x_pos;
         position.ypos = y_pos;
@@ -128,10 +147,60 @@ public class TileGenerator : MonoBehaviour
 
     private void generateEasyTile(Collider2D collision, Coord2D position)
     {
-        
+
         int random = generationValues.RandomRangeSpecialPlatform();
 
         if (random < 5) //Special easy tile generated
+        {
+            if (checkPlatformType(collision) == 2)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, bigBouncePlatformPrefab);
+            }
+        }
+        else
+        {
+            if (checkPlatformType(collision) == 1)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, platformPrefab);
+            }
+        }
+    }
+
+    private void generateAllTiles(Collider2D collision, Coord2D position)
+    {
+        int random = generationValues.RandomRangeSpecialPlatform();
+
+        if (random < 3) //Moving
+        {
+            if (checkPlatformType(collision) == 4)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, MovingTile);
+            }
+        }
+        else if (random == 4 || random == 5) // Fire tile
+        {
+            if (checkPlatformType(collision) == 3)
+            {
+                replaceTile(collision, position);
+            }
+            else
+            {
+                generateNewTile(collision, position, FirePlatform);
+            }
+        }
+        else if (random == 6 || random == 7)
         {
             if (checkPlatformType(collision) == 2)
             {
@@ -219,22 +288,6 @@ public class TileGenerator : MonoBehaviour
 
     }
 
-    private void GenerateCollidedBigjump(Collider2D collision, Coord2D position)
-    {
-        float x_pos = position.xpos;
-        float y_pos = position.ypos;
-        //1 in 7 we will replace this bigjump platform, 6 in 7 generate new normal platform.
-        if (Random.Range(1, 7) == 1)
-        {
-            replaceTile(collision, position);
-        }
-        else
-        {
-            generateNewTile(collision, position, platformPrefab);
-        }
-
-    }
-
     private int checkPlatformType(Collider2D collision)
     {
         if (collision.gameObject.name.StartsWith("PlatformNormal"))
@@ -263,15 +316,23 @@ public class TileGenerator : MonoBehaviour
         Coord2D position = SetNewPlatformPosition();
 
         if (skillevel == 0 || skillevel == 1)
-        {
+        {//Easy jump
             generateEasyTile(collision, position);
         }
-        else if (skillevel > 1)
-        {
+        else if (skillevel == 2)
+        {//Skilled jump unskilled enemy
+            generateAllTiles(collision, position);
+        }
+        else if (skillevel ==3)
+        {//skilled jump, skilled enemy
+            generateAllTiles(collision, position);
+        }
+        else if (skillevel == 4)
+        {//Very skilled jump
             generateDifficultTile(collision, position);
         }
 
-        if(collision.gameObject.name.StartsWith("Platform")){
+        if (collision.gameObject.name.StartsWith("Platform")){
           updateTileArray(position.xpos,position.ypos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }
@@ -281,18 +342,16 @@ public class TileGenerator : MonoBehaviour
     {
         float x_pos = position.xpos;
         float y_pos = position.ypos;
-        tilesXPositions[index] = 0f;
-        tilesYPositions[index] = 0f;
-        collision.gameObject.transform.position = new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
+        collision.gameObject.transform.position = new Vector2(x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/);
     }
 
     private void generateNewTile(Collider2D collision, Coord2D position, GameObject newPlatform)
     {
         float x_pos = position.xpos;
         float y_pos = position.ypos;
-        Destroy(collision.gameObject);
-        tilesXPositions[index] = 0f;
-        tilesYPositions[index] = 0f;
-        Instantiate(newPlatform, new Vector2(generation_axis + x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
+        if(collision.gameObject.name.StartsWith("Platform")){
+          Destroy(collision.gameObject);
+        }
+        Instantiate(newPlatform, new Vector2(x_pos, y_pos /*+ Random.Range(extra - 0.5f, extra)*/), Quaternion.identity);
     }
 }
