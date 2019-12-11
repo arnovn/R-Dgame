@@ -10,6 +10,7 @@ public class Death : MonoBehaviour
     private SUserInterface SUI;
     private Rigidbody2D rb2d;
     private DdaParams ddaparams;
+    private Background background;
 
     private float[] coords = new float[2];
     private float y_pos;
@@ -31,6 +32,8 @@ public class Death : MonoBehaviour
         SUI = DdaCollider.GetComponent<SUserInterface>();
         ddaparams = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();
         rb2d = player.GetComponent<Rigidbody2D>();
+        background = player.GetComponent<Background>();
+
     }
 
       public void lastPlatformPosition(float x_posi, float y_posi){
@@ -73,6 +76,7 @@ public class Death : MonoBehaviour
             ra.WriteArduino(1);
             player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
             rb2d.velocity = new Vector2(0f,25f);
+            background.UserDied();
             ddaparams.Died();
             ddaparams.ReduceSkill();
         }

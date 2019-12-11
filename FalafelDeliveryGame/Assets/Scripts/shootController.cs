@@ -59,9 +59,9 @@ public class shootController : MonoBehaviour
                 if (b.transform.position.x > xPos + 20 || b.transform.position.x < xPos - 20)
                 {
                     bullets.Remove(b);
-                    Debug.Log("Na remove: " + bullets.Count);
+                    //Debug.Log("Na remove: " + bullets.Count);
                     Destroy(b);
-                    Debug.Log("Bullet destroyed");
+                    //Debug.Log("Bullet destroyed");
                 }
             }
         }
@@ -95,7 +95,7 @@ public class shootController : MonoBehaviour
     private void Shoot()
     {
         checkPosition();
-        Debug.Log(userrgb.velocity.x);
+        //Debug.Log(userrgb.velocity.x);
         if (direction == -1)
         {
             bulletSpeed = -10;
@@ -113,7 +113,7 @@ public class shootController : MonoBehaviour
         bulletrgb = bullet.GetComponent<Rigidbody2D>();
         bulletrgb.velocity = new Vector2(bulletSpeed, 0);
         bullets.Add(bullet);
-        Debug.Log("Lengte " + bullets.Count);
+        //Debug.Log("Lengte " + bullets.Count);
 
 
 

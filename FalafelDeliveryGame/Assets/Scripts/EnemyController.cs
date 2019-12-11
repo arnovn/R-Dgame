@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
 
-        
+
     }
 
     // Update is called once per frame
@@ -34,8 +34,8 @@ public class EnemyController : MonoBehaviour
             if (freqOfEnemy <= difficulty)
             {
                 GenerateEnemy();
-                Debug.Log("Enemy spawned");
-                Debug.Log("Position: " + spawnedEnemey.transform.position.x);
+                //Debug.Log("Enemy spawned");
+                //Debug.Log("Position: " + spawnedEnemey.transform.position.x);
             }
         }
 
@@ -81,16 +81,6 @@ public class EnemyController : MonoBehaviour
                 break;
         }
 
-        //if (spawnedEnemey.transform.position.y < user.transform.position.y)
-        // {
-        //   followUser = true;
-        // }
-        // if (followUser)
-        // {
-
-        //     spawnedEnemey.transform.position = new Vector2(newX, user.transform.position.y);
-        // }
-
         if (user.transform.position.y - spawnedEnemey.transform.position.y == 0)
         {
             spawnedEnemey.transform.position = new Vector2(newX, user.transform.position.y);
@@ -132,7 +122,7 @@ public class EnemyController : MonoBehaviour
         leftOrRight = Random.Range(0, 99);
         if (leftOrRight > 49)
         {
-            //right 
+            //right
             xSpawn = thisCanvas.transform.position.x + 13;
             directionEnemy = direction.LEFT;
         }
@@ -162,6 +152,5 @@ public class EnemyController : MonoBehaviour
         spawnedEnemey.transform.localScale = newScale;
     }
 
-    
+
 }
- 

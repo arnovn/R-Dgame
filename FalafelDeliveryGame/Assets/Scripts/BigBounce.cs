@@ -9,7 +9,7 @@ public class BigBounce : MonoBehaviour
     float x_pos;
     public GameObject platform;
 
-    private RigidBody2D rb2d;
+      private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {

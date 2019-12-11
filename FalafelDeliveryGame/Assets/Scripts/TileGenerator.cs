@@ -45,14 +45,18 @@ public class TileGenerator : MonoBehaviour
         if(player.gameObject.name.StartsWith("SingleUser")){
           tilesXPositions = new float[] {-4f,3.7f,-3f,3.2f,-2.4f,2.93f,-2.19f,4.26f,-4.71f,0.05f};
           tilesYPositions = new float[] {41f,36.8f,30.6f,23.9f,16.6f,10.81f,5.84f,0.67f,-3.02f,-8.07f};
+          generation_axis = 0f;
         }
         else if(player.gameObject.name.StartsWith("User1")){
           tilesXPositions = new float[] {-1.4f,1.1f,-3.8f,1.6f,-2.2f,1.9f,-2.9f,-0.1f};
           tilesYPositions = new float[] {28.6f,24.4f,20.7f,16.2f,10.8f,7.4f,3.91f,-1.75f};
+          generation_axis = 0f;
+
         }
         else if(player.gameObject.name.StartsWith("User2")){
           tilesXPositions = new float[] {500.5f,503f,498.1f,503.5f,499.7f,503.8f,499f,500f};
           tilesYPositions = new float[] {28.6f,24.4f,20.7f,16.2f,10.8f,7.4f,3.91f,-1.75f};
+          generation_axis = 500f;
         }
 
 
@@ -287,8 +291,8 @@ public class TileGenerator : MonoBehaviour
         }
 
         if(collision.gameObject.name.StartsWith("Platform")){
-          Debug.Log("X-pos is " + position.xpos);
-          Debug.Log("Y-pos is " + position.ypos);
+          //Debug.Log("X-pos is " + position.xpos);
+          //Debug.Log("Y-pos is " + position.ypos);
           updateTileArray(position.xpos,position.ypos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }
