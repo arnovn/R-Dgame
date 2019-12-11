@@ -62,7 +62,7 @@ public class Bounce : MonoBehaviour
                 //Debug.Log(buttonValue);
             }
 
-            if (collision.gameObject.name.StartsWith("Platform"))
+            if (collision.gameObject.name.StartsWith("Platform")||collision.gameObject.name.StartsWith("startpoint"))
             {
                 if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0f)
                 {

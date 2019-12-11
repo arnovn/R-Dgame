@@ -18,17 +18,15 @@ public class StartPointDestroyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(startPointObject.transform.position.y);
     }
 
-    /* Function will check when platform hits platfrom destroyer box collider
-     * When it does, it will check which platform has been hit
-     * Depending on which one it will replace an existing plaform or create a new one of another type and destroy the other platform.
-     */
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
         DestroyStartPoint(collision);
-
+        
     }
 
     private void DestroyStartPoint(Collider2D collision)
