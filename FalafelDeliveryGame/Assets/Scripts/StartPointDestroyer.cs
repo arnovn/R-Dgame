@@ -18,7 +18,8 @@ public class StartPointDestroyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(startPointObject.transform.position.y);
+
+        //Debug.Log(startPointObject.transform.position.y);
     }
 
    

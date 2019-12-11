@@ -40,6 +40,7 @@ public class shootController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("waarde van button shoot: " + buttonValue);
         checkPosition();
         buttonValue = ra.Values()[2];
 
