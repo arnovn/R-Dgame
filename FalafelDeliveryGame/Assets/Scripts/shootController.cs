@@ -37,7 +37,7 @@ public class shootController : MonoBehaviour
     {
 
         checkPosition();
-        if User.name.StartsWith("User2"){
+        if (user.name.StartsWith("User2")){
           buttonValue = ra.ValuesArduino()[5];
 
         }

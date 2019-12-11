@@ -15,6 +15,7 @@ public class AddLife : MonoBehaviour
 
     private int lifes;
     private bool adding;
+    private int ldr;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,7 @@ public class AddLife : MonoBehaviour
         ldr = ra.ValuesArduino()[7];
       }
       else{
-        ldr.ra.ValuesArduino()[6];
+        ldr = ra.ValuesArduino()[6];
       }
       CheckLDR();
     }

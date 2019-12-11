@@ -12,12 +12,14 @@ public class JoystickController : MonoBehaviour
     public GameObject user;
     public GameObject DdaCollider;
     public GameObject Arduino;
-    private Rigidbody2D rb2d;
-    private float moveInput;
-    private float speed = 10f;
+
     private ReadArduino ra;
+    private Rigidbody2D rb2d;
     private shootController shootcon;
     private Death death;
+
+    private float moveInput;
+    private float speed = 10f;
     private string ActiveScene;
     bool ZeroGone = false;
 
@@ -50,14 +52,6 @@ public class JoystickController : MonoBehaviour
         }
 
     }
-
-    public void AddForce()
-    {
-        //using the physics system
-        rb2d.AddForce(Vector2.up * 600f);
-
-    }
-
     //Horizontal movement for player 1 (with the analog values from the joystick)
     void MoveUser(int Direction)
     {
