@@ -40,6 +40,7 @@ public class shootController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("waarde van button shoot: " + buttonValue);
         checkPosition();
         if (user.name.StartsWith("User2")){
           buttonValue = ra.ValuesArduino()[5];
@@ -47,6 +48,7 @@ public class shootController : MonoBehaviour
         }
         else{
           buttonValue = ra.ValuesArduino()[4];
+           
         }
 
         //Debug.Log(buttonValue + " waarde van buttons");
