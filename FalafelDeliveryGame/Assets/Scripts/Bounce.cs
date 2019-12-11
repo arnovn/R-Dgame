@@ -30,17 +30,18 @@ public class Bounce : MonoBehaviour
       death = DdaCollider.GetComponent<Death>();
 
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+        /*
         while (!ZeroGone)
         {
             if (ra.Values()[0] != 0)
             {
                 ZeroGone = true;
             }
-      }
+      }*/
 
     }
 

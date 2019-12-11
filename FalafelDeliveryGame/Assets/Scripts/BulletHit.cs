@@ -11,7 +11,7 @@ public class BulletHit : MonoBehaviour
     void Start()
     {
         user = gameObject;
-        Debug.Log("tis is: "+gameObject);
+        //Debug.Log("tis is: "+gameObject);
     }
 
     // Update is called once per frame

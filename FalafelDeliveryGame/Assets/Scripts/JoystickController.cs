@@ -31,24 +31,26 @@ public class JoystickController : MonoBehaviour
             ra = Arduino.GetComponent<GetUserValues>();
             death = DdaCollider.GetComponent<Death>();
             shootcon = user.GetComponent<shootController>();
-
-
+      /*
+      while (!ZeroGone)
+      {
+            Debug.Log(ra.Values()[1]);
+          if (ra.Values()[0] != 0)
+          {
+              ZeroGone = true;
+          }
+      }*/
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-      while (!ZeroGone)
-      {
-          if (ra.Values()[0] != 0)
-          {
-              ZeroGone = true;
-          }
-      }
-
+       
         MoveUser(ra.Values()[0]);
 
     }
+
     //Horizontal movement for player 1 (with the analog values from the joystick)
     void MoveUser(int Direction)
     {

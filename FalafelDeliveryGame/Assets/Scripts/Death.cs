@@ -6,7 +6,7 @@ public class Death : MonoBehaviour
 {
 
     private TileGenerator tg;
-    private ReadArduino ra;
+    private GetUserValues ra;
     private SUserInterface SUI;
     private Rigidbody2D rb2d;
     private DdaParams ddaparams;
@@ -28,7 +28,7 @@ public class Death : MonoBehaviour
     {
 
         tg = PfDestroyer.GetComponent<TileGenerator>();
-        ra = Arduino.GetComponent<ReadArduino>();
+        ra = Arduino.GetComponent<GetUserValues>();
         SUI = DdaCollider.GetComponent<SUserInterface>();
         ddaparams = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();
         rb2d = player.GetComponent<Rigidbody2D>();
@@ -73,9 +73,8 @@ public class Death : MonoBehaviour
             lifes --;
 
             SUI.DeleteOneLife(lifes);
-            ra.WriteArduino(1);
+            ra.PlayerDied();
             player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
-            Debug.Log(rb2d.position.y);
             rb2d.velocity = new Vector2(0f,25f);
             background.UserDied();
             ddaparams.Died();

@@ -20,11 +20,18 @@ public class GetUserValues : MonoBehaviour
         for(int i = 0; i < 4; i++)
         {
             UserValues[i] = ra.ValuesArduino()[2 * i + UserNr - 1];
-        }   
+        }
+        
     }
 
     public int[] Values()
     {
         return UserValues;
+    }
+
+    public void PlayerDied()
+    {
+        ra.WriteArduino(UserNr);
+        Debug.Log(UserNr);
     }
 }
