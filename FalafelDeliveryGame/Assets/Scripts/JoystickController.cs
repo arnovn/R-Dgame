@@ -56,13 +56,11 @@ public class JoystickController : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(-1 * speed * Direction / 250, rb2d.velocity.y);
                 shootcon.setDirection(-1);
-                Debug.Log("left");
             }
             else if (Direction <= 120)
             {
                 rb2d.velocity = new Vector2(1 * speed * (255 - Direction * 2) / 250, rb2d.velocity.y);
                 shootcon.setDirection(1);
-                Debug.Log("right");
             }
             else if (Direction > 120 && Direction < 135)
             {

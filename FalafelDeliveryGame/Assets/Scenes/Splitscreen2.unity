@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 165382745}
   - component: {fileID: 165382744}
   m_Layer: 0
-  m_Name: startpoint game2
+  m_Name: Platform startpoint game2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5646,19 +5646,19 @@ MonoBehaviour:
   sounds:
   - name: NormalJump
     clip: {fileID: 8300000, guid: e873e20deb8cad542b503c52844bd45b, type: 3}
-    volume: 0.267
+    volume: 0
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Theme
     clip: {fileID: 8300000, guid: 8dc27432835c869499ccc3e069ad03a4, type: 3}
-    volume: 0.501
+    volume: 0
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Died
     clip: {fileID: 8300000, guid: 6183989657c0d7042ab2a843df0eaa0b, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     source: {fileID: 0}
     loop: 0

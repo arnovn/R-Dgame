@@ -19,6 +19,9 @@ public class Bounce : MonoBehaviour
   private float y_pos;
   private float x_pos;
   private bool ZeroGone = true;
+  public float timeLeft;
+  bool lostLife = false;
+  float testTime = 0f;
 
 
     // Start is called before the first frame update
@@ -34,15 +37,6 @@ public class Bounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        while (!ZeroGone)
-        {
-            if (ra.Values()[0] != 0)
-            {
-                ZeroGone = true;
-            }
-      }*/
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
@@ -52,19 +46,43 @@ public class Bounce : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         buttonValue = ra.Values()[1];
-        Debug.Log("collision");
-        Debug.Log(collision.gameObject.name);
+
         if (collision.gameObject.name.StartsWith("Platform"))
         {
-            Debug.Log("Tries to jump");
             if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0.1f)
             {
                 user.velocity = new Vector2(user.velocity.x, 30f);
                 FindObjectOfType<AudioManager>().Play("NormalJump");
                 Debug.Log(user.name);
             }
+
+            if(collision.gameObject.name.Contains("Fire")){
+
+
+              testTime += Time.deltaTime;
+
+                if (lostLife == false){
+                  user.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.grey, Color.red, testTime / 0.7f);
+
+                }
+
+                if (testTime >=0.7f && lostLife== false)
+                {
+                    user.GetComponent<SpriteRenderer>().color = Color.black;
+                    int lifes = death.getLifes();
+                    lostLife = true;
+                    Debug.Log(lifes);
+                    death.Died();
+                  }
+
         }
         prevButtonValue = buttonValue;
+    }
+  }
+    private void OnCollisionExit2D(Collision2D collision){
+      user.GetComponent<SpriteRenderer>().color = Color.white;
+      testTime = 0;
+      lostLife = false;
     }
 
   }
