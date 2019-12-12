@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-  private ReadArduino ra;
+  //private ReadArduino ra;
   private TileGenerator tg;
   private Death death;
 
@@ -13,6 +13,7 @@ public class Bounce : MonoBehaviour
   public GameObject PfDestroyer;
   public GameObject DdaCollider;
 
+  private GetUserValues ra;
   private int buttonValue;
   private int prevButtonValue = 0;
   private float y_pos;
@@ -24,7 +25,7 @@ public class Bounce : MonoBehaviour
     void Start()
     {
 
-      ra = Arduino.GetComponent<ReadArduino>();
+      ra = Arduino.GetComponent<GetUserValues>();
       tg = PfDestroyer.GetComponent<TileGenerator>();
       death = DdaCollider.GetComponent<Death>();
 
@@ -33,13 +34,14 @@ public class Bounce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         while (!ZeroGone)
         {
-            if (ra.ValuesArduino()[2] != 0)
+            if (ra.Values()[0] != 0)
             {
                 ZeroGone = true;
             }
-      }
+      }*/
 
     }
 
@@ -49,28 +51,20 @@ public class Bounce : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-
-
-            if (user.gameObject.name == "User1")
+        buttonValue = ra.Values()[1];
+        Debug.Log("collision");
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name.StartsWith("Platform"))
+        {
+            Debug.Log("Tries to jump");
+            if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0.1f)
             {
-                buttonValue = ra.ValuesArduino()[2];
-
+                user.velocity = new Vector2(user.velocity.x, 30f);
+                FindObjectOfType<AudioManager>().Play("NormalJump");
+                Debug.Log(user.name);
             }
-            if (user.gameObject.name == "User2")
-            {
-                buttonValue = ra.ValuesArduino()[3];
-                //Debug.Log(buttonValue);
-            }
-
-            if (collision.gameObject.name.StartsWith("Platform")||collision.gameObject.name.StartsWith("startpoint"))
-            {
-                if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0f)
-                {
-                    user.velocity = new Vector2(user.velocity.x, 30f);
-                    Debug.Log(user.name);
-                }
-            }
-            prevButtonValue = buttonValue;
+        }
+        prevButtonValue = buttonValue;
     }
 
   }

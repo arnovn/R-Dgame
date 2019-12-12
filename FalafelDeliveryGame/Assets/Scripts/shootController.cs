@@ -10,7 +10,7 @@ public class shootController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject Arduino;
 
-    private ReadArduino ra;
+    private GetUserValues ra;
     private Rigidbody2D userrgb;
     private GameObject bullet;
     private Rigidbody2D bulletrgb;
@@ -28,33 +28,24 @@ public class shootController : MonoBehaviour
 
     int direction = -1; //To right
 
+    private int i = 0; //intiger to determine shootTimer
+
     void Start()
     {
-        ra = Arduino.GetComponent<ReadArduino>();
+        ra = Arduino.GetComponent<GetUserValues>();
         userrgb = user.GetComponent<Rigidbody2D>();
         bullets = new List<GameObject>();
         //ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
-        SetTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("waarde van button shoot: " + buttonValue);
+
         checkPosition();
-        if (user.name.StartsWith("User2")){
-          buttonValue = ra.ValuesArduino()[5];
-
-        }
-        else{
-          buttonValue = ra.ValuesArduino()[4];
-           
-        }
-
-        //Debug.Log(buttonValue + " waarde van buttons");
-
+        buttonValue = ra.Values()[2];
         if (buttonValue == 1)
-        {
+        {            
             if (shootTimer)
             {
                 Shoot();
@@ -63,6 +54,18 @@ public class shootController : MonoBehaviour
             }
         }
 
+        if (!shootTimer)
+        {
+            if(i >= 15)
+                {
+                    shootTimer = true;
+                    i = 0;
+                }
+            else
+            {
+                i++;
+            }
+        }
         for (int i = bullets.Count - 1; i >= 0; i--)
         {
             GameObject b = bullets[i];
@@ -75,9 +78,6 @@ public class shootController : MonoBehaviour
                 }
             }
         }
-
-
-
     }
 
     public void setDirection(int newDirection)
@@ -85,27 +85,9 @@ public class shootController : MonoBehaviour
         direction = newDirection;
     }
 
-    private static void SetTimer()
-    {
-        aTimer = new System.Timers.Timer(250);
-
-        aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-        aTimer.Enabled = true;
-
-    }
-
-    static void OnTimedEvent(object source, ElapsedEventArgs e) {
-    shootTimer = true;
-
-    }
-
-
-
-
     private void Shoot()
     {
         checkPosition();
-        //Debug.Log(userrgb.velocity.x);
         if (direction == -1)
         {
             bulletSpeed = -10;

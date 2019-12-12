@@ -6,7 +6,7 @@ public class AddLife : MonoBehaviour
 {
 
     private SUserInterface SUI;
-    private ReadArduino ra;
+    private GetUserValues ra;
     private Death death;
 
     public GameObject DdaCollider;
@@ -21,7 +21,7 @@ public class AddLife : MonoBehaviour
     {
         lifes = 5;
         SUI = DdaCollider.GetComponent<SUserInterface>();
-        ra = Arduino.GetComponent<ReadArduino>();
+        ra = Arduino.GetComponent<GetUserValues>();
         death = DdaCollider.GetComponent<Death>();
 
     }
@@ -29,25 +29,22 @@ public class AddLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(User.name.StartsWith("User2")){
-        ldr = ra.ValuesArduino()[7];
-      }
-      else{
-        ldr = ra.ValuesArduino()[6];
-      }
-      CheckLDR();
-      //Debug.Log(ldr);
+
+        ldr = ra.Values()[3];
+        CheckLDR();
+        //Debug.Log(ldr);
     }
 
 
     void CheckLDR(){
       if(ldr == 1){
+            Debug.Log("YEEEEEEEEEET");
         if(!adding){
           lifes = death.getLifes();
           if(lifes <5){
             death.AddLife();
-            Debug.Log(lifes);
-            SUI.AddOneLife(lifes);
+            Debug.Log("lifes : " + lifes);
+            SUI.AddOneLife(lifes);  
           }
           adding = true;
 

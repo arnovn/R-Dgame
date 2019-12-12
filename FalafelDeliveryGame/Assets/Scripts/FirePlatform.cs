@@ -46,6 +46,18 @@ public class FirePlatform : MonoBehaviour
     {
         //User = GameObject.Find(collision.gameObject.name);
         //rb2d = User.gameObject.GetComponent<Rigidbody2D>();
+
+        if (collision.gameObject.name.StartsWith("User2"))
+        {
+            death = GameObject.Find("DdaCollider2").GetComponent<Death>();
+            SUI = GameObject.Find("DdaCollider2").GetComponent<SUserInterface>();
+        }
+        else
+        {
+            death = GameObject.Find("DdaCollider1").GetComponent<Death>();
+            SUI = GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
+        }
+
         buttonValue = ra.ValuesArduino()[2];
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
         {
@@ -64,11 +76,12 @@ public class FirePlatform : MonoBehaviour
             if (testTime >=0.7f && lostLife== false)
             {
                 User.GetComponent<SpriteRenderer>().color = Color.black;
-                death.LoseLife();
+                //death.LoseLife();
                 int lifes = death.getLifes();
-                SUI.DeleteOneLife(lifes);
+                //SUI.DeleteOneLife(lifes);
                 lostLife = true;
                 Debug.Log(lifes);
+                death.Died();
 
                 //User.GetComponent<SpriteRenderer>().color = Color.red;
             }

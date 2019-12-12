@@ -13,7 +13,7 @@ public class JoystickController : MonoBehaviour
     public GameObject DdaCollider;
     public GameObject Arduino;
 
-    private ReadArduino ra;
+    private GetUserValues ra;
     private Rigidbody2D rb2d;
     private shootController shootcon;
     private Death death;
@@ -26,9 +26,9 @@ public class JoystickController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+            ZeroGone = false;
             rb2d = user.GetComponent<Rigidbody2D>();
-            ra = Arduino.GetComponent<ReadArduino>();
+            ra = Arduino.GetComponent<GetUserValues>();
             death = DdaCollider.GetComponent<Death>();
             shootcon = user.GetComponent<shootController>();
 
@@ -38,36 +38,31 @@ public class JoystickController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      while (!ZeroGone)
-      {
-          if (ra.ValuesArduino()[2] != 0)
+          if (ra.Values()[1] != 0)
           {
               ZeroGone = true;
-              Debug.Log("Zero is gone");
           }
-      }
-        if (user.name.StartsWith("User2")){
-          MoveUser(ra.ValuesArduino()[1]);
-        }
-        else{
-          MoveUser(ra.ValuesArduino()[0]);
-        }
+          MoveUser(ra.Values()[0]);
 
     }
     //Horizontal movement for player 1 (with the analog values from the joystick)
     void MoveUser(int Direction)
     {
+      if(ZeroGone){
         if (death.getLifes() > 0)
         {
+
             if (Direction >= 134)
             {
                 rb2d.velocity = new Vector2(-1 * speed * Direction / 250, rb2d.velocity.y);
                 shootcon.setDirection(-1);
+                Debug.Log("left");
             }
             else if (Direction <= 120)
             {
                 rb2d.velocity = new Vector2(1 * speed * (255 - Direction * 2) / 250, rb2d.velocity.y);
-                shootcon.setDirection(-1);
+                shootcon.setDirection(1);
+                Debug.Log("right");
             }
             else if (Direction > 120 && Direction < 135)
             {
@@ -76,4 +71,6 @@ public class JoystickController : MonoBehaviour
 
         }
     }
+  }
+
 }

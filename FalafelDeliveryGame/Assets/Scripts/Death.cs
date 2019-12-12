@@ -6,7 +6,7 @@ public class Death : MonoBehaviour
 {
 
     private TileGenerator tg;
-    private ReadArduino ra;
+    private GetUserValues ra;
     private SUserInterface SUI;
     private Rigidbody2D rb2d;
     private DdaParams ddaparams;
@@ -28,11 +28,16 @@ public class Death : MonoBehaviour
     {
 
         tg = PfDestroyer.GetComponent<TileGenerator>();
-        ra = Arduino.GetComponent<ReadArduino>();
+        ra = Arduino.GetComponent<GetUserValues>();
         SUI = DdaCollider.GetComponent<SUserInterface>();
-        ddaparams = GameObject.Find("DdaCollider1").GetComponent<DdaParams>();
+        ddaparams = DdaCollider.GetComponent<DdaParams>();
         rb2d = player.GetComponent<Rigidbody2D>();
         background = player.GetComponent<Background>();
+
+        for (int i = 0; i<5; i++)
+        {
+            //SUI.AddOneLife(i);
+        }
 
     }
 
@@ -56,30 +61,38 @@ public class Death : MonoBehaviour
     }
 
     public void AddLife(){
-      lifes++;
+        if (lifes < 5)
+        {
+            lifes++;
+        }
     }
-
+    /*
     public void LoseLife() {
       if(lifes>0){
         lifes--;
       }
     }
-
+    */
     private void CheckDeath()
     {
         float actual_pos = player.transform.position.y;
         if (tg.returnLowestYPosition() - actual_pos >= death_interval)
         {
-            lifes --;
+            Died();
 
-            SUI.DeleteOneLife(lifes);
-            ra.WriteArduino(1);
-            player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
-            Debug.Log(rb2d.position.y);
-            rb2d.velocity = new Vector2(0f,25f);
-            background.UserDied();
-            ddaparams.Died();
-            ddaparams.ReduceSkill();
         }
+    }
+    public void Died()
+    {
+        lifes--;
+
+        SUI.DeleteOneLife(lifes);
+        ra.PlayerDied();
+        player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
+        rb2d.velocity = new Vector2(0f, 25f);
+        background.UserDied();
+        ddaparams.Died();
+        ddaparams.ReduceSkill();
+        FindObjectOfType<AudioManager>().Play("Died");
     }
 }

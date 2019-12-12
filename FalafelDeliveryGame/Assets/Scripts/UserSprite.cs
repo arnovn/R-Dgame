@@ -37,23 +37,24 @@ public class UserSprite : MonoBehaviour
       y_direction = rigid.velocity.y;
       x_direction = rigid.velocity.x;
 
-      if(y_direction <= 1){
+      if(y_direction <= 1f){
         if(x_direction == 0){
           spr.sprite = Steady;
       }
-      else if (x_direction < 0){
+      else if (x_direction < 0f){
           spr.sprite =  SteadyLeft;
       }
       else{
           spr.sprite = SteadyRight;
-      }
 
       }
-      else if(y_direction > 1){
-        if(x_direction == 0){
+      Debug.Log(spr.sprite.name);
+      }
+      else if(y_direction > 1f){
+        if(x_direction == 0f){
           spr.sprite = JumpingStraight;
       }
-      else if (x_direction < 0){
+      else if (x_direction < 0f){
           spr.sprite = JumpingLeft;
       }
       else{
