@@ -31,7 +31,7 @@ public class Finish : MonoBehaviour
             if (test == null)
             {
                 tg.StopGenerating();
-                test = Instantiate(finishLinePrefab, new Vector3(x_pos, ypos+5f, 0), Quaternion.identity);
+                test = Instantiate(finishLinePrefab, new Vector3(x_pos, tg.getHighestTilePosition()+5f, 0), Quaternion.identity);
                 Destroy(timerText);
 
             }

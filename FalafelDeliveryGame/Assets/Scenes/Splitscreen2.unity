@@ -2618,9 +2618,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user1: {fileID: 1464420199}
-  yPos1: 0
-  tg: {fileID: 0}
+  user: {fileID: 1464420199}
+  ypos: 300
+  PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
@@ -3775,7 +3775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed176cead6ce3b4483dde6632c7583a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DdaCollider: {fileID: 500539832}
+  DdaCollider: {fileID: 1794956042}
   Arduino: {fileID: 1843343182}
   User: {fileID: 1418749013}
 --- !u!114 &1418749015
@@ -5028,9 +5028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user1: {fileID: 1418749013}
-  yPos1: 0
-  tg: {fileID: 0}
+  user: {fileID: 1418749013}
+  ypos: 300
+  PfDestroyer: {fileID: 1660120829}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}

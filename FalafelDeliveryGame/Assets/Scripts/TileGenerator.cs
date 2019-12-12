@@ -121,6 +121,11 @@ public class TileGenerator : MonoBehaviour
       return lowestIndex;
     }
 
+    public float getHighestTilePosition()
+    {
+        return tilesYPositions[0];
+    }
+
     public void StopGenerating(){
       generating = false;
     }

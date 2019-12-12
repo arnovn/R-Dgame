@@ -10,6 +10,7 @@ public class HitBySeagull : MonoBehaviour
     public GameObject ddaCollider;
     private SUserInterface SUI;
     private DdaParams ddaparams;
+    private bool hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +29,22 @@ public class HitBySeagull : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("enemy seagull"))
         {
-            death.Died();
-            lifes = death.getLifes();
-            //SUI.DeleteOneLife(lifes);
-            ddaparams.enemyHitUser();
-            Debug.Log("You lost one life, lifes left: " + lifes);
+                
+            if (!hit)
+            {
+                death.Died();
+                lifes = death.getLifes();
+                //SUI.DeleteOneLife(lifes);
+                ddaparams.enemyHitUser();
+                Debug.Log("You lost one life, lifes left: " + lifes);
+                hit = true;
+            }
+            
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        hit = false;
     }
 
 }

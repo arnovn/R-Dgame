@@ -54,8 +54,7 @@ public class JoystickController : MonoBehaviour
     //Horizontal movement for player 1 (with the analog values from the joystick)
     void MoveUser(int Direction)
     {
-        if (death.getLifes() > 0)
-        {
+        
             if (Direction >= 134)
             {
                 rb2d.velocity = new Vector2(-1 * speed * Direction / 250, rb2d.velocity.y);
@@ -71,6 +70,6 @@ public class JoystickController : MonoBehaviour
                 rb2d.velocity = new Vector2(0 * speed, rb2d.velocity.y);
             }
 
-        }
+        
     }
 }
