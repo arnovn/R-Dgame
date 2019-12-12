@@ -2633,7 +2633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user1: {fileID: 1464420199}
   yPos1: 0
-  tg: {fileID: 0}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
@@ -3769,6 +3768,7 @@ GameObject:
   - component: {fileID: 1418749016}
   - component: {fileID: 1418749025}
   - component: {fileID: 1418749026}
+  - component: {fileID: 1418749027}
   m_Layer: 0
   m_Name: User2
   m_TagString: Untagged
@@ -4033,6 +4033,25 @@ MonoBehaviour:
   JumpingLeft: {fileID: 21300000, guid: 3f0312469ab9318449e4ab4c0ea19c1b, type: 3}
   SteadyLeft: {fileID: 21300000, guid: 2fdf8947b9507e240a1ac2712e218ab2, type: 3}
   SteadyRight: {fileID: 21300000, guid: 0d645974df6c1e74bbbe8850f75762e1, type: 3}
+--- !u!114 &1418749027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418749013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user1: {fileID: 1418749013}
+  yPos1: 0
+  tiles: []
+  finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
+    type: 3}
+  test: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &1429936674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,6 +4150,7 @@ GameObject:
   - component: {fileID: 1464420206}
   - component: {fileID: 1464420211}
   - component: {fileID: 1464420212}
+  - component: {fileID: 1464420213}
   m_Layer: 0
   m_Name: User1
   m_TagString: Untagged
@@ -4395,6 +4415,25 @@ MonoBehaviour:
   JumpingLeft: {fileID: 21300000, guid: 3f0312469ab9318449e4ab4c0ea19c1b, type: 3}
   SteadyLeft: {fileID: 21300000, guid: 2fdf8947b9507e240a1ac2712e218ab2, type: 3}
   SteadyRight: {fileID: 21300000, guid: 0d645974df6c1e74bbbe8850f75762e1, type: 3}
+--- !u!114 &1464420213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464420199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user1: {fileID: 1464420199}
+  yPos1: 0
+  tiles: []
+  finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
+    type: 3}
+  test: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &1566824126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5056,7 +5095,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user1: {fileID: 1418749013}
   yPos1: 0
-  tg: {fileID: 0}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}

@@ -57,7 +57,7 @@ public class ReadArduino : MonoBehaviour
                 //Debug.Log("Start");
                 for(int i = 0; i<8; i++){
                     values[i] = sp.ReadByte();
-                    Debug.Log("Arduino index " + i + " is " + values[i]);
+                  //  Debug.Log("Arduino index " + i + " is " + values[i]);
                 }
 
               }
