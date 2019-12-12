@@ -21,7 +21,6 @@ public class ReadArduino : MonoBehaviour
     {
         ports = SerialPort.GetPortNames();
         foreach(string p in ports) {
-          Debug.Log(p);
             sp = new SerialPort(p, 9600);
             sp.ReadTimeout = 1;
             if (!sp.IsOpen)
@@ -71,6 +70,7 @@ public class ReadArduino : MonoBehaviour
 
       if (sp.IsOpen)
       {
+        sp.ReadTimeout = 1;
           try
           {
             //Debug.Log((int)sp.ReadByte());
