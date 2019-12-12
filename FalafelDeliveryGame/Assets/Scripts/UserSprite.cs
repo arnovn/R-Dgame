@@ -41,7 +41,7 @@ public class UserSprite : MonoBehaviour
         if(x_direction == 0){
           spr.sprite = Steady;
       }
-      else if (x_direction < 0){
+      if (x_direction < 0){
           spr.sprite =  SteadyLeft;
       }
       else{

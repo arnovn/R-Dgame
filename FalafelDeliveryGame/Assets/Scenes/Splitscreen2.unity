@@ -5646,13 +5646,19 @@ MonoBehaviour:
   sounds:
   - name: NormalJump
     clip: {fileID: 8300000, guid: e873e20deb8cad542b503c52844bd45b, type: 3}
-    volume: 0.5
+    volume: 0.267
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Theme
     clip: {fileID: 8300000, guid: 8dc27432835c869499ccc3e069ad03a4, type: 3}
-    volume: 0.984
+    volume: 0.501
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Died
+    clip: {fileID: 8300000, guid: 6183989657c0d7042ab2a843df0eaa0b, type: 3}
+    volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0

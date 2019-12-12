@@ -15,7 +15,7 @@ public class Death : MonoBehaviour
     private float[] coords = new float[2];
     private float y_pos;
     private float x_pos;
-    private float death_interval = 100f;
+    private float death_interval = 200f;
     private int lifes = 5;
 
     public GameObject player;
@@ -79,6 +79,11 @@ public class Death : MonoBehaviour
         if (tg.returnLowestYPosition() - actual_pos >= death_interval)
         {
             Died();
+
+        }
+        if (tg.returnLowestYPosition() - actual_pos >= 40f)
+        {
+            Debug.Log("FAlling");
         }
     }
     public void Died()
@@ -92,5 +97,6 @@ public class Death : MonoBehaviour
         background.UserDied();
         ddaparams.Died();
         ddaparams.ReduceSkill();
+        FindObjectOfType<AudioManager>().Play("Died");
     }
 }
