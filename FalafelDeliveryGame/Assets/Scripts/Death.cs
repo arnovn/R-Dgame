@@ -36,7 +36,7 @@ public class Death : MonoBehaviour
 
         for (int i = 0; i<5; i++)
         {
-            SUI.AddOneLife(i);
+            //SUI.AddOneLife(i);
         }
 
     }
@@ -61,29 +61,36 @@ public class Death : MonoBehaviour
     }
 
     public void AddLife(){
-        lifes++;
+        if (lifes < 5)
+        {
+            lifes++;
+        }
     }
-
+    /*
     public void LoseLife() {
       if(lifes>0){
         lifes--;
       }
     }
-
+    */
     private void CheckDeath()
     {
         float actual_pos = player.transform.position.y;
         if (tg.returnLowestYPosition() - actual_pos >= death_interval)
         {
-            lifes --;
-
-            SUI.DeleteOneLife(lifes);
-            ra.PlayerDied();
-            player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
-            rb2d.velocity = new Vector2(0f,25f);
-            background.UserDied();
-            ddaparams.Died();
-            ddaparams.ReduceSkill();
+            Died();
         }
+    }
+    public void Died()
+    {
+        lifes--;
+
+        SUI.DeleteOneLife(lifes);
+        ra.PlayerDied();
+        player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
+        rb2d.velocity = new Vector2(0f, 25f);
+        background.UserDied();
+        ddaparams.Died();
+        ddaparams.ReduceSkill();
     }
 }

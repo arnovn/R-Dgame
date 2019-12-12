@@ -4,39 +4,34 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
-    public GameObject user1;
-    public float yPos1;
-    public TileGenerator tg;
+    public GameObject user;
+    public float ypos;
+    public GameObject PfDestroyer;
     public GameObject[] tiles;
     public GameObject finishLinePrefab;
     public GameObject test;
     public Timer timerText;
 
+    private Rigidbody2D rigid;
+    private TileGenerator tg;
+    private float x_pos;
+
         // Start is called before the first frame update
     void Start()
     {
-        tg = GameObject.Find("PfDestroyer1").GetComponent<TileGenerator>();
-
-
-        UpdatePosition();
+        tg = PfDestroyer.GetComponent<TileGenerator>();
+        rigid = user.GetComponent<Rigidbody2D>();
+        x_pos = rigid.position.x;
     }
-
-    private void UpdatePosition()
-    {
-        yPos1 = user1.transform.position.y;
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        UpdatePosition();
-        if (yPos1 >= 2000) {
-
+        if (rigid.position.y >= ypos) {
+            Debug.Log("yaaaaayeeeet  " + rigid.gameObject.name);
             if (test == null)
             {
                 tg.StopGenerating();
-                test = Instantiate(finishLinePrefab, new Vector3(0.15f, 2050, 0), Quaternion.identity);
+                test = Instantiate(finishLinePrefab, new Vector3(x_pos, ypos+5f, 0), Quaternion.identity);
                 Destroy(timerText);
 
             }

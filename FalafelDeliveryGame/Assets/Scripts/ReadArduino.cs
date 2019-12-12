@@ -39,10 +39,7 @@ public class ReadArduino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        currentArray = ValuesArduino();
-        //Debug.Log(currentArray[0]);
-
+        currentArray = ValuesArduino();        
     }
 
     public void WriteArduino(int intje){

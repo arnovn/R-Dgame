@@ -28,9 +28,9 @@ public class HitBySeagull : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("enemy seagull"))
         {
-            death.LoseLife();
+            death.Died();
             lifes = death.getLifes();
-            SUI.DeleteOneLife(lifes);
+            //SUI.DeleteOneLife(lifes);
             ddaparams.enemyHitUser();
             Debug.Log("You lost one life, lifes left: " + lifes);
         }
