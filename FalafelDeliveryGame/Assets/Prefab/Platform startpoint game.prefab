@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7569188997809459161}
   - component: {fileID: 7569188997809459162}
   - component: {fileID: 7569188997809459167}
+  - component: {fileID: 251033279837419292}
   m_Layer: 0
-  m_Name: startpoint game
+  m_Name: Platform startpoint game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,3 +122,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.32, y: 0.60227865}
   m_EdgeRadius: 0
+--- !u!251 &251033279837419292
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569188997809459163}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

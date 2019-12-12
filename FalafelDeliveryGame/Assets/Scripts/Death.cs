@@ -15,7 +15,7 @@ public class Death : MonoBehaviour
     private float[] coords = new float[2];
     private float y_pos;
     private float x_pos;
-    private float death_interval = 200f;
+    private float death_interval = 100f;
     private int lifes = 5;
 
     public GameObject player;
@@ -80,10 +80,6 @@ public class Death : MonoBehaviour
         {
             Died();
 
-        }
-        if (tg.returnLowestYPosition() - actual_pos >= 40f)
-        {
-            Debug.Log("FAlling");
         }
     }
     public void Died()

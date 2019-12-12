@@ -30,7 +30,7 @@ public class Bounce : MonoBehaviour
       death = DdaCollider.GetComponent<Death>();
 
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -52,10 +52,12 @@ public class Bounce : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         buttonValue = ra.Values()[1];
-
-        if (collision.gameObject.name.StartsWith("Platform") || collision.gameObject.name.StartsWith("startpoint"))
+        Debug.Log("collision");
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name.StartsWith("Platform"))
         {
-            if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0f)
+            Debug.Log("Tries to jump");
+            if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0.1f)
             {
                 user.velocity = new Vector2(user.velocity.x, 30f);
                 FindObjectOfType<AudioManager>().Play("NormalJump");
