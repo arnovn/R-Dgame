@@ -18,7 +18,7 @@ public class BulletHit : MonoBehaviour
     void Update()
     {
 
-       
+
 
     }
 

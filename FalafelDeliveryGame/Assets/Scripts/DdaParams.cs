@@ -117,7 +117,7 @@ public class DdaParams : MonoBehaviour
             if (didEnemyHit == true || shots > 0)
             {
                 currentSkill = playerSkill.UnskilledShoot;
-                //Debug.Log("Skill level set: unskilled enemy");
+              //  Debug.Log("Skill level set: unskilled enemy");
             }
         }
         else if (jumpstreak > 10 && jumpstreak <= 20 && stationary_hops < 2 && didEnemyHit == false)
@@ -196,7 +196,7 @@ public class DdaParams : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("amount of shots: " + shots);
+       // Debug.Log("amount of shots: " + shots);
         checkStationary(collision);
         if (jumpstreak == 7)
         {
