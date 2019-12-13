@@ -84,15 +84,17 @@ public class Death : MonoBehaviour
     }
     public void Died()
     {
-        lives--;
-
-        SUI.DeleteOneLife(lives);
-        ra.PlayerDied();
+        if (lives > 0){
+            lives--;
+            SUI.DeleteOneLife(lives);
+            ra.PlayerDied();
+        }
+        background.UserDied();
         player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
         rb2d.velocity = new Vector2(0f, 25f);
-        background.UserDied();
         ddaparams.Died();
         ddaparams.ReduceSkill();
         FindObjectOfType<AudioManager>().Play("Died");
+
     }
 }

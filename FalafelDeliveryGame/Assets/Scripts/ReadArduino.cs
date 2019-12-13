@@ -20,6 +20,7 @@ public class ReadArduino : MonoBehaviour
     void Start()
     {
         ports = SerialPort.GetPortNames();
+        /*
         foreach(string p in ports) {
             sp = new SerialPort(p, 9600);
             sp.ReadTimeout = 1;
@@ -40,15 +41,16 @@ public class ReadArduino : MonoBehaviour
                 }
               }
             }
-            /*
+            
             if(found){
               break;
             }
-            */
+            
         }
 
         sp.Close();
-        sp = new SerialPort(port,9600);
+        */
+        sp = new SerialPort("COM5",9600);
         sp.Open();
         Debug.Log("Port that is being used is " + port);
     }

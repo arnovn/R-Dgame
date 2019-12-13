@@ -141,7 +141,7 @@ public class TileGenerator : MonoBehaviour
   }
 
   public float returnLowestYPosition()
-  {
+  { 
     return tilesYPositions[7]; //other version [9]
   }
 
@@ -179,8 +179,8 @@ public class TileGenerator : MonoBehaviour
       }
       else
       {
-        movingTile.setSpeed(10f);
-        generateNewTile(collision, position, Moving);
+                movingTile.setSpeed(10f);
+                generateNewTile(collision, position, Moving);
       }
     }
     else {
@@ -190,7 +190,7 @@ public class TileGenerator : MonoBehaviour
       }
       else
       {
-        generateNewTile(collision, position, platformPrefab);
+                generateNewTile(collision, position, platformPrefab);
       }
 
     }
@@ -208,7 +208,7 @@ public class TileGenerator : MonoBehaviour
       }
       else
       {
-        movingTile.setSpeed(20f);
+        movingTile.setSpeed(50f);
         generateNewTile(collision, position, Moving);
       }
     }

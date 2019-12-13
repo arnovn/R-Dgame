@@ -28,6 +28,7 @@ public class BulletHit : MonoBehaviour
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name.Contains("enemy seagull"))
         {
+            Debug.Log("collided");
             Destroy(gameObject);
             Destroy(collision.gameObject);
 

@@ -22,6 +22,7 @@ public class Bounce : MonoBehaviour
   private float testTime = 0f;
   private float speed;
   private float jumpSpeed = 30f;
+  private bool finished = false;
 
   // Start is called before the first frame update
   void Start()
@@ -58,7 +59,7 @@ public class Bounce : MonoBehaviour
         testTime += Time.deltaTime;
         if (lostLife == false){
           user.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.grey, Color.red, testTime / 0.7f);
-          if (testTime >=0.7f && lostLife== false)
+          if (testTime >=0.7f && lostLife== false)  
           {
             user.GetComponent<SpriteRenderer>().color = Color.black;
             int lives = death.getLives();
@@ -75,6 +76,11 @@ public class Bounce : MonoBehaviour
           movement.TileMovement(speed);
         }
       }
+            if (collision.gameObject.name.Contains("finish"))
+            {
+
+                finished = true;
+            }
 
       prevButtonValue = buttonValue;
     }
@@ -89,4 +95,9 @@ public class Bounce : MonoBehaviour
       movement.TileMovement(0f);
     }
   }
+
+    public bool getFinished()
+    {
+        return finished;
+    }
 }
