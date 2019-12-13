@@ -16,7 +16,7 @@ public class Death : MonoBehaviour
     private float y_pos;
     private float x_pos;
     private float death_interval = 100f;
-    private int lifes = 5;
+    private int lives = 5;
 
     public GameObject player;
     public GameObject PfDestroyer;
@@ -56,14 +56,14 @@ public class Death : MonoBehaviour
 
     }
 
-    public int getLifes(){
-      return lifes;
+    public int getLives(){
+      return lives;
     }
 
     public void AddLife(){
-        if (lifes < 5)
+        if (lives < 5)
         {
-            lifes++;
+            lives++;
         }
     }
     /*
@@ -84,9 +84,9 @@ public class Death : MonoBehaviour
     }
     public void Died()
     {
-        lifes--;
+        lives--;
 
-        SUI.DeleteOneLife(lifes);
+        SUI.DeleteOneLife(lives);
         ra.PlayerDied();
         player.transform.position = new Vector2(tg.returnLowestXPosition(), tg.returnLowestYPosition() + 3f);
         rb2d.velocity = new Vector2(0f, 25f);

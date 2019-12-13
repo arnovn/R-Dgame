@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1324484633814001849}
   - component: {fileID: 61840624360850360}
   - component: {fileID: 251821800610943838}
-  - component: {fileID: 114658591526630410}
   m_Layer: 0
   m_Name: PlatformFire
   m_TagString: Untagged
@@ -127,22 +126,3 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &114658591526630410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3586730889396692112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb28275d496c394885ca194ab5b5a26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Arduino: {fileID: 0}
-  DdaCollider: {fileID: 0}
-  User: {fileID: 0}
-  timeStart: 0.25
-  timeLeft: 0.25
-  StartColor: {r: 0.9811321, g: 0.17123532, b: 0.17123532, a: 0}
-  EndColor: {r: 1, g: 1, b: 1, a: 0}

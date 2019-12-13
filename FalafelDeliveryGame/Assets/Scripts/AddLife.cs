@@ -40,11 +40,11 @@ public class AddLife : MonoBehaviour
       if(ldr == 1){
             Debug.Log("YEEEEEEEEEET");
         if(!adding){
-          lifes = death.getLifes();
+          lifes = death.getLives();
           if(lifes <5){
             death.AddLife();
             Debug.Log("lifes : " + lifes);
-            SUI.AddOneLife(lifes);  
+            SUI.AddOneLife(lifes);
           }
           adding = true;
 

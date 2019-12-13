@@ -48,7 +48,6 @@ public class UserSprite : MonoBehaviour
           spr.sprite = SteadyRight;
 
       }
-      Debug.Log(spr.sprite.name);
       }
       else if(y_direction > 1f){
         if(x_direction == 0f){

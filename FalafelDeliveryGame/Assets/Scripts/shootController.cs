@@ -15,6 +15,7 @@ public class shootController : MonoBehaviour
     private GameObject bullet;
     private Rigidbody2D bulletrgb;
     private GameObject enemy;
+    private JoystickController joystick;
 
     private float xPos;
     private float xSpeed;
@@ -35,6 +36,7 @@ public class shootController : MonoBehaviour
         ra = Arduino.GetComponent<GetUserValues>();
         userrgb = user.GetComponent<Rigidbody2D>();
         bullets = new List<GameObject>();
+
         //ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
     }
 
@@ -45,7 +47,7 @@ public class shootController : MonoBehaviour
         checkPosition();
         buttonValue = ra.Values()[2];
         if (buttonValue == 1)
-        {            
+        {
             if (shootTimer)
             {
                 Shoot();
@@ -82,7 +84,9 @@ public class shootController : MonoBehaviour
 
     public void setDirection(int newDirection)
     {
-        direction = newDirection;
+        if(newDirection != 0){
+          direction = newDirection;
+        }
     }
 
     private void Shoot()

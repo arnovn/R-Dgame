@@ -10,8 +10,9 @@ public class FirePlatform : MonoBehaviour
     private GameObject User;
     private Rigidbody2D rb2d;
 
+    public GameObject user;
+
     private int buttonValue;
-    public float timeStart;
     public float timeLeft;
     bool lostLife = false;
     float testTime = 0f;
@@ -22,11 +23,7 @@ public class FirePlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         ra = GameObject.Find("UserController").GetComponent<ReadArduino>();
-        death = GameObject.Find("DdaCollider1").GetComponent<Death>();
-        SUI =GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
-
     }
 
     // Update is called once per frame
@@ -47,22 +44,13 @@ public class FirePlatform : MonoBehaviour
         //User = GameObject.Find(collision.gameObject.name);
         //rb2d = User.gameObject.GetComponent<Rigidbody2D>();
 
-        if (collision.gameObject.name.StartsWith("User2"))
-        {
-            death = GameObject.Find("DdaCollider2").GetComponent<Death>();
-            SUI = GameObject.Find("DdaCollider2").GetComponent<SUserInterface>();
-        }
-        else
-        {
-            death = GameObject.Find("DdaCollider1").GetComponent<Death>();
-            SUI = GameObject.Find("DdaCollider1").GetComponent<SUserInterface>();
-        }
+
 
         buttonValue = ra.ValuesArduino()[2];
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
         {
             testTime += Time.deltaTime;
-            if (buttonValue == 2 && death.getLifes() > 0 && rb2d.velocity.y <= 0)
+            if (buttonValue == 2 && death.getLives() > 0 && rb2d.velocity.y <= 0)
             {
 
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 30f);
@@ -77,10 +65,10 @@ public class FirePlatform : MonoBehaviour
             {
                 User.GetComponent<SpriteRenderer>().color = Color.black;
                 //death.LoseLife();
-                int lifes = death.getLifes();
+                int lives = death.getLives();
                 //SUI.DeleteOneLife(lifes);
                 lostLife = true;
-                Debug.Log(lifes);
+                Debug.Log(lives);
                 death.Died();
 
                 //User.GetComponent<SpriteRenderer>().color = Color.red;

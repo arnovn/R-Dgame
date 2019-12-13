@@ -12,8 +12,8 @@ public class MovingTile : MonoBehaviour
     private Vector2 position;
 
     public GameObject platform;
+    public float speed;
 
-    private float speed = 10f;
     private int direction = 1;
     private bool user1;
 
@@ -58,5 +58,10 @@ public class MovingTile : MonoBehaviour
         }
       }
       rb2d.velocity = new Vector2(50 * (direction) * speed / 250, rb2d.velocity.x);
+
+    }
+
+    public void setSpeed(float newSpeed){
+      speed = newSpeed;
     }
 }

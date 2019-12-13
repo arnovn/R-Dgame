@@ -4033,13 +4033,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  user1: {fileID: 1418749013}
-  yPos1: 0
+  user: {fileID: 1464420199}
+  ypos: 0
+  PfDestroyer: {fileID: 1660120829}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
   test: {fileID: 0}
-  timerText: {fileID: 0}
+  timerText: {fileID: 1418749017}
 --- !u!1 &1429936674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4415,13 +4416,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  user1: {fileID: 1464420199}
-  yPos1: 0
+  user: {fileID: 1464420199}
+  ypos: 0
+  PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
   test: {fileID: 0}
-  timerText: {fileID: 0}
+  timerText: {fileID: 1464420205}
 --- !u!1 &1566824126
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,13 +13,13 @@ public class GenerationValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public float getEnemySpeed()
@@ -42,7 +42,7 @@ public class GenerationValues : MonoBehaviour
     //Gives X range between chich new values are transformed
     public float RandomRangeXvalue()
     {
-       
+
         switch (skillLevel)
         {
             case 0:     //UnskilledBoth (jump & enemies)
@@ -65,13 +65,13 @@ public class GenerationValues : MonoBehaviour
         {
             case 0:    //Unskilled both: both enemies and jump easiest
                 SetRandomRangeSpecialPlatform(30);
-                return Random.Range(2f, 5f);
+                return Random.Range(3.5f, 5f);
             case 1:     //UnskilledJump -> but skilled enemies, TO DO: change something with enemies
                 SetRandomRangeSpecialPlatform(12);
-                return Random.Range(2f, 5f);
+                return Random.Range(4f, 6f);
             case 2:     //Unskilled enemy skilled jump
                 SetRandomRangeSpecialPlatform(14);
-                return Random.Range(4f, 6f);
+                return Random.Range(5f, 6.5f);
             case 3:     //Skilled both enemy and jumping a bit harder
                 SetRandomRangeSpecialPlatform(10);
                 return Random.Range(6f, 7.5f);
