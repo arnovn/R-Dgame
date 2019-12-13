@@ -17,11 +17,14 @@ public class JoystickController : MonoBehaviour
     private Rigidbody2D rb2d;
     private shootController shootcon;
     private Death death;
+    private Bounce bounce;
+    private Movement movement;
 
     private float moveInput;
     private float speed = 10f;
     private string ActiveScene;
     bool ZeroGone = false;
+    private int direction;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +33,8 @@ public class JoystickController : MonoBehaviour
             rb2d = user.GetComponent<Rigidbody2D>();
             ra = Arduino.GetComponent<GetUserValues>();
             death = DdaCollider.GetComponent<Death>();
+            movement = user.GetComponent<Movement>();
             shootcon = user.GetComponent<shootController>();
-
 
     }
 
@@ -51,24 +54,25 @@ public class JoystickController : MonoBehaviour
       if(ZeroGone){
         if (death.getLifes() > 0)
         {
-
             if (Direction >= 134)
             {
-                rb2d.velocity = new Vector2(-1 * speed * Direction / 250, rb2d.velocity.y);
-                shootcon.setDirection(-1);
+                direction = -1;
             }
             else if (Direction <= 120)
             {
-                rb2d.velocity = new Vector2(1 * speed * (255 - Direction * 2) / 250, rb2d.velocity.y);
-                shootcon.setDirection(1);
+                direction = 1;
             }
             else if (Direction > 120 && Direction < 135)
             {
-                rb2d.velocity = new Vector2(0 * speed, rb2d.velocity.y);
+                direction = 0;
             }
-
+            movement.JoystickMove(direction*speed);
+            shootcon.setDirection(direction);
         }
     }
   }
 
+  public int getDirection(){
+    return direction;
+  }
 }
