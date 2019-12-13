@@ -3,7 +3,14 @@ guid: 26e4cbc21a5f218418a9251f20a497bc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - user: {instanceID: 0}
+  - Steady: {fileID: 21300000, guid: 02e3d49a0621487449ead5db7e6bf0d1, type: 3}
+  - JumpingStraight: {fileID: 21300000, guid: a437e4b4cc2efde4ba4807ea6de124e4, type: 3}
+  - JumpingRight: {fileID: 21300000, guid: 48b487e1276cdee4f99a2269cfff60ba, type: 3}
+  - JumpingLeft: {fileID: 21300000, guid: 31d6ace9650bc5f47ba0f7091b3ace80, type: 3}
+  - SteadyLeft: {fileID: 21300000, guid: b24079f9f6f43434b98b19264436edcc, type: 3}
+  - SteadyRight: {fileID: 21300000, guid: c96005bf08ab5fa4dad15e25f24cf1a3, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
