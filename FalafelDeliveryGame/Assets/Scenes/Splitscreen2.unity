@@ -1944,8 +1944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ddaCollider: {fileID: 0}
-  user: {fileID: 0}
+  ddaCollider: {fileID: 500539832}
+  user: {fileID: 1464420199}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5387,8 +5387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ddaCollider: {fileID: 0}
-  user: {fileID: 0}
+  ddaCollider: {fileID: 1794956042}
+  user: {fileID: 1418749013}
 --- !u!1 &1833386196
 GameObject:
   m_ObjectHideFlags: 0
