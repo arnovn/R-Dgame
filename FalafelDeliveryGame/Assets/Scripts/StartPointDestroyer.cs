@@ -22,12 +22,12 @@ public class StartPointDestroyer : MonoBehaviour
         //Debug.Log(startPointObject.transform.position.y);
     }
 
-   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log(collision.name);
         DestroyStartPoint(collision);
-        
+
     }
 
     private void DestroyStartPoint(Collider2D collision)
