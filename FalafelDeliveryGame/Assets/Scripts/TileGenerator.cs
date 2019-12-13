@@ -312,6 +312,7 @@ public class TileGenerator : MonoBehaviour
         else if (skillevel == 4)
         {//Very skilled jump
             generateDifficultTile(collision, position);
+
         }
 
         if (collision.gameObject.name.StartsWith("Platform")){

@@ -33,4 +33,8 @@ public class MovingTile : MonoBehaviour
         
         rb2d.velocity = new Vector2(50 * (direction) * speed / 250, rb2d.velocity.x);
     }
+    public void setSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
 }
