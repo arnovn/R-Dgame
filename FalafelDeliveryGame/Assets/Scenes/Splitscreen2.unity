@@ -560,7 +560,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!212 &183253054
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -885,7 +885,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!212 &280486841
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1305,7 +1305,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!212 &343372580
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2588,8 +2588,7 @@ MonoBehaviour:
     type: 3}
   FirePlatform: {fileID: 3586730889396692112, guid: e78db2d9837001c4a91c61e278d4256a,
     type: 3}
-  MovingTile: {fileID: 5200929715369481979, guid: 3b85a37a903181344ae3b0cb5258e6f2,
-    type: 3}
+  Moving: {fileID: 5200929715369481979, guid: 3b85a37a903181344ae3b0cb5258e6f2, type: 3}
   Seagul: {fileID: 7371025059905442959, guid: 6c1192104fb8f77478216d4aa5049bdd, type: 3}
   DdaCollider: {fileID: 500539832}
 --- !u!114 &663890928
@@ -2997,7 +2996,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!212 &943450194
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4305,7 +4304,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464420199}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48ca9df0a7038b64d803d9ce220767b6, type: 3}
   m_Name: 
@@ -5087,8 +5086,7 @@ MonoBehaviour:
     type: 3}
   FirePlatform: {fileID: 3586730889396692112, guid: e78db2d9837001c4a91c61e278d4256a,
     type: 3}
-  MovingTile: {fileID: 5200929715369481979, guid: 3b85a37a903181344ae3b0cb5258e6f2,
-    type: 3}
+  Moving: {fileID: 5200929715369481979, guid: 3b85a37a903181344ae3b0cb5258e6f2, type: 3}
   Seagul: {fileID: 7371025059905442959, guid: 6c1192104fb8f77478216d4aa5049bdd, type: 3}
   DdaCollider: {fileID: 1794956042}
 --- !u!114 &1660120833
@@ -5595,7 +5593,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!212 &1851995401
 SpriteRenderer:
   m_ObjectHideFlags: 0

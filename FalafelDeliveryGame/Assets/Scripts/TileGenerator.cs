@@ -20,6 +20,7 @@ public class TileGenerator : MonoBehaviour
   private DdaParams ddaparamaters;
   private GenerationValues generationValues;
   private MovingTile movingTile;
+  private Background background;
 
   private float range = 22f;
   private float generation_axis;
@@ -61,6 +62,7 @@ public class TileGenerator : MonoBehaviour
       generation_axis = 500f;
     }
 
+    background = player.GetComponent<Background>();
     movingTile = Moving.GetComponent<MovingTile>();
     generation_axis = player.transform.position.x;
     death = DdaCollider.GetComponent<Death>();
@@ -88,6 +90,8 @@ public class TileGenerator : MonoBehaviour
     if (collision.gameObject.name.StartsWith("enemy"))
     {
       Destroy(collision.gameObject);
+      background.resetVelocity();
+      background.UserDied();
     }
     else if(generating){
       skillevel = ddaparamaters.getSkillLevel();

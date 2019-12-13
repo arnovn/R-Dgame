@@ -95,4 +95,11 @@ public class Background : MonoBehaviour
       death = true;
 
     }
+    public void resetVelocity(){
+      backgroundrb2d.velocity = new Vector2(0f, 0f);
+      skyscraper1rb2d.velocity = new Vector2(0f, 0f);
+      skyscraper2rb2d.velocity = new Vector2(0f, 0f);
+      skyscraper3rb2d.velocity = new Vector2(0f, 0f);
+      skyscraper4rb2d.velocity = new Vector2(0f, 0f);
+    }    
 }
