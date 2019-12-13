@@ -5707,13 +5707,13 @@ MonoBehaviour:
   sounds:
   - name: NormalJump
     clip: {fileID: 8300000, guid: e873e20deb8cad542b503c52844bd45b, type: 3}
-    volume: 0.267
+    volume: 0.248
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Theme
     clip: {fileID: 8300000, guid: 8dc27432835c869499ccc3e069ad03a4, type: 3}
-    volume: 0.501
+    volume: 0.411
     pitch: 1
     source: {fileID: 0}
     loop: 0
