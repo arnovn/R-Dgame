@@ -141,7 +141,7 @@ public class TileGenerator : MonoBehaviour
   }
 
   public float returnLowestYPosition()
-  { 
+  {
     return tilesYPositions[7]; //other version [9]
   }
 
@@ -312,11 +312,31 @@ public class TileGenerator : MonoBehaviour
 
   }
 
-  private int checkPlatformType(Collider2D collision)
-  {
-    if (collision.gameObject.name.StartsWith("PlatformNormal"))
-    {
-      return 1;
+        index = getLowestTile();
+        Coord2D position = SetNewPlatformPosition();
+
+        if (skillevel == 0 || skillevel == 1)
+        {//Easy jump
+            generateEasyTile(collision, position);
+        }
+        else if (skillevel == 2)
+        {//Skilled jump unskilled enemy
+            generateAllTiles(collision, position);
+        }
+        else if (skillevel ==3)
+        {//skilled jump, skilled enemy
+            generateAllTiles(collision, position);
+        }
+        else if (skillevel == 4)
+        {//Very skilled jump
+            generateDifficultTile(collision, position);
+
+        }
+
+        if (collision.gameObject.name.StartsWith("Platform")){
+          updateTileArray(position.xpos,position.ypos);
+          death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
+        }
     }
     else if (collision.gameObject.name.StartsWith("PlatformBig"))
     {
