@@ -50,7 +50,7 @@ public class FirePlatform : MonoBehaviour
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
         {
             testTime += Time.deltaTime;
-            if (buttonValue == 2 && death.getLifes() > 0 && rb2d.velocity.y <= 0)
+            if (buttonValue == 2 && death.getLives() > 0 && rb2d.velocity.y <= 0)
             {
 
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 30f);
@@ -65,10 +65,10 @@ public class FirePlatform : MonoBehaviour
             {
                 User.GetComponent<SpriteRenderer>().color = Color.black;
                 //death.LoseLife();
-                int lifes = death.getLifes();
+                int lives = death.getLives();
                 //SUI.DeleteOneLife(lifes);
                 lostLife = true;
-                Debug.Log(lifes);
+                Debug.Log(lives);
                 death.Died();
 
                 //User.GetComponent<SpriteRenderer>().color = Color.red;

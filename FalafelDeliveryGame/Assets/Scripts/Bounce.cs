@@ -48,7 +48,7 @@ public class Bounce : MonoBehaviour
 
     if (collision.gameObject.name.StartsWith("Platform"))
     {
-      if (buttonValue == 2 && death.getLifes() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0.1f)
+      if (buttonValue == 2 && death.getLives() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0.1f)
       {
         movement.Jump(jumpSpeed);
         FindObjectOfType<AudioManager>().Play("NormalJump");
@@ -61,9 +61,9 @@ public class Bounce : MonoBehaviour
           if (testTime >=0.7f && lostLife== false)
           {
             user.GetComponent<SpriteRenderer>().color = Color.black;
-            int lifes = death.getLifes();
+            int lives = death.getLives();
             lostLife = true;
-            Debug.Log(lifes);
+            Debug.Log(lives);
             death.Died();
           }
         }

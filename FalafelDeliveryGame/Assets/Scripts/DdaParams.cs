@@ -46,7 +46,7 @@ public class DdaParams : MonoBehaviour
         //Standard we start off easy: unskilledboth
         currentSkill = playerSkill.UnskilledBoth;
 
-        player_lives = death.getLifes();
+        player_lives = death.getLives();
     }
 
     // Update is called once per frame
@@ -174,15 +174,16 @@ public class DdaParams : MonoBehaviour
 
     private bool CheckLives()
     {
-        if (player_lives < death.getLifes())
+      int lives = death.getLives();
+        if (player_lives < lives)
         {
             ResetParams();
-            player_lives = death.getLifes();
+            player_lives = lives;
             return true;
         }
-        else if (player_lives > death.getLifes())
+        else if (player_lives > lives)
         {
-            player_lives = death.getLifes();
+            player_lives = lives;
             return false;
         }
         return false;

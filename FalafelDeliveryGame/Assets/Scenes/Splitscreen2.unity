@@ -1824,6 +1824,7 @@ GameObject:
   - component: {fileID: 500539835}
   - component: {fileID: 500539836}
   - component: {fileID: 500539838}
+  - component: {fileID: 500539839}
   - component: {fileID: 500539837}
   m_Layer: 0
   m_Name: DdaCollider1
@@ -1931,6 +1932,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897b4919efe2c6e46b5830f9937f7605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &500539839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500539832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ddaCollider: {fileID: 0}
+  user: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,7 +3765,6 @@ GameObject:
   - component: {fileID: 1418749014}
   - component: {fileID: 1418749027}
   - component: {fileID: 1418749015}
-  - component: {fileID: 1418749023}
   - component: {fileID: 1418749022}
   - component: {fileID: 1418749024}
   - component: {fileID: 1418749016}
@@ -3802,7 +3816,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418749013}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48ca9df0a7038b64d803d9ce220767b6, type: 3}
   m_Name: 
@@ -3956,19 +3970,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6582376051583909599, guid: c1a69a7412a7eb24b9e10cd5d8436980,
     type: 3}
   Arduino: {fileID: 1843343182}
---- !u!114 &1418749023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1418749013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ddaCollider: {fileID: 1794956042}
 --- !u!114 &1418749024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4130,7 +4131,6 @@ GameObject:
   - component: {fileID: 1464420200}
   - component: {fileID: 1464420209}
   - component: {fileID: 1464420207}
-  - component: {fileID: 1464420206}
   - component: {fileID: 1464420211}
   - component: {fileID: 1464420212}
   m_Layer: 0
@@ -4284,19 +4284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1223405841}
---- !u!114 &1464420206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464420199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ddaCollider: {fileID: 500539832}
 --- !u!114 &1464420207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5280,6 +5267,7 @@ GameObject:
   - component: {fileID: 1794956046}
   - component: {fileID: 1794956045}
   - component: {fileID: 1794956048}
+  - component: {fileID: 1794956049}
   - component: {fileID: 1794956044}
   m_Layer: 0
   m_Name: DdaCollider2
@@ -5387,6 +5375,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897b4919efe2c6e46b5830f9937f7605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1794956049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794956042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ddaCollider: {fileID: 0}
+  user: {fileID: 0}
 --- !u!1 &1833386196
 GameObject:
   m_ObjectHideFlags: 0

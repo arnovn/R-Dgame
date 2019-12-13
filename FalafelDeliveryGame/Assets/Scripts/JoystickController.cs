@@ -23,13 +23,11 @@ public class JoystickController : MonoBehaviour
     private float moveInput;
     private float speed = 10f;
     private string ActiveScene;
-    bool ZeroGone = false;
     private int direction;
 
     // Start is called before the first frame update
     void Start()
     {
-            ZeroGone = false;
             rb2d = user.GetComponent<Rigidbody2D>();
             ra = Arduino.GetComponent<GetUserValues>();
             death = DdaCollider.GetComponent<Death>();
@@ -41,19 +39,11 @@ public class JoystickController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          if (ra.Values()[1] != 0)
-          {
-              ZeroGone = true;
-          }
           MoveUser(ra.Values()[0]);
-
     }
     //Horizontal movement for player 1 (with the analog values from the joystick)
     void MoveUser(int Direction)
     {
-      if(ZeroGone){
-        if (death.getLifes() > 0)
-        {
             if (Direction >= 134)
             {
                 direction = -1;
@@ -68,8 +58,6 @@ public class JoystickController : MonoBehaviour
             }
             movement.JoystickMove(direction*speed);
             shootcon.setDirection(direction);
-        }
-    }
   }
 
   public int getDirection(){

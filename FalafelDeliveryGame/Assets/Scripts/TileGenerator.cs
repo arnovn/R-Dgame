@@ -91,7 +91,6 @@ public class TileGenerator : MonoBehaviour
     {
       Destroy(collision.gameObject);
       background.resetVelocity();
-      background.UserDied();
     }
     else if(generating){
       skillevel = ddaparamaters.getSkillLevel();
