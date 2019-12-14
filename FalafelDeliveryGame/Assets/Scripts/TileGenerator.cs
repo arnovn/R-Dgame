@@ -312,6 +312,8 @@ public class TileGenerator : MonoBehaviour
 
   }
 
+  private void GenerateNewPlatform(Collider2D collision)
+     {
         index = getLowestTile();
         Coord2D position = SetNewPlatformPosition();
 
@@ -337,50 +339,29 @@ public class TileGenerator : MonoBehaviour
           updateTileArray(position.xpos,position.ypos);
           death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
         }
-    }
-    else if (collision.gameObject.name.StartsWith("PlatformBig"))
+      }
+
+    private int checkPlatformType(Collider2D collision)
     {
-      return 2;
-    }
-    else if (collision.gameObject.name.StartsWith("PlatformFire"))
-    {
-      return 3;
-    }
-    else if (collision.gameObject.name.StartsWith("PlatformMovingTile"))
-    {
-      return 4;
-    }
-    return 0;
-  }
+        if (collision.gameObject.name.StartsWith("PlatformNormal"))
+      {
+                return 1;
+      }
 
-  private void GenerateNewPlatform(Collider2D collision)
-  {
-
-    index = getLowestTile();
-    Coord2D position = SetNewPlatformPosition();
-
-    if (skillevel == 0 || skillevel == 1)
-    {//Easy jump
-      generateEasyTile(collision, position);
+      else if (collision.gameObject.name.StartsWith("PlatformBig"))
+      {
+        return 2;
+      }
+      else if (collision.gameObject.name.StartsWith("PlatformFire"))
+      {
+        return 3;
+      }
+      else if (collision.gameObject.name.StartsWith("PlatformMovingTile"))
+      {
+        return 4;
+      }
+      return 0;
     }
-    else if (skillevel == 2)
-    {//Skilled jump unskilled enemy
-      generateAllTiles(collision, position);
-    }
-    else if (skillevel ==3)
-    {//skilled jump, skilled enemy
-      generateAllTiles(collision, position);
-    }
-    else if (skillevel == 4)
-    {//Very skilled jump
-      generateDifficultTile(collision, position);
-    }
-
-    if (collision.gameObject.name.StartsWith("Platform")){
-      updateTileArray(position.xpos,position.ypos);
-      death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
-    }
-  }
 
   private void replaceTile(Collider2D collision, Coord2D position)
   {
