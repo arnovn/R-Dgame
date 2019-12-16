@@ -10,6 +10,7 @@ public class SelectManager : MonoBehaviour
     private ReadArduino ra;
     private int ButtonCount = 0;
     private int SlowButtonRead = 0;
+    private bool ZeroGone = false;
 
     private void Awake()
     {
@@ -35,26 +36,40 @@ public class SelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(SlowButtonRead);
-        if (SlowButtonRead > 15)
+        if (ZeroGone)
         {
-            if (ra.ValuesArduino()[2] == 2 || ra.ValuesArduino()[3] == 2)
+            if (SlowButtonRead > 17)
             {
-                ButtonCount++;
-                if (ButtonCount == Menu.Length)
+                if (ra.ValuesArduino()[8] < 110 || ra.ValuesArduino()[9] < 110)
                 {
-                    ButtonCount = 0;
+                    ButtonCount++;
+                    if (ButtonCount == Menu.Length)
+                    {
+                        ButtonCount = 0;
+                    }
+                    SlowButtonRead = 0;
                 }
-                SlowButtonRead = 0;
-            }
 
-            if(ra.ValuesArduino()[4] == 1 || ra.ValuesArduino()[5] == 1)
-            {
-                Menu[ButtonCount].onClick.Invoke();
-                SlowButtonRead = 0;
+                if (ra.ValuesArduino()[8] > 150 || ra.ValuesArduino()[9] > 150)
+                {
+                    ButtonCount--;
+                    if (ButtonCount < 0)
+                    {
+                        ButtonCount = Menu.Length - 1;
+                    }
+                    SlowButtonRead = 0;
+                }
+
+                if (ra.ValuesArduino()[4] == 1 || ra.ValuesArduino()[5] == 1)
+                {
+                    Menu[ButtonCount].onClick.Invoke();
+                    SlowButtonRead = 0;
+                }
             }
+            else { SlowButtonRead++; }
+            Menu[ButtonCount].Select();
         }
-        else { SlowButtonRead++; }
-        Menu[ButtonCount].Select();
+
+        if(!ZeroGone && ra.ValuesArduino()[8] != 0) { ZeroGone = true; }
     }
 }

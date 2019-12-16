@@ -9,9 +9,9 @@ public class ReadArduino : MonoBehaviour
 
     SerialPort sp;
     private string activePort;
-    private int[] values = new int[8];
-    private int[] currentArray = new int[8];
-    private int[] lastFilledArray = new int[8 ];
+    private int[] values = new int[10];
+    private int[] currentArray = new int[10];
+    private int[] lastFilledArray = new int[10];
     private string[] ports;
     private string port;
     private bool found = false;
@@ -59,7 +59,7 @@ public class ReadArduino : MonoBehaviour
     void Update()
     {
         currentArray = ValuesArduino();
-        //Debug.Log(currentArray[2]);
+        Debug.Log(currentArray[8]);
     }
 
     public void WriteArduino(int intje){
@@ -78,7 +78,7 @@ public class ReadArduino : MonoBehaviour
             //Debug.Log((int)sp.ReadByte());
               if(sp.ReadByte() == 10){
                 sp.ReadByte(); //Reading the value 23 out of the buffer
-                for(int i = 0; i<8; i++){
+                for(int i = 0; i<10; i++){
                     values[i] = sp.ReadByte();
                 }
 
