@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class scoreController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class scoreController : MonoBehaviour
     public GameObject fireworkPrefab;
     public GameObject PfDestroyer1;
     public GameObject PfDestroyer2;
+    public GameObject scoreBox1;
+    public GameObject scoreBox2;
+    public Text scoreText;
+    public Text scoreText2;
 
     private GameObject firework;
     private Finish f1;
@@ -39,7 +44,8 @@ public class scoreController : MonoBehaviour
         d1 = DdaCollider1.GetComponent<Death>();
         d2 = DdaCollider2.GetComponent<Death>();
         scoreFound = false;
-
+        scoreBox1.SetActive(false);
+        scoreBox2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,11 +57,13 @@ public class scoreController : MonoBehaviour
             time2 = t2.GetTime();
             lives1 = d1.getLives();
             lives2 = d2.getLives();
-            score1 = time1 - 10 * lives1;
-            score2 = time2 - 10 * lives2;
-
-            WinnerCheck();
-
+            score1 = ((100 * Mathf.Pow(time1, 2) + 10000 * time1 + 100) / (Mathf.Pow(time1, 2) - 5)) +150 * lives1;
+            score2 = ((100 * Mathf.Pow(time2, 2) + 10000 * time1 + 100) / (Mathf.Pow(time2, 2) - 5)) + 150 * lives2;
+            scoreText.text = score1.ToString();
+            scoreText2.text = score2.ToString();
+            WinnerCheck() ;
+            StartCoroutine(WaitForScore());
+           
 
             scoreFound = true;
         }
@@ -67,12 +75,12 @@ public class scoreController : MonoBehaviour
         float timeWinner;
         float livesWinner;
 
-        if (score1 < score2) {
+        if (score1 >= score2) {
             winner = user1; scoreWinner = score1;timeWinner = time1;livesWinner = lives1;
             tg = PfDestroyer1.GetComponent<TileGenerator>();
             x_pos = user1.GetComponent<Rigidbody2D>().position.x;
         }
-        else if(score1 > score2) {
+        else if(score1 < score2) {
             winner = user2; scoreWinner = score2; timeWinner = time2; livesWinner = lives2;
             tg = PfDestroyer2.GetComponent<TileGenerator>();
             x_pos = user2.GetComponent<Rigidbody2D>().position.x;
@@ -82,5 +90,11 @@ public class scoreController : MonoBehaviour
         firework.transform.eulerAngles = new Vector3(-90, 0, 0);
 
 
+    }
+
+    IEnumerator WaitForScore() {
+        yield return new WaitForSecondsRealtime(2.5f);
+        scoreBox1.SetActive(true);
+        scoreBox2.SetActive(true);
     }
 }

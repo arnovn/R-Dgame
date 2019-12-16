@@ -50,7 +50,7 @@ public class ReadArduino : MonoBehaviour
 
         sp.Close();
         */
-        sp = new SerialPort("COM5",9600);
+        sp = new SerialPort("COM3",9600);
         sp.Open();
         //Debug.Log("Port that is being used is " + port);
     }
