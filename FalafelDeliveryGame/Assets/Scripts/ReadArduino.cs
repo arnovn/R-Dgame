@@ -52,7 +52,7 @@ public class ReadArduino : MonoBehaviour
         */
         sp = new SerialPort("COM5",9600);
         sp.Open();
-        Debug.Log("Port that is being used is " + port);
+        //Debug.Log("Port that is being used is " + port);
     }
 
     // Update is called once per frame
