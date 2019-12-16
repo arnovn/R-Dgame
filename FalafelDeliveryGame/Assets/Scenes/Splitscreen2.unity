@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 165382745}
   - component: {fileID: 165382744}
   m_Layer: 0
-  m_Name: startpoint game2
+  m_Name: Platform startpoint game2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

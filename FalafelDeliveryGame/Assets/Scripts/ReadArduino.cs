@@ -59,7 +59,7 @@ public class ReadArduino : MonoBehaviour
     void Update()
     {
         currentArray = ValuesArduino();
-        Debug.Log(currentArray[8]);
+       // Debug.Log(currentArray[3]);
     }
 
     public void WriteArduino(int intje){
