@@ -1885,7 +1885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1464420199}
-  DdaCollider: {fileID: 0}
+  DdaCollider: {fileID: 500539832}
 --- !u!114 &500539836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,9 +1899,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1464420199}
-  PfDestroyer: {fileID: 0}
-  DdaCollider: {fileID: 0}
-  Arduino: {fileID: 0}
+  PfDestroyer: {fileID: 663890924}
+  DdaCollider: {fileID: 500539832}
+  Arduino: {fileID: 2114928775}
 --- !u!114 &500539837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2584,11 +2584,13 @@ MonoBehaviour:
     type: 3}
   bigBouncePlatformPrefab: {fileID: 6411836754833798139, guid: ca683672239b77a4abd229976d48a967,
     type: 3}
-  IcePlatformPrefab: {fileID: 0}
-  FirePlatform: {fileID: 0}
-  Moving: {fileID: 0}
-  Seagul: {fileID: 0}
-  DdaCollider: {fileID: 0}
+  IcePlatformPrefab: {fileID: 7766854469377427997, guid: 1302e96f87fdd9f4fa59e1bc85848f2f,
+    type: 3}
+  FirePlatform: {fileID: 3586730889396692112, guid: e78db2d9837001c4a91c61e278d4256a,
+    type: 3}
+  Moving: {fileID: 5200929715369481979, guid: 3b85a37a903181344ae3b0cb5258e6f2, type: 3}
+  Seagul: {fileID: 7371025059905442959, guid: 6c1192104fb8f77478216d4aa5049bdd, type: 3}
+  DdaCollider: {fileID: 500539832}
 --- !u!114 &663890928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2615,9 +2617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
+  user: {fileID: 1464420199}
   ypos: 0
-  PfDestroyer: {fileID: 0}
+  PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
@@ -3765,6 +3767,7 @@ GameObject:
   - component: {fileID: 1418749019}
   - component: {fileID: 1418749018}
   - component: {fileID: 1418749017}
+  - component: {fileID: 1418749028}
   - component: {fileID: 1418749014}
   - component: {fileID: 1418749015}
   - component: {fileID: 1418749023}
@@ -3808,10 +3811,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954010f43178f9d42b625dd2a7f040e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
-  Arduino: {fileID: 0}
-  PfDestroyer: {fileID: 0}
-  DdaCollider: {fileID: 0}
+  user: {fileID: 1418749018}
+  Arduino: {fileID: 1843343182}
+  PfDestroyer: {fileID: 1660120829}
+  DdaCollider: {fileID: 1794956042}
   timeLeft: 0
 --- !u!114 &1418749016
 MonoBehaviour:
@@ -3987,7 +3990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ddaCollider: {fileID: 1794956042}
-  user: {fileID: 0}
+  user: {fileID: 1418749013}
 --- !u!114 &1418749024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4000,9 +4003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fba9e8e84c6824b9a805630066cb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
-  DdaCollider: {fileID: 0}
-  Arduino: {fileID: 0}
+  user: {fileID: 1418749013}
+  DdaCollider: {fileID: 1794956042}
+  Arduino: {fileID: 1843343182}
 --- !u!114 &1418749025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4052,13 +4055,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
+  user: {fileID: 1464420199}
   ypos: 0
-  PfDestroyer: {fileID: 0}
+  PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
   test: {fileID: 0}
+--- !u!114 &1418749028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418749013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4cfdd7836430c4bafae0c974aff3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: {fileID: 1418749013}
 --- !u!1 &1429936674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,6 +4165,7 @@ GameObject:
   - component: {fileID: 1464420202}
   - component: {fileID: 1464420201}
   - component: {fileID: 1464420205}
+  - component: {fileID: 1464420214}
   - component: {fileID: 1464420208}
   - component: {fileID: 1464420210}
   - component: {fileID: 1464420200}
@@ -4177,10 +4194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954010f43178f9d42b625dd2a7f040e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
-  Arduino: {fileID: 0}
-  PfDestroyer: {fileID: 0}
-  DdaCollider: {fileID: 0}
+  user: {fileID: 1464420201}
+  Arduino: {fileID: 2114928775}
+  PfDestroyer: {fileID: 663890924}
+  DdaCollider: {fileID: 500539832}
   timeLeft: 0
 --- !u!50 &1464420201
 Rigidbody2D:
@@ -4384,9 +4401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fba9e8e84c6824b9a805630066cb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
-  DdaCollider: {fileID: 0}
-  Arduino: {fileID: 0}
+  user: {fileID: 1464420199}
+  DdaCollider: {fileID: 500539832}
+  Arduino: {fileID: 2114928775}
 --- !u!114 &1464420211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4436,13 +4453,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
+  user: {fileID: 1464420199}
   ypos: 0
-  PfDestroyer: {fileID: 0}
+  PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
   test: {fileID: 0}
+--- !u!114 &1464420214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464420199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4cfdd7836430c4bafae0c974aff3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: {fileID: 1464420199}
 --- !u!1 &1566824126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,9 +5119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 0}
+  user: {fileID: 1418749013}
   ypos: 0
-  PfDestroyer: {fileID: 0}
+  PfDestroyer: {fileID: 1660120829}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
@@ -5113,11 +5143,13 @@ MonoBehaviour:
     type: 3}
   bigBouncePlatformPrefab: {fileID: 6411836754833798139, guid: ca683672239b77a4abd229976d48a967,
     type: 3}
-  IcePlatformPrefab: {fileID: 0}
-  FirePlatform: {fileID: 0}
-  Moving: {fileID: 0}
-  Seagul: {fileID: 0}
-  DdaCollider: {fileID: 0}
+  IcePlatformPrefab: {fileID: 7766854469377427997, guid: 1302e96f87fdd9f4fa59e1bc85848f2f,
+    type: 3}
+  FirePlatform: {fileID: 3586730889396692112, guid: e78db2d9837001c4a91c61e278d4256a,
+    type: 3}
+  Moving: {fileID: 5200929715369481979, guid: 3b85a37a903181344ae3b0cb5258e6f2, type: 3}
+  Seagul: {fileID: 7371025059905442959, guid: 6c1192104fb8f77478216d4aa5049bdd, type: 3}
+  DdaCollider: {fileID: 1794956042}
 --- !u!114 &1660120833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5361,9 +5393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1418749013}
-  PfDestroyer: {fileID: 0}
-  DdaCollider: {fileID: 0}
-  Arduino: {fileID: 0}
+  PfDestroyer: {fileID: 1660120829}
+  DdaCollider: {fileID: 1794956042}
+  Arduino: {fileID: 1843343182}
 --- !u!114 &1794956046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5377,7 +5409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1418749013}
-  DdaCollider: {fileID: 0}
+  DdaCollider: {fileID: 1794956042}
 --- !u!61 &1794956047
 BoxCollider2D:
   m_ObjectHideFlags: 0
