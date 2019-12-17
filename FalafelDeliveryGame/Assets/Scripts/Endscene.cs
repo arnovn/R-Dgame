@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Endscene : MonoBehaviour
@@ -87,4 +88,15 @@ public class Endscene : MonoBehaviour
         menu.gameObject.SetActive(true);
         replay.gameObject.SetActive(true);
     }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Replay()
+    {
+            SceneManager.LoadScene("Splitscreen2");
+    }
+
 }

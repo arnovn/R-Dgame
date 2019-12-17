@@ -51,6 +51,7 @@ public class HighscoreTable : MonoBehaviour
         return highscores;
     }
 
+
     private void CreateHighscoreEntryTransform(HighscoreEntry highScoreEntry, Transform container, List<Transform> transformList)
     {
         Transform entryTransform = Instantiate(entryTemplate, container);
