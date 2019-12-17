@@ -56,8 +56,8 @@ public class JoystickController : MonoBehaviour
             {
                 direction = 0;
             }
-            movement.JoystickMove(direction*speed);
-            shootcon.setDirection(direction);
+        movement.JoystickMove(direction*speed);
+        shootcon.setDirection(direction);
   }
 
   public int getDirection(){
