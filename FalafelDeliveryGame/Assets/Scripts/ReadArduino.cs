@@ -41,11 +41,11 @@ public class ReadArduino : MonoBehaviour
                 }
               }
             }
-            
+
             if(found){
               break;
             }
-            
+
         }
 
         sp.Close();
@@ -59,7 +59,7 @@ public class ReadArduino : MonoBehaviour
     void Update()
     {
         currentArray = ValuesArduino();
-       // Debug.Log(currentArray[3]);
+        //Debug.Log(currentArray[0]);
     }
 
     public void WriteArduino(int intje){

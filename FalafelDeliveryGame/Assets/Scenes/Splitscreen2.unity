@@ -1630,7 +1630,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433372035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1.625, y: 3.9109712, z: 1}
   m_Children:
   - {fileID: 1273750037}
@@ -1679,7 +1679,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -651575891
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2719,7 +2719,6 @@ GameObject:
   - component: {fileID: 663890926}
   - component: {fileID: 663890928}
   - component: {fileID: 663890927}
-  - component: {fileID: 663890929}
   m_Layer: 0
   m_Name: PfDestroyer1
   m_TagString: Untagged
@@ -2805,25 +2804,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1464420199}
   startPointObject: {fileID: 633532601}
---- !u!114 &663890929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663890924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  user: {fileID: 1464420199}
-  ypos: 0
-  PfDestroyer: {fileID: 663890924}
-  tiles: []
-  finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
-    type: 3}
-  test: {fileID: 0}
 --- !u!1 &697622885
 GameObject:
   m_ObjectHideFlags: 0
@@ -4399,12 +4379,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1418749013}
-  Steady: {fileID: 21300000, guid: ef64f82fa82d93348a51c924f6679e02, type: 3}
-  JumpingStraight: {fileID: 21300000, guid: 05084726f1f3281438357876b5f2dae3, type: 3}
-  JumpingRight: {fileID: 21300000, guid: 7ff4c4de957f2b740b0ff6cb4594b310, type: 3}
-  JumpingLeft: {fileID: 21300000, guid: 3f0312469ab9318449e4ab4c0ea19c1b, type: 3}
-  SteadyLeft: {fileID: 21300000, guid: 2fdf8947b9507e240a1ac2712e218ab2, type: 3}
-  SteadyRight: {fileID: 21300000, guid: 0d645974df6c1e74bbbe8850f75762e1, type: 3}
+  Arduino: {fileID: 1843343182}
+  spriteString: player2Sprite
+  DefaultSteady: {fileID: 21300000, guid: ef64f82fa82d93348a51c924f6679e02, type: 3}
+  DefaultJumpSteady: {fileID: 21300000, guid: 05084726f1f3281438357876b5f2dae3, type: 3}
+  DefaultJumpRight: {fileID: 21300000, guid: 7ff4c4de957f2b740b0ff6cb4594b310, type: 3}
+  DefaultJumpLeft: {fileID: 21300000, guid: 3f0312469ab9318449e4ab4c0ea19c1b, type: 3}
+  DefaultSteadyLeft: {fileID: 21300000, guid: 2fdf8947b9507e240a1ac2712e218ab2, type: 3}
+  DefaultSteadyRight: {fileID: 21300000, guid: 0d645974df6c1e74bbbe8850f75762e1, type: 3}
+  DefaultJumpLeftShoot: {fileID: 21300000, guid: f6519465966d6bc4891858e108fa4d52,
+    type: 3}
+  DefaultJumpRightShoot: {fileID: 21300000, guid: d1221d28d2fa0af40b0ffaa50257acc1,
+    type: 3}
+  DefaultLeftShoot: {fileID: 21300000, guid: da0e2c3931c17e04eafa6d557994937a, type: 3}
+  DefaultRightShoot: {fileID: 21300000, guid: 38744c5f58bf69846bd4c9d4a047f9ee, type: 3}
+  SantaSteady: {fileID: 21300000, guid: 02e3d49a0621487449ead5db7e6bf0d1, type: 3}
+  SantaJumpSteady: {fileID: 21300000, guid: a437e4b4cc2efde4ba4807ea6de124e4, type: 3}
+  SantaJumpRight: {fileID: 21300000, guid: 48b487e1276cdee4f99a2269cfff60ba, type: 3}
+  SantaJumpLeft: {fileID: 21300000, guid: 31d6ace9650bc5f47ba0f7091b3ace80, type: 3}
+  SantaSteadyLeft: {fileID: 21300000, guid: b24079f9f6f43434b98b19264436edcc, type: 3}
+  SantaSteadyRight: {fileID: 21300000, guid: c96005bf08ab5fa4dad15e25f24cf1a3, type: 3}
+  SantaJumpLeftShoot: {fileID: 21300000, guid: 9daeec94d04e99340a41be3ca255c124, type: 3}
+  SantaJumpRightShoot: {fileID: 21300000, guid: c24ef62d3baf52d4bad95e850913843a,
+    type: 3}
+  SantaLeftShoot: {fileID: 21300000, guid: cdb841db9e037174b80752940e74b479, type: 3}
+  SantaRightShoot: {fileID: 21300000, guid: 35943c1a2f3675f4eaae175cedfb62b4, type: 3}
+  AstronautSteady: {fileID: 21300000, guid: 27f86570954220a48b967816549dae1a, type: 3}
+  AstronautJumpSteady: {fileID: 21300000, guid: 0494e8001d77ae44bb40d8246817ab3d,
+    type: 3}
+  AstronautLeft: {fileID: 21300000, guid: f9d7edea4bf63eb4188772cefa0a1815, type: 3}
+  AstronautRight: {fileID: 21300000, guid: 699161d0cbf8d9b488ee54426185c92b, type: 3}
+  AstronautJumpLeft: {fileID: 21300000, guid: d6618e0a32f99884b92d140412dde5f5, type: 3}
+  AstronautJumpRight: {fileID: 21300000, guid: 6afafbd6777abfd4689f26fb79ac9aef, type: 3}
+  Ninja: {fileID: 21300000, guid: 72f53348b29a24f40a08bf7d9dfdaf61, type: 3}
+  Brakke: {fileID: 21300000, guid: f783ae538a1fc884d9c8b0d83c5be916, type: 3}
 --- !u!114 &1418749027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4417,9 +4425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 1464420199}
-  ypos: 0
-  PfDestroyer: {fileID: 663890924}
+  user: {fileID: 1418749013}
+  ypos: 100
+  PfDestroyer: {fileID: 1660120829}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
     type: 3}
@@ -4797,12 +4805,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1464420199}
-  Steady: {fileID: 21300000, guid: ef64f82fa82d93348a51c924f6679e02, type: 3}
-  JumpingStraight: {fileID: 21300000, guid: 05084726f1f3281438357876b5f2dae3, type: 3}
-  JumpingRight: {fileID: 21300000, guid: 7ff4c4de957f2b740b0ff6cb4594b310, type: 3}
-  JumpingLeft: {fileID: 21300000, guid: 3f0312469ab9318449e4ab4c0ea19c1b, type: 3}
-  SteadyLeft: {fileID: 21300000, guid: 2fdf8947b9507e240a1ac2712e218ab2, type: 3}
-  SteadyRight: {fileID: 21300000, guid: 0d645974df6c1e74bbbe8850f75762e1, type: 3}
+  Arduino: {fileID: 2114928775}
+  spriteString: player1Sprite
+  DefaultSteady: {fileID: 21300000, guid: ef64f82fa82d93348a51c924f6679e02, type: 3}
+  DefaultJumpSteady: {fileID: 21300000, guid: 05084726f1f3281438357876b5f2dae3, type: 3}
+  DefaultJumpRight: {fileID: 21300000, guid: 7ff4c4de957f2b740b0ff6cb4594b310, type: 3}
+  DefaultJumpLeft: {fileID: 21300000, guid: 3f0312469ab9318449e4ab4c0ea19c1b, type: 3}
+  DefaultSteadyLeft: {fileID: 21300000, guid: 2fdf8947b9507e240a1ac2712e218ab2, type: 3}
+  DefaultSteadyRight: {fileID: 21300000, guid: 0d645974df6c1e74bbbe8850f75762e1, type: 3}
+  DefaultJumpLeftShoot: {fileID: 21300000, guid: f6519465966d6bc4891858e108fa4d52,
+    type: 3}
+  DefaultJumpRightShoot: {fileID: 21300000, guid: d1221d28d2fa0af40b0ffaa50257acc1,
+    type: 3}
+  DefaultLeftShoot: {fileID: 21300000, guid: da0e2c3931c17e04eafa6d557994937a, type: 3}
+  DefaultRightShoot: {fileID: 21300000, guid: 38744c5f58bf69846bd4c9d4a047f9ee, type: 3}
+  SantaSteady: {fileID: 21300000, guid: 02e3d49a0621487449ead5db7e6bf0d1, type: 3}
+  SantaJumpSteady: {fileID: 21300000, guid: a437e4b4cc2efde4ba4807ea6de124e4, type: 3}
+  SantaJumpRight: {fileID: 21300000, guid: 48b487e1276cdee4f99a2269cfff60ba, type: 3}
+  SantaJumpLeft: {fileID: 21300000, guid: 31d6ace9650bc5f47ba0f7091b3ace80, type: 3}
+  SantaSteadyLeft: {fileID: 21300000, guid: b24079f9f6f43434b98b19264436edcc, type: 3}
+  SantaSteadyRight: {fileID: 21300000, guid: c96005bf08ab5fa4dad15e25f24cf1a3, type: 3}
+  SantaJumpLeftShoot: {fileID: 21300000, guid: 9daeec94d04e99340a41be3ca255c124, type: 3}
+  SantaJumpRightShoot: {fileID: 21300000, guid: c24ef62d3baf52d4bad95e850913843a,
+    type: 3}
+  SantaLeftShoot: {fileID: 21300000, guid: cdb841db9e037174b80752940e74b479, type: 3}
+  SantaRightShoot: {fileID: 21300000, guid: 35943c1a2f3675f4eaae175cedfb62b4, type: 3}
+  AstronautSteady: {fileID: 21300000, guid: 27f86570954220a48b967816549dae1a, type: 3}
+  AstronautJumpSteady: {fileID: 21300000, guid: 0494e8001d77ae44bb40d8246817ab3d,
+    type: 3}
+  AstronautLeft: {fileID: 21300000, guid: f9d7edea4bf63eb4188772cefa0a1815, type: 3}
+  AstronautRight: {fileID: 21300000, guid: 699161d0cbf8d9b488ee54426185c92b, type: 3}
+  AstronautJumpLeft: {fileID: 21300000, guid: d6618e0a32f99884b92d140412dde5f5, type: 3}
+  AstronautJumpRight: {fileID: 21300000, guid: 6afafbd6777abfd4689f26fb79ac9aef, type: 3}
+  Ninja: {fileID: 21300000, guid: 72f53348b29a24f40a08bf7d9dfdaf61, type: 3}
+  Brakke: {fileID: 21300000, guid: f783ae538a1fc884d9c8b0d83c5be916, type: 3}
 --- !u!114 &1464420213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4816,7 +4852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1464420199}
-  ypos: 0
+  ypos: 100
   PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
@@ -5162,7 +5198,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612425068}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1.6250001, y: 3.9109712, z: 1}
   m_Children:
   - {fileID: 152969496}
@@ -5211,7 +5247,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -651575891
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5493,7 +5529,6 @@ GameObject:
   - component: {fileID: 1660120834}
   - component: {fileID: 1660120833}
   - component: {fileID: 1660120832}
-  - component: {fileID: 1660120831}
   m_Layer: 0
   m_Name: PfDestroyer2
   m_TagString: Untagged
@@ -5515,25 +5550,6 @@ Transform:
   m_Father: {fileID: 1418749021}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1660120831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660120829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b39e6a6759a1fc47a8a96300bc209de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  user: {fileID: 1418749013}
-  ypos: 0
-  PfDestroyer: {fileID: 1660120829}
-  tiles: []
-  finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
-    type: 3}
-  test: {fileID: 0}
 --- !u!114 &1660120832
 MonoBehaviour:
   m_ObjectHideFlags: 0

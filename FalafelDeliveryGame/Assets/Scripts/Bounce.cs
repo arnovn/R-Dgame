@@ -65,7 +65,7 @@ public class Bounce : MonoBehaviour
         testTime += Time.deltaTime;
         if (lostLife == false){
           user.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.grey, Color.red, testTime / 0.7f);
-          if (testTime >=0.7f && lostLife== false)  
+          if (testTime >=0.7f && lostLife== false)
           {
             user.GetComponent<SpriteRenderer>().color = Color.black;
             int lives = death.getLives();
