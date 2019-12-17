@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
   private DdaParams ddaparam;
   private GenerationValues genval;
   private Death death;
-  private Bounce finish;
+  private Finish finish;
 
   private int freqOfEnemy;
   private int difficulty = 50;
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
     ddaparam = ddaCollider.GetComponent<DdaParams>();
     genval = ddaCollider.GetComponent<GenerationValues>();
     death = ddaCollider.GetComponent<Death>();
-        finish = user.GetComponent<Bounce>();
+    finish = user.GetComponent<Finish>();
 
   }
 
@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
   void Update()
   {
         //Debug.Log(finish.getFinished());
-    if (spawnedEnemey == null && death.getLives() > 0 && !finish.getFinished()) {
+    if (spawnedEnemey == null && death.getLives() > 0 && !finish.GetIsFinished()) {
       ddaparam.newEnemy();
       speedEnemy = genval.getEnemySpeed();
       freqOfEnemy = Random.Range(1, 10000);
@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
       {
         GenerateEnemy();
       }
-            if (finish.getFinished())
+            if (finish.GetIsFinished())
             {
                 Destroy(spawnedEnemey);
             }

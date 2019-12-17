@@ -22,13 +22,13 @@ public class ProgressBar : MonoBehaviour
         if (user.GetComponent<Rigidbody2D>().position.y -10 > finish.getYPos())
         {
             Debug.Log("end");
-            user.GetComponent<Rigidbody2D>().gravityScale = 1;
+            //  user.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
     }
 
     private float calculateProgress()
     {
-       
+
         return user.GetComponent<Rigidbody2D>().position.y / (finish.getYPos()+20);
     }
 }

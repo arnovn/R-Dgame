@@ -37,11 +37,11 @@ public class Bounce : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+    if (Input.GetKeyDown(KeyCode.Space)) {
 
-            movement.Jump(jumpSpeed);
+      movement.Jump(jumpSpeed);
 
-        }
+    }
   }
 
   private void OnCollisionEnter2D(Collision2D collision){
@@ -56,7 +56,7 @@ public class Bounce : MonoBehaviour
     {
       if (buttonValue == 2 && death.getLives() > 0 && prevButtonValue != buttonValue && user.velocity.y <= 0.1f)
       {
-        //Debug.Log("ja derin");
+        Debug.Log("ja derin");
         movement.Jump(jumpSpeed);
         FindObjectOfType<AudioManager>().Play("NormalJump");
       }
@@ -82,10 +82,6 @@ public class Bounce : MonoBehaviour
           movement.TileMovement(speed);
         }
       }
-            if (collision.gameObject.name.Contains("finish"))
-            {
-                finished = true;
-            }
 
       prevButtonValue = buttonValue;
     }
@@ -100,9 +96,4 @@ public class Bounce : MonoBehaviour
       movement.TileMovement(0f);
     }
   }
-
-    public bool getFinished()
-    {
-        return finished;
-    }
 }

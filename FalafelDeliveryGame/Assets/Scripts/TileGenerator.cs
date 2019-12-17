@@ -97,14 +97,16 @@ public class TileGenerator : MonoBehaviour
       generationValues.SetSkillLevel(skillevel);
       GenerateNewPlatform(collision);
     }
-    else{
+    else if(generating){
       if(collision.gameObject.name.Contains("finish")){
 
       }
+      /*
       else{
         Destroy(collision.gameObject);
         updateTileArray(tilesXPositions[0],tilesYPositions[0]);
       }
+      */
     }
   }
 

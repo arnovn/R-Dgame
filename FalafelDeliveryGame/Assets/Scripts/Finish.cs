@@ -14,7 +14,6 @@ public class Finish : MonoBehaviour
     private Timer timerText;
 
 
-
     private bool isFinished;
     private Rigidbody2D rigid;
     private TileGenerator tg;
@@ -38,16 +37,12 @@ public class Finish : MonoBehaviour
             {
                 Debug.Log("Stop Generating");
                 tg.StopGenerating();
-
                 test = Instantiate(finishLinePrefab, new Vector3(x_pos, tg.getHighestTilePosition()+5f, 0), Quaternion.identity);
-
-
             }
         }
 
         if(rigid.position.y>= tg.getHighestTilePosition()+5f && test!=null )
         {
-
             isFinished = true;
             timerText.SetFinished(true);
         }
