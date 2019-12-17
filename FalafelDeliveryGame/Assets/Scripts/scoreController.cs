@@ -28,8 +28,8 @@ public class scoreController : MonoBehaviour
     private float time2;
     private float lives1;
     private float lives2;
-    private float score1;
-    private float score2;
+    private int score1;
+    private int score2;
     private bool scoreFound;
     private TileGenerator tg;
     private float x_pos;
@@ -57,13 +57,13 @@ public class scoreController : MonoBehaviour
             time2 = t2.GetTime();
             lives1 = d1.getLives();
             lives2 = d2.getLives();
-            score1 = ((100 * Mathf.Pow(time1, 2) + 10000 * time1 + 100) / (Mathf.Pow(time1, 2) - 5)) +150 * lives1;
-            score2 = ((100 * Mathf.Pow(time2, 2) + 10000 * time1 + 100) / (Mathf.Pow(time2, 2) - 5)) + 150 * lives2;
+            score1 = (int) (((100 * Mathf.Pow(time1, 2) + 10000 * time1 + 100) / (Mathf.Pow(time1, 2) - 5)) +150 * lives1);
+            score2 = (int)(((100 * Mathf.Pow(time2, 2) + 10000 * time1 + 100) / (Mathf.Pow(time2, 2) - 5)) + 150 * lives2);
             scoreText.text = score1.ToString();
             scoreText2.text = score2.ToString();
             WinnerCheck() ;
             StartCoroutine(WaitForScore());
-           
+
 
             scoreFound = true;
         }

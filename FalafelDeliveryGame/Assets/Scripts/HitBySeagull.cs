@@ -50,7 +50,7 @@ public class HitBySeagull : MonoBehaviour
         death.Died();
         lives = death.getLives();
         ddaparams.enemyHitUser();
-        Debug.Log("You lost one life, lives left: " + lives);
+        //Debug.Log("You lost one life, lives left: " + lives);
         hit = true;
       }
 

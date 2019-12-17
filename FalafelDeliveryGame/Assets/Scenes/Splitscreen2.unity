@@ -2025,6 +2025,7 @@ GameObject:
   - component: {fileID: 500539836}
   - component: {fileID: 500539838}
   - component: {fileID: 500539837}
+  - component: {fileID: 500539839}
   m_Layer: 0
   m_Name: DdaCollider1
   m_TagString: Untagged
@@ -2131,6 +2132,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897b4919efe2c6e46b5830f9937f7605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &500539839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500539832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ddaCollider: {fileID: 500539832}
+  user: {fileID: 1464420199}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,7 +3358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9490196, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3682,7 +3697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9473144, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4112,7 +4127,6 @@ GameObject:
   - component: {fileID: 1418749028}
   - component: {fileID: 1418749014}
   - component: {fileID: 1418749015}
-  - component: {fileID: 1418749023}
   - component: {fileID: 1418749022}
   - component: {fileID: 1418749024}
   - component: {fileID: 1418749016}
@@ -4165,7 +4179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418749013}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48ca9df0a7038b64d803d9ce220767b6, type: 3}
   m_Name: 
@@ -4206,7 +4220,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 5
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -4223,7 +4237,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.061668932, y: -0.035953283}
+  m_Offset: {x: -0.061668932, y: -1.0047753}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4234,7 +4248,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 0.8810743, y: 2.1380935}
+  m_Size: {x: 0.8810743, y: 0.20044947}
   m_EdgeRadius: 0
 --- !u!212 &1418749020
 SpriteRenderer:
@@ -4319,20 +4333,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6582376051583909599, guid: c1a69a7412a7eb24b9e10cd5d8436980,
     type: 3}
   Arduino: {fileID: 1843343182}
---- !u!114 &1418749023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1418749013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ddaCollider: {fileID: 1794956042}
-  user: {fileID: 1418749013}
 --- !u!114 &1418749024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4426,7 +4426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1418749013}
-  ypos: 100
+  ypos: 300
   PfDestroyer: {fileID: 1660120829}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
@@ -4541,7 +4541,6 @@ GameObject:
   - component: {fileID: 1464420200}
   - component: {fileID: 1464420209}
   - component: {fileID: 1464420207}
-  - component: {fileID: 1464420206}
   - component: {fileID: 1464420211}
   - component: {fileID: 1464420212}
   - component: {fileID: 1464420213}
@@ -4586,7 +4585,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 5
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -4603,7 +4602,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.061668932, y: -0.035953283}
+  m_Offset: {x: -0.061668932, y: -0.93710065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4614,7 +4613,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 0.8810743, y: 2.1380935}
+  m_Size: {x: 0.8810743, y: 0.33579874}
   m_EdgeRadius: 0
 --- !u!212 &1464420203
 SpriteRenderer:
@@ -4696,20 +4695,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 272406617}
---- !u!114 &1464420206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464420199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ddaCollider: {fileID: 500539832}
-  user: {fileID: 1464420199}
 --- !u!114 &1464420207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4717,7 +4702,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464420199}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48ca9df0a7038b64d803d9ce220767b6, type: 3}
   m_Name: 
@@ -4830,7 +4815,7 @@ MonoBehaviour:
     type: 3}
   SantaLeftShoot: {fileID: 21300000, guid: cdb841db9e037174b80752940e74b479, type: 3}
   SantaRightShoot: {fileID: 21300000, guid: 35943c1a2f3675f4eaae175cedfb62b4, type: 3}
-  AstronautSteady: {fileID: 21300000, guid: 27f86570954220a48b967816549dae1a, type: 3}
+  AstronautSteady: {fileID: 21300000, guid: 96579536fe4b1194181f8c481700d373, type: 3}
   AstronautJumpSteady: {fileID: 21300000, guid: 0494e8001d77ae44bb40d8246817ab3d,
     type: 3}
   AstronautLeft: {fileID: 21300000, guid: f9d7edea4bf63eb4188772cefa0a1815, type: 3}
@@ -4852,7 +4837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1464420199}
-  ypos: 100
+  ypos: 300
   PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
@@ -5766,6 +5751,7 @@ GameObject:
   - component: {fileID: 1794956045}
   - component: {fileID: 1794956048}
   - component: {fileID: 1794956044}
+  - component: {fileID: 1794956049}
   m_Layer: 0
   m_Name: DdaCollider2
   m_TagString: Untagged
@@ -5872,6 +5858,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897b4919efe2c6e46b5830f9937f7605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1794956049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794956042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a490148dcabbd458972120b4ca200d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ddaCollider: {fileID: 1794956042}
+  user: {fileID: 1418749013}
 --- !u!1 &1833386196
 GameObject:
   m_ObjectHideFlags: 0

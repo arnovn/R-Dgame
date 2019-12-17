@@ -12,7 +12,7 @@ public class Finish : MonoBehaviour
     public GameObject finishLinePrefab;
     public GameObject test;
     private Timer timerText;
-   
+
 
 
     private bool isFinished;
@@ -33,20 +33,21 @@ public class Finish : MonoBehaviour
     void Update()
     {
         if (rigid.position.y >= ypos) {
-            Debug.Log("yaaaaayeeeet  " + rigid.gameObject.name);
+            //Debug.Log("yaaaaayeeeet  " + rigid.gameObject.name);
             if (test == null)
             {
+                Debug.Log("Stop Generating");
                 tg.StopGenerating();
-                
+
                 test = Instantiate(finishLinePrefab, new Vector3(x_pos, tg.getHighestTilePosition()+5f, 0), Quaternion.identity);
-                
-               
+
+
             }
         }
 
-        if(rigid.position.y>= tg.getHighestTilePosition() && test!=null )
+        if(rigid.position.y>= tg.getHighestTilePosition()+5f && test!=null )
         {
-            
+
             isFinished = true;
             timerText.SetFinished(true);
         }

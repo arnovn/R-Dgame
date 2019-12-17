@@ -62,7 +62,7 @@ public class UserSprite : MonoBehaviour
   {
 
     int sprite = PlayerPrefs.GetInt(spriteString);
-    Debug.Log(sprite);
+    //Debug.Log(sprite);
     shoot = ra.Values()[2];
     int joystickDirection = joystick.getDirection();
     if(joystickDirection != 0){

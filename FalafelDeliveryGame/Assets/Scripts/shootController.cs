@@ -20,7 +20,7 @@ public class shootController : MonoBehaviour
     private float xPos;
     private float xSpeed;
     private float yPos;
-    private float bulletSpeed = 10;
+    private float bulletSpeed = 1000f;
     private List<GameObject> bullets;
 
     private int buttonValue;
@@ -73,7 +73,7 @@ public class shootController : MonoBehaviour
             GameObject b = bullets[i];
             if (b != null)
             {
-                if (b.transform.position.x > xPos + 20 || b.transform.position.x < xPos - 20)
+                if (b.transform.position.x > xPos + 2000 || b.transform.position.x < xPos - 2000)
                 {
                     bullets.Remove(b);
                     Destroy(b);
@@ -94,15 +94,15 @@ public class shootController : MonoBehaviour
         checkPosition();
         if (direction == -1)
         {
-            bulletSpeed = -10;
+            bulletSpeed = -200;
         }
         else if (direction == 1)
         {
-            bulletSpeed = 10;
+            bulletSpeed = 200;
         }
         else
         {
-            bulletSpeed = 10;
+            bulletSpeed = 200;
         }
 
         bullet = Instantiate(bulletPrefab, new Vector2(xPos, yPos), Quaternion.identity);
@@ -115,5 +115,11 @@ public class shootController : MonoBehaviour
     {
         xPos = user.gameObject.transform.position.x;
         yPos = user.gameObject.transform.position.y;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+      if(collision.gameObject.name.StartsWith("Bullet")){
+        
+      }
     }
 }

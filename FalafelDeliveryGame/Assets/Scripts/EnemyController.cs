@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-        Debug.Log(finish.getFinished());
+        //Debug.Log(finish.getFinished());
     if (spawnedEnemey == null && death.getLives() > 0 && !finish.getFinished()) {
       ddaparam.newEnemy();
       speedEnemy = genval.getEnemySpeed();

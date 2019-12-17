@@ -11,7 +11,7 @@ public class GetUserValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class GetUserValues : MonoBehaviour
         {
             UserValues[i] = ra.ValuesArduino()[2 * i + UserNr - 1];
         }
-        
+
     }
 
     public int[] Values()
@@ -32,6 +32,6 @@ public class GetUserValues : MonoBehaviour
     public void PlayerDied()
     {
         ra.WriteArduino(UserNr);
-        Debug.Log(UserNr);
+        //Debug.Log(UserNr);
     }
 }

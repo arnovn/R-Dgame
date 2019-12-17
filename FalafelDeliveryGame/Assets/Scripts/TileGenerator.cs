@@ -97,6 +97,15 @@ public class TileGenerator : MonoBehaviour
       generationValues.SetSkillLevel(skillevel);
       GenerateNewPlatform(collision);
     }
+    else{
+      if(collision.gameObject.name.Contains("finish")){
+
+      }
+      else{
+        Destroy(collision.gameObject);
+        updateTileArray(tilesXPositions[0],tilesYPositions[0]);
+      }
+    }
   }
 
   private void updateTileArray(float x_pos, float y_pos){
@@ -179,8 +188,8 @@ public class TileGenerator : MonoBehaviour
       }
       else
       {
-                movingTile.setSpeed(10f);
-                generateNewTile(collision, position, Moving);
+        movingTile.setSpeed(10f);
+        generateNewTile(collision, position, Moving);
       }
     }
     else {
@@ -190,7 +199,7 @@ public class TileGenerator : MonoBehaviour
       }
       else
       {
-                generateNewTile(collision, position, platformPrefab);
+        generateNewTile(collision, position, platformPrefab);
       }
 
     }
@@ -313,55 +322,55 @@ public class TileGenerator : MonoBehaviour
   }
 
   private void GenerateNewPlatform(Collider2D collision)
-     {
-        index = getLowestTile();
-        Coord2D position = SetNewPlatformPosition();
+  {
+    index = getLowestTile();
+    Coord2D position = SetNewPlatformPosition();
 
-        if (skillevel == 0 || skillevel == 1)
-        {//Easy jump
-            generateEasyTile(collision, position);
-        }
-        else if (skillevel == 2)
-        {//Skilled jump unskilled enemy
-            generateAllTiles(collision, position);
-        }
-        else if (skillevel ==3)
-        {//skilled jump, skilled enemy
-            generateAllTiles(collision, position);
-        }
-        else if (skillevel == 4)
-        {//Very skilled jump
-            generateDifficultTile(collision, position);
-
-        }
-
-        if (collision.gameObject.name.StartsWith("Platform")){
-          updateTileArray(position.xpos,position.ypos);
-          death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
-        }
-      }
-
-    private int checkPlatformType(Collider2D collision)
-    {
-        if (collision.gameObject.name.StartsWith("PlatformNormal"))
-      {
-                return 1;
-      }
-
-      else if (collision.gameObject.name.StartsWith("PlatformBig"))
-      {
-        return 2;
-      }
-      else if (collision.gameObject.name.StartsWith("PlatformFire"))
-      {
-        return 3;
-      }
-      else if (collision.gameObject.name.StartsWith("PlatformMovingTile"))
-      {
-        return 4;
-      }
-      return 0;
+    if (skillevel == 0 || skillevel == 1)
+    {//Easy jump
+      generateEasyTile(collision, position);
     }
+    else if (skillevel == 2)
+    {//Skilled jump unskilled enemy
+      generateAllTiles(collision, position);
+    }
+    else if (skillevel ==3)
+    {//skilled jump, skilled enemy
+      generateAllTiles(collision, position);
+    }
+    else if (skillevel == 4)
+    {//Very skilled jump
+      generateDifficultTile(collision, position);
+
+    }
+
+    if (collision.gameObject.name.StartsWith("Platform")){
+      updateTileArray(position.xpos,position.ypos);
+      death.lastPlatformPosition(tilesXPositions[index], tilesYPositions[index]);
+    }
+  }
+
+  private int checkPlatformType(Collider2D collision)
+  {
+    if (collision.gameObject.name.StartsWith("PlatformNormal"))
+    {
+      return 1;
+    }
+
+    else if (collision.gameObject.name.StartsWith("PlatformBig"))
+    {
+      return 2;
+    }
+    else if (collision.gameObject.name.StartsWith("PlatformFire"))
+    {
+      return 3;
+    }
+    else if (collision.gameObject.name.StartsWith("PlatformMovingTile"))
+    {
+      return 4;
+    }
+    return 0;
+  }
 
   private void replaceTile(Collider2D collision, Coord2D position)
   {
