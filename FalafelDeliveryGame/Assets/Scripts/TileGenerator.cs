@@ -57,9 +57,9 @@ public class TileGenerator : MonoBehaviour
 
     }
     else if(player.gameObject.name.StartsWith("User2")){
-      tilesXPositions = new float[] {500.5f,503f,498.1f,503.5f,499.7f,503.8f,499f,500f};
+      tilesXPositions = new float[] {101.8f,104.3f,99.4f,104.8f,101f,105.1f,100.3f,101.3f};
       tilesYPositions = new float[] {28.6f,24.4f,20.7f,16.2f,10.8f,7.4f,3.91f,-1.75f};
-      generation_axis = 500f;
+      generation_axis = 101.9f;
     }
 
     background = player.GetComponent<Background>();
