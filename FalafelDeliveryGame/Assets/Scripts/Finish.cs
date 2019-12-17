@@ -59,4 +59,9 @@ public class Finish : MonoBehaviour
         return isFinished;
     }
 
+    public float getYPos()
+    {
+        return ypos;
+    }
+
 }
