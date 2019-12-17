@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletHit : MonoBehaviour
 {
     private GameObject user;
+    private Death death;
 
 
     // Start is called before the first frame update
@@ -28,10 +29,13 @@ public class BulletHit : MonoBehaviour
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name.Contains("enemy seagull"))
         {
-            Debug.Log("collided");
             Destroy(gameObject);
             Destroy(collision.gameObject);
-
+        }
+        if(collision.gameObject.name.Contains("Dda")){
+          Debug.Log("collided");
+          death = collision.gameObject.GetComponent<Death>();
+          death.Died();
         }
     }
 }

@@ -20,14 +20,14 @@ public class shootController : MonoBehaviour
     private float xPos;
     private float xSpeed;
     private float yPos;
-    private float bulletSpeed = 1000f;
+    private float bulletSpeed = 100f;
     private List<GameObject> bullets;
 
     private int buttonValue;
     private static bool shootTimer;
     private static System.Timers.Timer aTimer;
 
-    int direction = -1; //To right
+    private int direction = -1; //To right
 
     private int i = 0; //intiger to determine shootTimer
 
@@ -35,6 +35,7 @@ public class shootController : MonoBehaviour
     {
         ra = Arduino.GetComponent<GetUserValues>();
         userrgb = user.GetComponent<Rigidbody2D>();
+        joystick = user.GetComponent<JoystickController>();
         bullets = new List<GameObject>();
 
         //ra = GameObject.Find("SingleUser").GetComponent<ReadArduino>();
@@ -43,7 +44,10 @@ public class shootController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        int joystickDirection = joystick.getDirection();
+        if(joystickDirection != 0){
+          direction = joystickDirection;
+        }
         checkPosition();
         buttonValue = ra.Values()[2];
         if (buttonValue == 1)
@@ -73,7 +77,7 @@ public class shootController : MonoBehaviour
             GameObject b = bullets[i];
             if (b != null)
             {
-                if (b.transform.position.x > xPos + 2000 || b.transform.position.x < xPos - 2000)
+                if (b.transform.position.x > xPos + 550 || b.transform.position.x < xPos - 550)
                 {
                     bullets.Remove(b);
                     Destroy(b);
@@ -82,32 +86,12 @@ public class shootController : MonoBehaviour
         }
     }
 
-    public void setDirection(int newDirection)
-    {
-        if(newDirection != 0){
-          direction = newDirection;
-        }
-    }
-
     private void Shoot()
     {
         checkPosition();
-        if (direction == -1)
-        {
-            bulletSpeed = -200;
-        }
-        else if (direction == 1)
-        {
-            bulletSpeed = 200;
-        }
-        else
-        {
-            bulletSpeed = 200;
-        }
-
-        bullet = Instantiate(bulletPrefab, new Vector2(xPos, yPos), Quaternion.identity);
+        bullet = Instantiate(bulletPrefab, new Vector2(xPos+2f*direction, yPos), Quaternion.identity);
         bulletrgb = bullet.GetComponent<Rigidbody2D>();
-        bulletrgb.velocity = new Vector2(bulletSpeed, 0);
+        bulletrgb.velocity = new Vector2(bulletSpeed*direction, 0);
         bullets.Add(bullet);
     }
 
@@ -115,11 +99,5 @@ public class shootController : MonoBehaviour
     {
         xPos = user.gameObject.transform.position.x;
         yPos = user.gameObject.transform.position.y;
-    }
-
-    void OnCollisionEnter2D(Collision2D collision){
-      if(collision.gameObject.name.StartsWith("Bullet")){
-        
-      }
     }
 }

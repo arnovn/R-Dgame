@@ -15,7 +15,6 @@ public class JoystickController : MonoBehaviour
 
     private GetUserValues ra;
     private Rigidbody2D rb2d;
-    private shootController shootcon;
     private Death death;
     private Bounce bounce;
     private Movement movement;
@@ -32,7 +31,6 @@ public class JoystickController : MonoBehaviour
             ra = Arduino.GetComponent<GetUserValues>();
             death = DdaCollider.GetComponent<Death>();
             movement = user.GetComponent<Movement>();
-            shootcon = user.GetComponent<shootController>();
 
     }
 
@@ -57,7 +55,6 @@ public class JoystickController : MonoBehaviour
                 direction = 0;
             }
             movement.JoystickMove(direction*speed);
-            shootcon.setDirection(direction);
   }
 
   public int getDirection(){

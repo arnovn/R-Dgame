@@ -4179,14 +4179,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418749013}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48ca9df0a7038b64d803d9ce220767b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7371025059905442959, guid: 6c1192104fb8f77478216d4aa5049bdd,
     type: 3}
-  spawnedEnemey: {fileID: 0}
+  spawnedEnemey: {fileID: 1794956042}
   thisCanvas: {fileID: 1069473485}
   user: {fileID: 1418749013}
   ddaCollider: {fileID: 1794956042}
@@ -4404,7 +4404,7 @@ MonoBehaviour:
     type: 3}
   SantaLeftShoot: {fileID: 21300000, guid: cdb841db9e037174b80752940e74b479, type: 3}
   SantaRightShoot: {fileID: 21300000, guid: 35943c1a2f3675f4eaae175cedfb62b4, type: 3}
-  AstronautSteady: {fileID: 21300000, guid: 27f86570954220a48b967816549dae1a, type: 3}
+  AstronautSteady: {fileID: 21300000, guid: 96579536fe4b1194181f8c481700d373, type: 3}
   AstronautJumpSteady: {fileID: 21300000, guid: 0494e8001d77ae44bb40d8246817ab3d,
     type: 3}
   AstronautLeft: {fileID: 21300000, guid: f9d7edea4bf63eb4188772cefa0a1815, type: 3}
@@ -4426,7 +4426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1418749013}
-  ypos: 300
+  ypos: 100
   PfDestroyer: {fileID: 1660120829}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
@@ -4837,7 +4837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1464420199}
-  ypos: 300
+  ypos: 100
   PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
