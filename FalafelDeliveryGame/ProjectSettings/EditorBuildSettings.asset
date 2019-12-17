@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Splitscreen2.unity
     guid: 7bb475794bd788a41acd84a6af9aa9c4
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: affc2e12a036f054b8e61c62b9e0f905
   m_configObjects: {}

@@ -4667,6 +4667,7 @@ GameObject:
   - component: {fileID: 1418749028}
   - component: {fileID: 1418749014}
   - component: {fileID: 1418749015}
+  - component: {fileID: 1418749023}
   - component: {fileID: 1418749022}
   - component: {fileID: 1418749024}
   - component: {fileID: 1418749016}
@@ -4712,6 +4713,7 @@ MonoBehaviour:
   PfDestroyer: {fileID: 1660120829}
   DdaCollider: {fileID: 1794956042}
   timeLeft: 0
+  jumpSpeed: 30
 --- !u!114 &1418749016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4873,6 +4875,20 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6582376051583909599, guid: c1a69a7412a7eb24b9e10cd5d8436980,
     type: 3}
   Arduino: {fileID: 1843343182}
+--- !u!114 &1418749023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418749013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bedfd3cea60504f86ae0f60f2550cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Arduino: {fileID: 1843343182}
+  user: {fileID: 1418749013}
 --- !u!114 &1418749024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5079,6 +5095,7 @@ GameObject:
   - component: {fileID: 1464420208}
   - component: {fileID: 1464420210}
   - component: {fileID: 1464420200}
+  - component: {fileID: 1464420206}
   - component: {fileID: 1464420209}
   - component: {fileID: 1464420207}
   - component: {fileID: 1464420211}
@@ -5108,6 +5125,7 @@ MonoBehaviour:
   PfDestroyer: {fileID: 663890924}
   DdaCollider: {fileID: 500539832}
   timeLeft: 0
+  jumpSpeed: 30
 --- !u!50 &1464420201
 Rigidbody2D:
   serializedVersion: 4
@@ -5235,6 +5253,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 272406617}
+--- !u!114 &1464420206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464420199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bedfd3cea60504f86ae0f60f2550cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Arduino: {fileID: 2114928775}
+  user: {fileID: 1464420199}
 --- !u!114 &1464420207
 MonoBehaviour:
   m_ObjectHideFlags: 0

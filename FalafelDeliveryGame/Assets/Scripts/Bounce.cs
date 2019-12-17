@@ -21,7 +21,7 @@ public class Bounce : MonoBehaviour
   private bool lostLife = false;
   private float testTime = 0f;
   private float speed;
-  private float jumpSpeed = 30f;
+  public float jumpSpeed = 30f;
   private bool finished = false;
 
   // Start is called before the first frame update

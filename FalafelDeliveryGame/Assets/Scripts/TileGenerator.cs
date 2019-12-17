@@ -101,12 +101,12 @@ public class TileGenerator : MonoBehaviour
       if(collision.gameObject.name.Contains("finish")){
 
       }
-      /*
+
       else{
         Destroy(collision.gameObject);
         updateTileArray(tilesXPositions[0],tilesYPositions[0]);
       }
-      */
+      
     }
   }
 

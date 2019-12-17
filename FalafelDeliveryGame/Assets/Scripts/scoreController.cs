@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class scoreController : MonoBehaviour
 {
@@ -59,11 +61,17 @@ public class scoreController : MonoBehaviour
             lives2 = d2.getLives();
             score1 = (int) (((100 * Mathf.Pow(time1, 2) + 10000 * time1 + 100) / (Mathf.Pow(time1, 2) - 5)) +150 * lives1);
             score2 = (int)(((100 * Mathf.Pow(time2, 2) + 10000 * time1 + 100) / (Mathf.Pow(time2, 2) - 5)) + 150 * lives2);
+            if(score1 > score2){
+              PlayerPrefs.SetInt("BestScore", score1 );
+            }
+            else{
+              PlayerPrefs.SetInt("BestScore",score2);
+            }
             scoreText.text = score1.ToString();
             scoreText2.text = score2.ToString();
             WinnerCheck() ;
             StartCoroutine(WaitForScore());
-
+            StartCoroutine(GoToEndScene());
 
             scoreFound = true;
         }
@@ -96,5 +104,9 @@ public class scoreController : MonoBehaviour
         yield return new WaitForSecondsRealtime(2.5f);
         scoreBox1.SetActive(true);
         scoreBox2.SetActive(true);
+    }
+    IEnumerator GoToEndScene(){
+      yield return new WaitForSecondsRealtime(5f);
+          SceneManager.LoadScene("EndScene");
     }
 }

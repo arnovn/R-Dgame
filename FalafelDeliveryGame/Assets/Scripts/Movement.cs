@@ -37,6 +37,6 @@ public class Movement : MonoBehaviour
     }
 
     public void Jump(float speed){
-      rigid.velocity = new Vector2(rigid.velocity.x, 30f);
+      rigid.velocity = new Vector2(rigid.velocity.x, speed);
     }
 }
