@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HighscoreTable : MonoBehaviour
 {
@@ -57,10 +58,10 @@ public class HighscoreTable : MonoBehaviour
         Transform entryTransform = Instantiate(entryTemplate, container);
         RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
         float templateHeight = 30f;
-        entryRectTransform.anchoredPosition = new Vector2(0,- templateHeight -30f *  transformList.Count+1);
+        entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight - 30f * transformList.Count + 1);
         entryTransform.gameObject.SetActive(true);
 
-        int rank = transformList.Count +1;
+        int rank = transformList.Count + 1;
         string rankString;
         switch (rank)
         {
@@ -136,8 +137,8 @@ public class HighscoreTable : MonoBehaviour
 
         SortHighScores();
 
-        
-        if (highscores.highscoreEntryList.Count>=10)
+
+        if (highscores.highscoreEntryList.Count >= 10)
         {
             Debug.Log("Entry list size: " + highscores.highscoreEntryList.Count);
             for (int i = highscores.highscoreEntryList.Count; i > 10; i--)
@@ -171,5 +172,10 @@ public class HighscoreTable : MonoBehaviour
             }
         }
         return highscores.highscoreEntryList[9].score;
+    }
+
+    public void ToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
