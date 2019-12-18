@@ -50,6 +50,8 @@ public class HitBySeagull : MonoBehaviour
         death.Died();
         lives = death.getLives();
         ddaparams.enemyHitUser();
+        FindObjectOfType<AudioManager>().Play("SeagullSound");
+
         //Debug.Log("You lost one life, lives left: " + lives);
         hit = true;
       }

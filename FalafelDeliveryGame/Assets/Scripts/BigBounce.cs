@@ -36,6 +36,8 @@ public class BigBounce : MonoBehaviour
         if (rb2d.velocity.y == 0)
         {
             rb2d.velocity = new Vector2(0f, 50f);
+            FindObjectOfType<AudioManager>().Play("BigBounce");
+
         }
 
     }

@@ -93,6 +93,8 @@ public class shootController : MonoBehaviour
         bulletrgb = bullet.GetComponent<Rigidbody2D>();
         bulletrgb.velocity = new Vector2(bulletSpeed*direction, 0);
         bullets.Add(bullet);
+        FindObjectOfType<AudioManager>().Play("Bullet");
+
     }
 
     private void checkPosition()

@@ -65,6 +65,7 @@ public class Bounce : MonoBehaviour
 
       if(collision.gameObject.name.Contains("Fire")){
         testTime += Time.deltaTime;
+        FindObjectOfType<AudioManager>().Play("FireSound");
         if (lostLife == false){
           user.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.grey, Color.red, testTime / 0.7f);
           if (testTime >=0.7f && lostLife== false)
@@ -93,6 +94,7 @@ public class Bounce : MonoBehaviour
     user.GetComponent<SpriteRenderer>().color = Color.white;
     testTime = 0;
     lostLife = false;
+    
     if(collision.gameObject.name.Contains("Moving")){
       //speed = collision.gameObject.GetComponent<Rigidbody2D>().velocity.x;
       movement.TileMovement(0f);

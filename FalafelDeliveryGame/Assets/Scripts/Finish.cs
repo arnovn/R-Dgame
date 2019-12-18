@@ -44,6 +44,7 @@ public class Finish : MonoBehaviour
         if(rigid.position.y>= tg.getHighestTilePosition()+5f && test!=null )
         {
             isFinished = true;
+            FindObjectOfType<AudioManager>().Play("Finished");
             timerText.SetFinished(true);
         }
 
