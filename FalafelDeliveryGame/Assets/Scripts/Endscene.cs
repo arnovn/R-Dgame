@@ -73,7 +73,7 @@ public class Endscene : MonoBehaviour
         Debug.Log("Score: " + score);
         if (score > lowestScore)
         {
-            highscores.AddHighscoreEntry(score, "TEST");
+            highscores.AddHighscoreEntry(score, nameValueText.text.ToString());
             SceneManager.LoadScene("Scoreboard");
         }
 
