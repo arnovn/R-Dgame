@@ -4728,7 +4728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7371025059905442959, guid: 6c1192104fb8f77478216d4aa5049bdd,
     type: 3}
-  spawnedEnemey: {fileID: 1794956042}
+  spawnedEnemey: {fileID: 0}
   thisCanvas: {fileID: 1069473485}
   user: {fileID: 1418749013}
   ddaCollider: {fileID: 1794956042}
@@ -4982,7 +4982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1418749013}
-  ypos: 50
+  ypos: 300
   PfDestroyer: {fileID: 1660120829}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
@@ -5409,7 +5409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1464420199}
-  ypos: 50
+  ypos: 300
   PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
