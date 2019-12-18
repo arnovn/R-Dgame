@@ -131,7 +131,6 @@ public class HighscoreTable : MonoBehaviour
         //Get saved highscore table
         string jsonString = PlayerPrefs.GetString("highScoreTable");
         HighScores highscores = JsonUtility.FromJson<HighScores>(jsonString);
-
         //Add new entry
         highscores.highscoreEntryList.Add(highscoreEntry);
 

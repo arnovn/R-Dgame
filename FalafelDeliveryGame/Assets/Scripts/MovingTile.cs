@@ -22,7 +22,7 @@ public class MovingTile : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        if(rb2d.position.x > 250f){
+        if(rb2d.position.x > 50f){
             user1 = false;
         }
         else{
@@ -48,11 +48,11 @@ public class MovingTile : MonoBehaviour
       }
       else{
         rb2d.GetVector(position);
-        if(rb2d.position.x   > 505.5f)
+        if(rb2d.position.x   > 107.4f)
         {
             direction = -1;
         }
-        if(rb2d.position.x < 494.5f)
+        if(rb2d.position.x < 96.4f)
         {
             direction = 1;
         }

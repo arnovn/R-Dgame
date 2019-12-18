@@ -37,11 +37,13 @@ public class Bounce : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    /*
     if (Input.GetKeyDown(KeyCode.Space)) {
 
       movement.Jump(jumpSpeed);
 
     }
+    */
   }
 
   private void OnCollisionEnter2D(Collision2D collision){

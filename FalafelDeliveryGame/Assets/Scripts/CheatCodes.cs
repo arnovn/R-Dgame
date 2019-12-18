@@ -38,24 +38,19 @@ public class CheatCodes : MonoBehaviour
     private void CheckCheat(){
       switch(cheatLevel){
         case 0:
-        Debug.Log("jump : " + jump + " direction : " + direction + " shoot : " + shoot);
 
           if(jump == 2 && direction == 0 && shoot == 2){
             cheatLevel++;
           }
-          Debug.Log(cheatLevel);
           break;
 
         case 1:
           if(jump == 2 && direction == 0 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction  == 0 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction == 0 && shoot == 1){
             cheatLevel++;
-            Debug.Log(cheatLevel);
             break;
           }else{
             cheatLevel = 0;
@@ -63,78 +58,59 @@ public class CheatCodes : MonoBehaviour
           break;
         case 2:
           if(jump == 1 && direction == 0 && shoot == 1){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction  == 0 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction == 1 && shoot == 2){
             cheatLevel++;
-            Debug.Log(cheatLevel);
             break;
           }else{
             cheatLevel = 0;
           }
-          Debug.Log(cheatLevel);
           break;
         case 3:
           if(jump == 1 && direction == 1 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction  == 0 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 2 && direction == 0 && shoot == 2){
             cheatLevel++;
-            Debug.Log(cheatLevel);
             break;
           }else{
             cheatLevel = 0;
           }
-          Debug.Log(cheatLevel);
           break;
         case 4:
           if(jump == 2 && direction == 0 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction  == 0 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction == -1 && shoot == 2){
             cheatLevel++;
-            Debug.Log(cheatLevel);
             break;
           }else{
             cheatLevel = 0;
           }
-          Debug.Log(cheatLevel);
           break;
         case 5:
           if(jump == 1 && direction == -1 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction  == 0 && shoot == 2){
-            Debug.Log(cheatLevel);
             break;
           }else if (jump == 1 && direction == 0 && shoot == 1){
             cheatLevel++;
-            Debug.Log(cheatLevel);
             break;
           }else{
             cheatLevel = 0;
           }
-          Debug.Log(cheatLevel);
           break;
         case 6:
         if(jump == 1 && direction == 0 && shoot == 1){
-          Debug.Log(cheatLevel);
           break;
         }else if (jump == 1 && direction  == 0 && shoot == 2){
-          Debug.Log(cheatLevel);
           break;
         }else if (jump == 2 && direction == 0 && shoot == 2){
           cheatLevel++;
-          Debug.Log(cheatLevel);
           break;
         }else{
           cheatLevel = 0;
