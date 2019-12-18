@@ -130,13 +130,12 @@ public class HighscoreTable : MonoBehaviour
         //Get saved highscore table
         string jsonString = PlayerPrefs.GetString("highScoreTable");
         HighScores highscores = JsonUtility.FromJson<HighScores>(jsonString);
-
         //Add new entry
         highscores.highscoreEntryList.Add(highscoreEntry);
 
         SortHighScores();
 
-        
+
         if (highscores.highscoreEntryList.Count>=10)
         {
             Debug.Log("Entry list size: " + highscores.highscoreEntryList.Count);
