@@ -19,18 +19,14 @@ public class Endscene : MonoBehaviour
     public TextMeshProUGUI replay;
 
     private int score;
-
-
     private int lowestScore;
 
     // Start is called before the first frame update
     void Awake()
     {
-        newScore.SetText(PlayerPrefs.GetInt("BestScore").ToString());
+        score = PlayerPrefs.GetInt("BestScore");
         highscores = GetComponent<HighscoreTable>();
         lowestScore = highscores.getLowestScore();
-        score = PlayerPrefs.GetInt("BestScore");
-        
         int.TryParse(newScore.text.ToString(), out score);
         if (score > lowestScore)
         {
@@ -73,8 +69,8 @@ public class Endscene : MonoBehaviour
         Debug.Log("Score: " + score);
         if (score > lowestScore)
         {
-            highscores.AddHighscoreEntry(score, nameValueText.text.ToString());
-            SceneManager.LoadScene("Scoreboard");
+            highscores.AddHighscoreEntry(score, "MAT");
+            newHighscoreValueText.text = score.ToString();
         }
 
         resetView();

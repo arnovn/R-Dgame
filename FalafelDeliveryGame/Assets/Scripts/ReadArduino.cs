@@ -60,6 +60,7 @@ public class ReadArduino : MonoBehaviour
     {
         currentArray = ValuesArduino();
         //Debug.Log(currentArray[0]);
+        Debug.Log("Playerprefs : " + PlayerPrefs.GetInt("TESTt"));
     }
 
     public void WriteArduino(int intje){
