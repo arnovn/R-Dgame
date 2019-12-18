@@ -15,6 +15,7 @@ public class HighscoreTable : MonoBehaviour
   private void Awake()
   {
     Highscores highscores;
+
     entryContainer = transform.Find("HighscoreEntryContainer");
     entryTemplate = entryContainer.Find("HighscoreEntryTemplate");
 
@@ -72,7 +73,7 @@ public class HighscoreTable : MonoBehaviour
     /*string jsonString = PlayerPrefs.GetString("highscoreTable");
     highscores = JsonUtility.FromJson<Highscores>(jsonString);
     */
-
+    //AddHighscoreEntry(10000, "MMM");
     highscores = SortHighScores();
     highscoreEntryList = highscores.highscoreEntryList;
 
@@ -173,12 +174,13 @@ public class HighscoreTable : MonoBehaviour
     public string name;
   }
 
-  public void AddHighscoreEntry(int score, string name)
+  public void AddHighscoreEntry(int thisScore, string thisName)
   {
     //Create highscore entry
     //Set new score & name
-    HighscoreEntry highscoreEntry = new HighscoreEntry { score = score, name = name };
-
+    thisName = thisName.ToUpper();
+    HighscoreEntry highscoreEntry = new HighscoreEntry { score = thisScore, name = thisName };
+    Debug.Log("Name for scoreboard is : " + thisName);
     //Get saved highscore table
     string jsonString = PlayerPrefs.GetString("highscoreTable");
     Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);

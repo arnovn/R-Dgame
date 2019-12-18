@@ -7,7 +7,6 @@ using TMPro;
 public class Endscene : MonoBehaviour
 {
     private HighscoreTable highscores;
-    public TextMeshProUGUI newScore;
     public TextMeshProUGUI newHighscoreText;
     public TextMeshProUGUI newHighscoreValueText;
     public TextMeshProUGUI highscoreButton;
@@ -18,17 +17,19 @@ public class Endscene : MonoBehaviour
     public TextMeshProUGUI menu;
     public TextMeshProUGUI replay;
 
-    private int score;
+    private int score = PlayerPrefs.GetInt("BestScore");
     private int lowestScore;
 
     // Start is called before the first frame update
     void Awake()
     {
-        score = PlayerPrefs.GetInt("BestScore");
+        Debug.Log("1ste debug");
         highscores = GetComponent<HighscoreTable>();
+        Debug.Log("2de debug");
         lowestScore = highscores.getLowestScore();
-        int.TryParse(newScore.text.ToString(), out score);
-        if (score > lowestScore)
+        Debug.Log("3de debug");
+        Debug.Log("playerprefs : " + PlayerPrefs.GetInt("BestScore"));
+        if (PlayerPrefs.GetInt("BestScore") > lowestScore)
         {
             newHighscoreText.gameObject.SetActive(true);
             newHighscoreValueText.gameObject.SetActive(true);
@@ -40,6 +41,7 @@ public class Endscene : MonoBehaviour
             menu.gameObject.SetActive(false);
             replay.gameObject.SetActive(false);
 
+            newHighscoreValueText.text = PlayerPrefs.GetInt("BestScore").ToString();
 
         }
         else
@@ -64,13 +66,11 @@ public class Endscene : MonoBehaviour
 
     public void addScore()
     {
-        int.TryParse(newScore.text.ToString(), out score);
-        Debug.Log("Score string: " + newScore.text.ToString());
-        Debug.Log("Score: " + score);
-        if (score > lowestScore)
+          if (PlayerPrefs.GetInt("BestScore") > lowestScore)
         {
-            highscores.AddHighscoreEntry(score, "MAT");
-            newHighscoreValueText.text = score.ToString();
+            Debug.Log("nameText : " + nameValueText.text);
+            highscores.AddHighscoreEntry(PlayerPrefs.GetInt("BestScore"), nameValueText.text);
+            SceneManager.LoadScene("Scoreboard");
         }
 
         resetView();

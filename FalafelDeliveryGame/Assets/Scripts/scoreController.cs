@@ -67,6 +67,7 @@ public class scoreController : MonoBehaviour
             else{
               PlayerPrefs.SetInt("BestScore",score2);
             }
+            PlayerPrefs.Save();
             scoreText.text = score1.ToString();
             scoreText2.text = score2.ToString();
             WinnerCheck() ;
