@@ -38,29 +38,10 @@ public class SelectManagerSpecial : MonoBehaviour
             if (SlowButtonRead > 17)
             {
                 ButtonManager();
-                /*
-                if (ra.ValuesArduino()[8] < 110 || ra.ValuesArduino()[9] < 110)
-                {
-                    ButtonCount++;
-                    if (ButtonCount == Menu.Length)
-                    {
-                        ButtonCount = 0;
-                    }
-                    SlowButtonRead = 0;
-                }
-
-                if (ra.ValuesArduino()[8] > 150 || ra.ValuesArduino()[9] > 150)
-                {
-                    ButtonCount--;
-                    if (ButtonCount < 0)
-                    {
-                        ButtonCount = Menu.Length - 1;
-                    }
-                    SlowButtonRead = 0;
-                }*/
 
                 if (ra.ValuesArduino()[4] == 1 || ra.ValuesArduino()[5] == 1)
                 {
+                    FindObjectOfType<AudioManager>().Play("Button");
                     Menu[ButtonCount].onClick.Invoke();
                     SlowButtonRead = 0;
                 }

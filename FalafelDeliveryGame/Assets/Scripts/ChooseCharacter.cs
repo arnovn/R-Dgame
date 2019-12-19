@@ -97,6 +97,7 @@ public class ChooseCharacter : MonoBehaviour
     {
         if(ra.ValuesArduino()[ReadValueNumber + 4] == 1)
         {
+          FindObjectOfType<AudioManager>().Play("Button");
             confirmed = true;
             confirm.gameObject.SetActive(true);
 

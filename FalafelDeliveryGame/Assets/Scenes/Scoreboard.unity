@@ -796,6 +796,122 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888983f56a4dbfd48b3c6cc0e263263c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &920676192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 920676194}
+  - component: {fileID: 920676193}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &920676193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920676192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f96ac67ee51fd64381c0a44318fabb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: NormalJump
+    clip: {fileID: 8300000, guid: e873e20deb8cad542b503c52844bd45b, type: 3}
+    volume: 0.248
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Theme
+    clip: {fileID: 8300000, guid: 8dc27432835c869499ccc3e069ad03a4, type: 3}
+    volume: 0.411
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Died
+    clip: {fileID: 8300000, guid: 6183989657c0d7042ab2a843df0eaa0b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BigBounce
+    clip: {fileID: 8300000, guid: fda653c06220ca24096fc2e8d7ca5d4e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: FireSound
+    clip: {fileID: 8300000, guid: e914a1f406c56ce4e94a8e85b7e62e90, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SeagullSound
+    clip: {fileID: 8300000, guid: 11bc0b755883cd547b95c181ff651179, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Bullet
+    clip: {fileID: 8300000, guid: 013e5a87321bad04392278f01a3b9c3f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Finished
+    clip: {fileID: 8300000, guid: 4db4bd4ba5fe60e479877d6cfb188dee, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Easy
+    clip: {fileID: 8300000, guid: a36c6a1826df86c468b0738f5c177fcb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Medium
+    clip: {fileID: 8300000, guid: c32e75a1f45a5fc4ba0d12669c5a3678, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Hard
+    clip: {fileID: 8300000, guid: b5b83ccf9be1e384daaff7632675212c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Button
+    clip: {fileID: 8300000, guid: c3856169fe059c149bd144955bafb388, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+--- !u!4 &920676194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920676192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 500.77, y: 1.4089999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000142309
 GameObject:
   m_ObjectHideFlags: 0

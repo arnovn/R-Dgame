@@ -6,7 +6,10 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+
+    public string theme;
     public Sound[] sounds;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -30,6 +33,8 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Theme");
+
+        Play(theme);
+
     }
 }

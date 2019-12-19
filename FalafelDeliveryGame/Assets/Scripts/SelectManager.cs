@@ -61,25 +61,7 @@ public class SelectManager : MonoBehaviour
                 if (ra.ValuesArduino()[4] == 1 || ra.ValuesArduino()[5] == 1)
                 {
                     Menu[ButtonCount].onClick.Invoke();
-                    PlayerPrefs.SetInt("Difficulty", ButtonCount);
-                    Debug.Log("Difficulty : " + PlayerPrefs.GetInt("Difficulty"));
                     SlowButtonRead = 0;
-                    switch(ButtonCount){
-                      default:
-                      break;
-
-                      case 0:
-                      FindObjectOfType<AudioManager>().Play("Easy");
-                      break;
-
-                      case 1:
-                      FindObjectOfType<AudioManager>().Play("Medium");
-                      break;
-
-                      case 2:
-                      FindObjectOfType<AudioManager>().Play("Hard");
-                      break;
-                    }
                 }
             }
             else { SlowButtonRead++; }

@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour {
 
   IEnumerator PlayGameWaiter()
   {
+    FindObjectOfType<AudioManager>().Play("NormalJump");
     anim1.Play("user1");
     anim2.Play("user2");
     foreach(Button b in buttons){

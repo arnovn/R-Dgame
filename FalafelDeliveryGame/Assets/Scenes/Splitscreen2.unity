@@ -6728,6 +6728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f96ac67ee51fd64381c0a44318fabb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theme: Theme
   sounds:
   - name: NormalJump
     clip: {fileID: 8300000, guid: e873e20deb8cad542b503c52844bd45b, type: 3}
@@ -6777,26 +6778,26 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: Finished
-    clip: {fileID: 8300000, guid: 4db4bd4ba5fe60e479877d6cfb188dee, type: 3}
+  - name: Easy
+    clip: {fileID: 8300000, guid: a36c6a1826df86c468b0738f5c177fcb, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: Finished
-    clip: {fileID: 8300000, guid: 4db4bd4ba5fe60e479877d6cfb188dee, type: 3}
+  - name: Medium
+    clip: {fileID: 8300000, guid: c32e75a1f45a5fc4ba0d12669c5a3678, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: Finished
-    clip: {fileID: 8300000, guid: 4db4bd4ba5fe60e479877d6cfb188dee, type: 3}
+  - name: Hard
+    clip: {fileID: 8300000, guid: b5b83ccf9be1e384daaff7632675212c, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: Finished
-    clip: {fileID: 8300000, guid: 4db4bd4ba5fe60e479877d6cfb188dee, type: 3}
+  - name: Button
+    clip: {fileID: 8300000, guid: c3856169fe059c149bd144955bafb388, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
