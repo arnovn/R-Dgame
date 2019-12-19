@@ -51,7 +51,7 @@ public class ReadArduino : MonoBehaviour
         sp.Close();
         */
 
-        sp = new SerialPort("COM3", 9600);
+        sp = new SerialPort("COM5", 9600);
         if (!sp.IsOpen)
         {
             sp.Open();
