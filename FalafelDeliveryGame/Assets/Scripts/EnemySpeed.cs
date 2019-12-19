@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheatCodes : MonoBehaviour
+public class EnemySpeed : MonoBehaviour
 {
 
     public GameObject Arduino;

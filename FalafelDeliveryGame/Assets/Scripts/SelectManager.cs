@@ -21,7 +21,7 @@ public class SelectManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Menu[0].Select(); 
+        Menu[0].Select();
         Menu[0].OnSelect(null);
     }
 
@@ -61,6 +61,7 @@ public class SelectManager : MonoBehaviour
                 if (ra.ValuesArduino()[4] == 1 || ra.ValuesArduino()[5] == 1)
                 {
                     Menu[ButtonCount].onClick.Invoke();
+                    PlayerPrefs.SetInt("Difficulty", ButtonCount);
                     SlowButtonRead = 0;
                 }
             }
