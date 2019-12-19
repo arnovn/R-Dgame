@@ -186,7 +186,7 @@ public class HighscoreTable : MonoBehaviour
     Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
     //Add new entry
-    Debug.Log("HighScoreEntry : " + highscoreEntry + " highscores : " + highscores + "jsonString : " + jsonString);
+    //Debug.Log("HighScoreEntry : " + highscoreEntry + " highscores : " + highscores + "jsonString : " + jsonString);
 
     highscores.highscoreEntryList.Add(highscoreEntry);
 

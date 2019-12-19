@@ -65,6 +65,10 @@ public class ReadArduino : MonoBehaviour
         currentArray = ValuesArduino();
         //Debug.Log(currentArray[0]);
         Debug.Log("Playerprefs : " + PlayerPrefs.GetInt("TESTt"));
+        if (!sp.IsOpen)
+        {
+            sp.Open();
+        }
     }
 
     public void WriteArduino(int intje){

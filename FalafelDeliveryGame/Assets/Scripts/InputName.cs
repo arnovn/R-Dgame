@@ -11,6 +11,8 @@ public class InputName : MonoBehaviour
     private int alphaCount = 0;
     public TextMeshProUGUI nameValueText;
     bool nameSet = false;
+    int blink=0;
+    string FinalNameString;
 
     private void Awake()
     {
@@ -23,7 +25,9 @@ public class InputName : MonoBehaviour
         {
             string nameString = new string(name);
             nameValueText.SetText(nameString);
+            Blink();
         }
+        
     }
 
     public void LeftChar()
@@ -55,10 +59,37 @@ public class InputName : MonoBehaviour
     public void SetName()
     {
         nameSet = true;
+        nameValueText.SetText(FinalNameString);
     }
 
     public void NextChar()
     {
-        nameCount++;
+        name[nameCount] = alphabet[alphaCount];
+        nameCount++;      
+        FinalNameString = new string(name);
+    }
+
+    void Blink()
+    {
+        if(blink >= 20)
+        {
+            name[nameCount] = alphabet[alphaCount];
+        }
+        else if(blink < 20)
+        {
+            name[nameCount] = ' ';
+        }
+        if(blink >= 40) { blink = 0; }
+        blink++;
+    }
+
+    public bool GetNameSet()
+    {
+        return nameSet;
+    }
+
+    public string GetFinalNameString()
+    {
+        return FinalNameString;
     }
 }
