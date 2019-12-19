@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SelectManager : MonoBehaviour
 {
     private Button[] Menu;
-    private ReadArduino ra;
+    public ReadArduino ra;
     private int ButtonCount = 0;
     private int SlowButtonRead = 0;
     private bool ZeroGone = false;
@@ -17,8 +17,6 @@ public class SelectManager : MonoBehaviour
         //Initialise array of buttons per menu
         Menu = new Button[this.GetComponentsInChildren<Button>().Length];
         Menu = this.GetComponentsInChildren<Button>();
-
-        ra = GameObject.Find("Canvas").GetComponent<ReadArduino>();
     }
 
     private void OnEnable()
