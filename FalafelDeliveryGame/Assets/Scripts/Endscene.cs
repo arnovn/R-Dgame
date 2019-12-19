@@ -13,9 +13,14 @@ public class Endscene : MonoBehaviour
 
     public GameObject NewHighScore;
     public GameObject NoNewHighScore;
+    private InputName InputName;
+    //public TextMeshProUGUI title;
+    //public TextMeshProUGUI menu;
+    //public TextMeshProUGUI replay;
 
     private int score = PlayerPrefs.GetInt("BestScore");
     private int lowestScore;
+    private string PlayerName;
 
     // Start is called before the first frame update
     void Awake()
@@ -34,6 +39,7 @@ public class Endscene : MonoBehaviour
             NewHighScore.SetActive(false);
             NoNewHighScore.SetActive(true);
         }
+        InputName = GetComponent<InputName>();
     }
 
     // Update is called once per frame
@@ -46,17 +52,17 @@ public class Endscene : MonoBehaviour
     {
           if (PlayerPrefs.GetInt("BestScore") > lowestScore)
         {
-            Debug.Log("nameText : " + nameValueText.text);
-            highscores.AddHighscoreEntry(PlayerPrefs.GetInt("BestScore"), nameValueText.text);
+            //Debug.Log("nameText : " + nameValueText.text);
+            PlayerName = GetPlayerName();
+            highscores.AddHighscoreEntry(PlayerPrefs.GetInt("BestScore"), PlayerName);
         }
         SceneManager.LoadScene("Scoreboard");
-        resetView();
     }
 
     private void resetView()
     {
-        NewHighScore.SetActive(true);
-        NoNewHighScore.SetActive(false);
+        NewHighScore.SetActive(false);
+        NoNewHighScore.SetActive(true);
     }
 
     public void GoToMenu()
@@ -69,4 +75,13 @@ public class Endscene : MonoBehaviour
             SceneManager.LoadScene("Splitscreen2");
     }
 
+    string GetPlayerName()
+    {
+        Debug.Log(InputName.GetNameSet());
+        if (InputName.GetNameSet()) { return nameValueText.text; }
+        else
+        {
+            return InputName.GetFinalNameString();
+        }
+    }
 }
