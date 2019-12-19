@@ -5,7 +5,9 @@ using TMPro;
 
 public class ChooseCharacter : MonoBehaviour
 {
+    
     public SpriteRenderer user;
+    public string userString;
     public TextMeshProUGUI text;
 
     public Sprite DefaultSprite;
@@ -28,7 +30,6 @@ public class ChooseCharacter : MonoBehaviour
     void Start()
     {
         AllSprites = new Sprite[5] { DefaultSprite, SantaSprite, AstronautSprite, NinjaSprite, BrakkeSprite };
-
     }
 
     // Update is called once per frame
@@ -105,29 +106,34 @@ public class ChooseCharacter : MonoBehaviour
     {
         user.sprite = DefaultSprite;
         text.text = "classic";
+        PlayerPrefs.SetInt(userString, 1);
     }
 
     void Santa()
     {
         user.sprite = SantaSprite;
         text.text = "santa";
+        PlayerPrefs.SetInt(userString, 2);
     }
 
     void Astronaut()
     {
         user.sprite = AstronautSprite;
         text.text = "astronaut";
+        PlayerPrefs.SetInt(userString, 3);
     }
 
     void Ninja()
     {
         user.sprite = NinjaSprite;
         text.text = "ninja";
+        PlayerPrefs.SetInt(userString, 4);
     }
 
     void Brakke()
     {
         user.sprite = BrakkeSprite;
         text.text = "brak";
+        PlayerPrefs.SetInt(userString, 5);
     }
 }
