@@ -51,7 +51,7 @@ public class ReadArduino : MonoBehaviour
         sp.Close();
         */
 
-        sp = new SerialPort("COM5", 9600);
+        sp = new SerialPort("COM3", 9600);
         if (!sp.IsOpen)
         {
             sp.Open();
@@ -64,11 +64,11 @@ public class ReadArduino : MonoBehaviour
     {
         currentArray = ValuesArduino();
         //Debug.Log(currentArray[0]);
-        Debug.Log("Playerprefs : " + PlayerPrefs.GetInt("TESTt"));
         if (!sp.IsOpen)
         {
             sp.Open();
         }
+        //Debug.Log("PlayerPrefs : " + PlayerPrefs.GetInt("player1Sprite"));
     }
 
     public void WriteArduino(int intje){

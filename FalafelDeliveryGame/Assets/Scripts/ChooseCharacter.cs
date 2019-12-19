@@ -5,7 +5,7 @@ using TMPro;
 
 public class ChooseCharacter : MonoBehaviour
 {
-    
+
     public SpriteRenderer user;
     public string userString;
     public TextMeshProUGUI text;
@@ -35,13 +35,14 @@ public class ChooseCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("userString : " + userString);
         SpriteChange();
         if (JoystickWait > 17 && !confirmed)
         {
             JoystickCheck();
+            CheckConfirm();
         }
         else { JoystickWait++; }
-        CheckConfirm();
     }
 
     void SpriteChange()
@@ -71,6 +72,7 @@ public class ChooseCharacter : MonoBehaviour
 
     void JoystickCheck()
     {
+        //Debug.Log(SpriteCount);
         if (ra.ValuesArduino()[ReadValueNumber] <= 60)
         {
             SpriteCount++;
@@ -97,6 +99,7 @@ public class ChooseCharacter : MonoBehaviour
         {
             confirmed = true;
             confirm.gameObject.SetActive(true);
+
         }
     }
 
@@ -107,6 +110,7 @@ public class ChooseCharacter : MonoBehaviour
         user.sprite = DefaultSprite;
         text.text = "classic";
         PlayerPrefs.SetInt(userString, 1);
+        //Debug.Log("Current sprite : " + PlayerPrefs.GetInt(userString,1));
     }
 
     void Santa()
@@ -114,6 +118,8 @@ public class ChooseCharacter : MonoBehaviour
         user.sprite = SantaSprite;
         text.text = "santa";
         PlayerPrefs.SetInt(userString, 2);
+        //Debug.Log("Current sprite : " + PlayerPrefs.GetInt(userString,1));
+
     }
 
     void Astronaut()
@@ -121,6 +127,8 @@ public class ChooseCharacter : MonoBehaviour
         user.sprite = AstronautSprite;
         text.text = "astronaut";
         PlayerPrefs.SetInt(userString, 3);
+        //Debug.Log("Current sprite : " + PlayerPrefs.GetInt(userString,1));
+
     }
 
     void Ninja()
@@ -128,6 +136,8 @@ public class ChooseCharacter : MonoBehaviour
         user.sprite = NinjaSprite;
         text.text = "ninja";
         PlayerPrefs.SetInt(userString, 4);
+        //Debug.Log("Current sprite : " + PlayerPrefs.GetInt(userString,1));
+
     }
 
     void Brakke()
@@ -135,5 +145,7 @@ public class ChooseCharacter : MonoBehaviour
         user.sprite = BrakkeSprite;
         text.text = "brak";
         PlayerPrefs.SetInt(userString, 5);
+        //Debug.Log("Current sprite : " + PlayerPrefs.GetInt(userString,1));
+
     }
 }

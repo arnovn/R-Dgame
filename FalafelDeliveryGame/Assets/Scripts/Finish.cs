@@ -22,6 +22,7 @@ public class Finish : MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
+        ypos = ypos*(PlayerPrefs.GetInt("Difficulty")+1);
         isFinished = false;
         tg = PfDestroyer.GetComponent<TileGenerator>();
         rigid = user.GetComponent<Rigidbody2D>();

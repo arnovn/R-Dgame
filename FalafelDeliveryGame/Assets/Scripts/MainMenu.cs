@@ -43,8 +43,6 @@ public class MainMenu : MonoBehaviour {
     image4.SetActive(true);
     image3.SetActive(false);
     yield return new WaitForSeconds(5F);
-    PlayerPrefs.SetInt("player1Sprite", 3);
-    PlayerPrefs.SetInt("player2Sprite", 2);
     SceneManager.LoadScene("Splitscreen2");
   }
 }
