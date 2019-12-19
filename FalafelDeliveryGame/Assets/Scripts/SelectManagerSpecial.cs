@@ -35,7 +35,6 @@ public class SelectManagerSpecial : MonoBehaviour
     {
         if (ZeroGone)
         {
-            Debug.Log(ra.ValuesArduino()[8]);
             if (SlowButtonRead > 17)
             {
                 ButtonManager();

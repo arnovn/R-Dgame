@@ -27,12 +27,8 @@ public class Endscene : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("1ste debug");
         highscores = GetComponent<HighscoreTable>();
-        Debug.Log("2de debug");
-        //lowestScore = highscores.getLowestScore();
-        Debug.Log("3de debug");
-        Debug.Log("playerprefs : " + PlayerPrefs.GetInt("BestScore"));
+        lowestScore = highscores.getLowestScore();
         if (PlayerPrefs.GetInt("BestScore") > lowestScore)
         {
             /*
@@ -53,7 +49,7 @@ public class Endscene : MonoBehaviour
         }
         else
         {
-            NewHighScore.SetActive(true);
+            NewHighScore.SetActive(false);
             /*
             newHighscoreText.gameObject.SetActive(false);
             newHighscoreValueText.gameObject.SetActive(false);
@@ -65,14 +61,14 @@ public class Endscene : MonoBehaviour
             menu.gameObject.SetActive(true);
             replay.gameObject.SetActive(true);
             */
-            NoNewHighScore.SetActive(false);
+            NoNewHighScore.SetActive(true);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //lowestScore = highscores.getLowestScore();
+        lowestScore = highscores.getLowestScore();
     }
 
     public void addScore()
@@ -81,9 +77,8 @@ public class Endscene : MonoBehaviour
         {
             Debug.Log("nameText : " + nameValueText.text);
             highscores.AddHighscoreEntry(PlayerPrefs.GetInt("BestScore"), nameValueText.text);
-            SceneManager.LoadScene("Scoreboard");
         }
-
+        SceneManager.LoadScene("Scoreboard");
         resetView();
     }
 

@@ -4760,7 +4760,7 @@ Rigidbody2D:
   m_Mass: 0.4
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 2
   m_SleepingMode: 0
@@ -4982,7 +4982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1418749013}
-  ypos: 300
+  ypos: 100
   PfDestroyer: {fileID: 1660120829}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
@@ -5141,7 +5141,7 @@ Rigidbody2D:
   m_Mass: 0.4
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 2
   m_SleepingMode: 0
@@ -5409,7 +5409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 1464420199}
-  ypos: 300
+  ypos: 100
   PfDestroyer: {fileID: 663890924}
   tiles: []
   finishLinePrefab: {fileID: 2534062024981771847, guid: c98766a39d8a59942a8b7cf8844d7821,
@@ -6740,7 +6740,7 @@ MonoBehaviour:
     volume: 0.411
     pitch: 1
     source: {fileID: 0}
-    loop: 0
+    loop: 1
   - name: Died
     clip: {fileID: 8300000, guid: 6183989657c0d7042ab2a843df0eaa0b, type: 3}
     volume: 1
@@ -6761,6 +6761,18 @@ MonoBehaviour:
     loop: 0
   - name: SeagullSound
     clip: {fileID: 8300000, guid: 11bc0b755883cd547b95c181ff651179, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Bullet
+    clip: {fileID: 8300000, guid: 013e5a87321bad04392278f01a3b9c3f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Finished
+    clip: {fileID: 8300000, guid: 4db4bd4ba5fe60e479877d6cfb188dee, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
